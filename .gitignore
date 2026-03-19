@@ -3,3 +3,4 @@ __pycache__/
 .env
 output/custom_items.json
 {scrapers,output,static}
+.vercel
