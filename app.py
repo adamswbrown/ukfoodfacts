@@ -4,6 +4,7 @@ Flask web UI for UK Restaurant Nutrition Database
 
 from flask import Flask, jsonify, render_template_string, request
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -580,6 +581,7 @@ HTML = r"""<!DOCTYPE html>
   <div style="display:flex;align-items:center;gap:10px;">
     <div class="header-meta" id="header-meta"></div>
     <button class="header-btn primary" onclick="openAddModal()">+ Add Meal</button>
+    <button class="header-btn" onclick="openReviewModal()" style="font-size:0.65rem;opacity:0.6;">Review Queue</button>
     <button class="header-btn" id="refresh-btn" onclick="refreshData()">
       <span id="refresh-icon">↺</span> Refresh
     </button>
@@ -679,7 +681,7 @@ HTML = r"""<!DOCTYPE html>
           </div>
           <div class="form-group full">
             <label>Location</label>
-            <input type="text" id="add-location" placeholder="e.g. Bangor, Cardiff... (default: National)" list="location-list">
+            <input type="text" id="add-location" placeholder="e.g. Bangor, NI, Cardiff... (default: National)" list="location-list">
             <datalist id="location-list"></datalist>
           </div>
           <div class="form-group full">
@@ -721,6 +723,29 @@ HTML = r"""<!DOCTYPE html>
         </div>
         <button type="submit" class="form-submit" id="add-submit">Add to Database</button>
       </form>
+    </div>
+  </div>
+</div>
+
+<!-- Review queue modal -->
+<div class="modal-overlay" id="review-modal" onclick="closeReviewModal(event)">
+  <div class="modal" style="max-width:640px;">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Review Queue</div>
+        <div class="modal-subtitle">approve or reject pending submissions</div>
+      </div>
+      <button class="modal-close" onclick="closeReviewModal()">&#x2715;</button>
+    </div>
+    <div class="modal-body" id="review-body">
+      <div id="review-auth" style="text-align:center;padding:20px 0;">
+        <div class="form-group" style="max-width:300px;margin:0 auto;">
+          <label>Admin Key</label>
+          <input type="password" id="review-key" placeholder="Enter admin key..." style="width:100%;background:var(--surface2);border:1px solid var(--border);color:var(--text);border-radius:6px;font-family:'Syne',sans-serif;font-size:0.85rem;padding:8px 12px;outline:none;">
+        </div>
+        <button class="form-submit" style="max-width:300px;margin:12px auto 0;" onclick="fetchPending()">Load Pending Items</button>
+      </div>
+      <div id="review-list" style="display:none;"></div>
     </div>
   </div>
 </div>
@@ -785,16 +810,29 @@ function buildStats() {
 }
 
 // ── Restaurant tabs ────────────────────────────────────────────────
-function buildRestaurantTabs() {
-  const restaurants = [...new Set(allData.map(d => d.restaurant))];
+function buildRestaurantTabs(sourceData) {
+  const dataset = sourceData || allData;
+  const restaurants = [...new Set(dataset.map(d => d.restaurant))];
   const container = document.getElementById('restaurant-tabs');
 
-  document.getElementById('count-all').textContent = allData.length;
+  // Preserve active restaurant selection, reset if not in filtered set
+  const prevActive = activeRestaurant;
+  if (prevActive !== 'all' && !restaurants.includes(prevActive)) {
+    activeRestaurant = 'all';
+  }
+
+  container.innerHTML = '';
+  const allBtn = document.createElement('button');
+  allBtn.className = 'tab' + (activeRestaurant === 'all' ? ' active' : '');
+  allBtn.dataset.restaurant = 'all';
+  allBtn.onclick = () => setRestaurant('all', allBtn);
+  allBtn.innerHTML = `All restaurants <span class="tab-count">${dataset.length}</span>`;
+  container.appendChild(allBtn);
 
   restaurants.forEach(r => {
-    const count = allData.filter(d => d.restaurant === r).length;
+    const count = dataset.filter(d => d.restaurant === r).length;
     const btn = document.createElement('button');
-    btn.className = 'tab';
+    btn.className = 'tab' + (activeRestaurant === r ? ' active' : '');
     btn.dataset.restaurant = r;
     btn.onclick = () => setRestaurant(r, btn);
     btn.innerHTML = `<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:${restaurantColor(r)}"></span> ${r} <span class="tab-count">${count}</span>`;
@@ -806,7 +844,6 @@ function setRestaurant(r, el) {
   activeRestaurant = r;
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
-  buildCategoryFilter();
   applyFilters();
 }
 
@@ -820,10 +857,11 @@ function buildLocationFilter() {
 }
 
 // ── Category filter ────────────────────────────────────────────────
-function buildCategoryFilter() {
+function buildCategoryFilter(sourceData) {
+  const dataset = sourceData || allData;
   const filtered = activeRestaurant === 'all'
-    ? allData
-    : allData.filter(d => d.restaurant === activeRestaurant);
+    ? dataset
+    : dataset.filter(d => d.restaurant === activeRestaurant);
   const cats = [...new Set(filtered.map(d => d.category))].sort();
   const sel = document.getElementById('category-filter');
   const current = sel.value;
@@ -835,6 +873,16 @@ function buildCategoryFilter() {
 function applyFilters() {
   let data = [...allData];
 
+  // Apply location filter first to determine available restaurants and categories
+  const loc = document.getElementById('location-filter').value;
+  let locationFiltered = data;
+  if (loc) locationFiltered = data.filter(d => (d.location || 'National') === loc);
+
+  // Rebuild restaurant tabs and category filter based on location-filtered data
+  buildRestaurantTabs(locationFiltered);
+  buildCategoryFilter(locationFiltered);
+
+  // Now apply restaurant filter
   if (activeRestaurant !== 'all') {
     data = data.filter(d => d.restaurant === activeRestaurant);
   }
@@ -849,7 +897,6 @@ function applyFilters() {
     );
   }
 
-  const loc = document.getElementById('location-filter').value;
   if (loc) data = data.filter(d => (d.location || 'National') === loc);
 
   const cat = document.getElementById('category-filter').value;
@@ -1074,10 +1121,9 @@ async function submitAddForm(e) {
     });
     const result = await res.json();
     if (result.ok) {
-      showToast('Meal added successfully');
+      showToast('Meal submitted for review! It will appear after approval.');
       document.getElementById('add-form').reset();
       document.getElementById('add-modal').classList.remove('open');
-      await loadData();
     } else {
       showToast('Error: ' + (result.error || 'Unknown'));
     }
@@ -1089,8 +1135,88 @@ async function submitAddForm(e) {
 }
 
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeAddModal();
+  if (e.key === 'Escape') { closeAddModal(); closeReviewModal(); }
 });
+
+// ── Review queue modal ────────────────────────────────────────────────
+let _adminKey = '';
+
+function openReviewModal() {
+  document.getElementById('review-auth').style.display = 'block';
+  document.getElementById('review-list').style.display = 'none';
+  document.getElementById('review-key').value = _adminKey;
+  document.getElementById('review-modal').classList.add('open');
+}
+
+function closeReviewModal(e) {
+  if (!e || e.target === document.getElementById('review-modal')) {
+    document.getElementById('review-modal').classList.remove('open');
+  }
+}
+
+async function fetchPending() {
+  const key = document.getElementById('review-key').value.trim();
+  if (!key) { showToast('Please enter the admin key'); return; }
+  _adminKey = key;
+
+  try {
+    const res = await fetch('/api/pending?key=' + encodeURIComponent(key));
+    const data = await res.json();
+    if (!data.ok) { showToast('Error: ' + (data.error || 'Unauthorized')); return; }
+
+    document.getElementById('review-auth').style.display = 'none';
+    const listEl = document.getElementById('review-list');
+    listEl.style.display = 'block';
+
+    if (!data.items.length) {
+      listEl.innerHTML = '<div style="text-align:center;padding:24px;color:var(--muted);">No pending items.</div>';
+      return;
+    }
+
+    listEl.innerHTML = data.items.map((item, i) => `
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:10px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
+          <div style="flex:1;min-width:0;">
+            <div style="font-weight:700;font-size:0.95rem;">${item.item}</div>
+            <div style="font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--muted);margin-top:2px;">
+              ${item.restaurant} &middot; ${item.location || 'National'} &middot; ${item.category}
+            </div>
+            <div style="font-family:'DM Mono',monospace;font-size:0.75rem;margin-top:6px;">
+              <span class="cal-badge ${calClass(item.calories_kcal)}">${item.calories_kcal ?? '—'} kcal</span>
+              &nbsp; P:${item.protein_g ?? '—'}g &nbsp; C:${item.carbs_g ?? '—'}g &nbsp; F:${item.fat_g ?? '—'}g
+            </div>
+          </div>
+          <div style="display:flex;gap:6px;flex-shrink:0;">
+            <button class="header-btn" style="background:var(--green);border-color:var(--green);color:#000;font-weight:600;" onclick="reviewAction(${i},'approve')">Approve</button>
+            <button class="header-btn" style="background:var(--red);border-color:var(--red);color:#fff;font-weight:600;" onclick="reviewAction(${i},'reject')">Reject</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  } catch(err) {
+    showToast('Failed to fetch pending items');
+  }
+}
+
+async function reviewAction(index, action) {
+  try {
+    const res = await fetch('/api/pending/' + index + '/' + action, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ key: _adminKey }),
+    });
+    const data = await res.json();
+    if (data.ok) {
+      showToast(action === 'approve' ? 'Item approved' : 'Item rejected');
+      await fetchPending();
+      if (action === 'approve') await loadData();
+    } else {
+      showToast('Error: ' + (data.error || 'Unknown'));
+    }
+  } catch(err) {
+    showToast('Action failed');
+  }
+}
 
 loadData();
 </script>
@@ -1138,16 +1264,19 @@ def api_refresh():
         return jsonify({"ok": False, "error": str(e)}), 500
 
 
+ADMIN_KEY = os.environ.get("ADMIN_KEY", "ukfoodfacts2026")
+
+
 @app.route("/api/items", methods=["POST"])
 def api_add_item():
-    """Add a custom restaurant meal."""
+    """Submit a meal to the pending review queue."""
     data = request.get_json(force=True)
     required = ["restaurant", "category", "item", "calories_kcal"]
     missing = [f for f in required if not data.get(f)]
     if missing:
         return jsonify({"ok": False, "error": f"Missing fields: {', '.join(missing)}"}), 400
 
-    new_item = custom.add_item(
+    new_item = custom.submit_item(
         restaurant=data["restaurant"],
         category=data["category"],
         item_name=data["item"],
@@ -1161,20 +1290,52 @@ def api_add_item():
         location=data.get("location", "National"),
     )
 
-    # Also append to the main DB so it shows immediately
+    return jsonify({"ok": True, "item": new_item, "status": "pending"})
+
+
+@app.route("/api/pending", methods=["GET"])
+def api_pending():
+    """List all pending items (requires admin key)."""
+    if request.args.get("key") != ADMIN_KEY:
+        return jsonify({"ok": False, "error": "Unauthorized"}), 401
+    return jsonify({"ok": True, "items": custom.load_pending()})
+
+
+@app.route("/api/pending/<int:index>/approve", methods=["POST"])
+def api_approve(index):
+    """Approve a pending item (requires admin key)."""
+    data = request.get_json(force=True) if request.data else {}
+    if data.get("key") != ADMIN_KEY:
+        return jsonify({"ok": False, "error": "Unauthorized"}), 401
+    item = custom.approve_item(index)
+    if item is None:
+        return jsonify({"ok": False, "error": "Invalid index"}), 404
+    # Also add to the main DB
     db = load_db()
-    db.append(new_item)
+    db.append(item)
     DB_PATH.parent.mkdir(exist_ok=True)
     with open(DB_PATH, "w") as f:
         json.dump(db, f, indent=2)
+    return jsonify({"ok": True, "item": item})
 
-    return jsonify({"ok": True, "item": new_item})
+
+@app.route("/api/pending/<int:index>/reject", methods=["POST"])
+def api_reject(index):
+    """Reject a pending item (requires admin key)."""
+    data = request.get_json(force=True) if request.data else {}
+    if data.get("key") != ADMIN_KEY:
+        return jsonify({"ok": False, "error": "Unauthorized"}), 401
+    if not custom.reject_item(index):
+        return jsonify({"ok": False, "error": "Invalid index"}), 404
+    return jsonify({"ok": True})
 
 
 @app.route("/api/items", methods=["DELETE"])
 def api_delete_item():
-    """Delete a custom item by restaurant + item name."""
+    """Delete a custom item by restaurant + item name (requires admin key)."""
     data = request.get_json(force=True)
+    if data.get("key") != ADMIN_KEY:
+        return jsonify({"ok": False, "error": "Unauthorized"}), 401
     restaurant = data.get("restaurant", "")
     item_name = data.get("item", "")
     if not restaurant or not item_name:

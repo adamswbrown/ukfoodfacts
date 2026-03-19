@@ -8,6 +8,7 @@ from datetime import date
 from pathlib import Path
 
 CUSTOM_DB = Path(__file__).parent.parent / "output" / "custom_items.json"
+PENDING_DB = Path(__file__).parent.parent / "output" / "pending_items.json"
 
 
 def load():
@@ -77,6 +78,78 @@ def scrape():
     items = load()
     print(f"  [Custom] Loaded {len(items)} manually-added items")
     return items
+
+
+def load_pending():
+    """Load all pending (unreviewed) items."""
+    if not PENDING_DB.exists():
+        return []
+    with open(PENDING_DB) as f:
+        return json.load(f)
+
+
+def save_pending(items):
+    """Save pending items list."""
+    PENDING_DB.parent.mkdir(exist_ok=True)
+    with open(PENDING_DB, "w") as f:
+        json.dump(items, f, indent=2)
+
+
+def submit_item(restaurant, category, item_name, calories_kcal,
+                protein_g=None, carbs_g=None, fat_g=None,
+                fibre_g=None, salt_g=None, description="",
+                location="National"):
+    """Submit an item to the pending review queue."""
+    pending = load_pending()
+    new_item = {
+        "restaurant": restaurant.strip(),
+        "category": category.strip(),
+        "item": item_name.strip(),
+        "description": description.strip(),
+        "location": location.strip() if location else "National",
+        "calories_kcal": _safe_int(calories_kcal),
+        "protein_g": _safe_float(protein_g),
+        "carbs_g": _safe_float(carbs_g),
+        "fat_g": _safe_float(fat_g),
+        "fibre_g": _safe_float(fibre_g),
+        "salt_g": _safe_float(salt_g),
+        "allergens": [],
+        "dietary_flags": [],
+        "source_url": "user-submitted",
+        "scraped_at": str(date.today()),
+        "custom": True,
+        "status": "pending",
+        "submitted_at": str(date.today()),
+    }
+    pending.append(new_item)
+    save_pending(pending)
+    return new_item
+
+
+def approve_item(index):
+    """Approve a pending item by index — moves it to the custom DB."""
+    pending = load_pending()
+    if index < 0 or index >= len(pending):
+        return None
+    item = pending.pop(index)
+    item.pop("status", None)
+    item.pop("submitted_at", None)
+    save_pending(pending)
+    # Add to custom items
+    items = load()
+    items.append(item)
+    save(items)
+    return item
+
+
+def reject_item(index):
+    """Reject (delete) a pending item by index."""
+    pending = load_pending()
+    if index < 0 or index >= len(pending):
+        return False
+    pending.pop(index)
+    save_pending(pending)
+    return True
 
 
 def _safe_int(val):

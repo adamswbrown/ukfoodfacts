@@ -207,17 +207,17 @@ _YUGO = [
 
 _ALL_LOCAL = [
     # Bangor, County Down
-    ("The Boat House", "Bangor", "https://boathousebangor.com/", _BOAT_HOUSE),
-    ("Donegans", "Bangor", "https://www.donegansrestaurant.co.uk/", _DONEGANS),
-    ("Coq & Bull Brasserie", "Bangor", "https://www.clandeboyelodge.com/coq-and-bull", _COQ_AND_BULL),
-    ("The Nines", "Bangor", "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html", _THE_NINES),
-    ("Tom's Restaurant", "Bangor", "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html", _TOMS_RESTAURANT),
-    ("Torna a Surriento", "Bangor", "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html", _TORNA_A_SURRIENTO),
-    ("The Frying Squad", "Bangor", "https://www.fryingsquad.com/", _FRYING_SQUAD),
-    ("Bangla", "Bangor", "https://www.banglabangor.co.uk/", _BANGLA),
-    ("Yaks", "Bangor", "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html", _YAKS),
-    ("Tuk Tuk Asian Bistro", "Bangor", "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html", _TUK_TUK),
-    ("Little Wing Pizzeria", "Bangor", "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html", _LITTLE_WING),
+    ("The Boat House", "Bangor, NI", "https://boathousebangor.com/", _BOAT_HOUSE),
+    ("Donegans", "Bangor, NI", "https://www.donegansrestaurant.co.uk/", _DONEGANS),
+    ("Coq & Bull Brasserie", "Bangor, NI", "https://www.clandeboyelodge.com/coq-and-bull", _COQ_AND_BULL),
+    ("The Nines", "Bangor, NI", "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html", _THE_NINES),
+    ("Tom's Restaurant", "Bangor, NI", "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html", _TOMS_RESTAURANT),
+    ("Torna a Surriento", "Bangor, NI", "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html", _TORNA_A_SURRIENTO),
+    ("The Frying Squad", "Bangor, NI", "https://www.fryingsquad.com/", _FRYING_SQUAD),
+    ("Bangla", "Bangor, NI", "https://www.banglabangor.co.uk/", _BANGLA),
+    ("Yaks", "Bangor, NI", "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html", _YAKS),
+    ("Tuk Tuk Asian Bistro", "Bangor, NI", "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html", _TUK_TUK),
+    ("Little Wing Pizzeria", "Bangor, NI", "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html", _LITTLE_WING),
     # Belfast
     ("OX", "Belfast", "https://www.oxbelfast.com/", _OX_BELFAST),
     ("The Muddlers Club", "Belfast", "https://themuddlersclub.com/", _MUDDLERS_CLUB),
