@@ -11,7 +11,7 @@ from pathlib import Path
 # Add project root to path
 sys.path.insert(0, str(Path(__file__).parent))
 
-from scrapers import nandos, mcdonalds, wagamama, uk_chains, custom
+from scrapers import nandos, mcdonalds, wagamama, uk_chains, local_ni, custom
 
 OUTPUT_FILE = Path(__file__).parent / "output" / "nutrition_db.json"
 
@@ -27,6 +27,7 @@ def run_all():
         ("McDonalds", mcdonalds.scrape),
         ("Wagamama", wagamama.scrape),
         ("UK Chains", uk_chains.scrape),
+        ("Local NI", local_ni.scrape),
         ("Custom", custom.scrape),
     ]
 
