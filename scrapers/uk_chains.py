@@ -1042,6 +1042,307 @@ _BUSABA = [
     ("Desserts", "Banana Fritters", 380, 4.0, 52.0, 18.0, 2.0, 0.2),
 ]
 
+# ── Batch 3: Casual dining, coffee & bakery chains ────────────────────
+
+_TURTLE_BAY = [
+    ("Jerk", "Jerk Chicken", 680, 42.0, 48.0, 28.0, 3.0, 2.4),
+    ("Jerk", "Jerk Pork Belly", 750, 38.0, 42.0, 38.0, 2.0, 2.8),
+    ("Curry", "Curry Goat", 620, 34.0, 38.0, 30.0, 3.0, 2.2),
+    ("Burgers", "Bajan Burger", 780, 36.0, 58.0, 38.0, 3.0, 2.6),
+    ("Sharing", "Reggae Wings", 520, 32.0, 24.0, 28.0, 1.0, 2.8),
+    ("Mains", "Roti Wrap Chicken", 640, 30.0, 56.0, 28.0, 4.0, 2.2),
+    ("Mains", "Caribbean Fish Curry", 580, 28.0, 44.0, 26.0, 3.0, 2.0),
+    ("Sides", "Rice & Peas", 280, 6.0, 52.0, 6.0, 3.0, 0.8),
+    ("Sides", "Plantain Fries", 320, 2.0, 48.0, 14.0, 3.0, 0.4),
+    ("Desserts", "Rum Cake", 420, 4.0, 52.0, 22.0, 1.0, 0.6),
+]
+
+_MOWGLI = [
+    ("Street Food", "Gunpowder Chicken Wings", 480, 28.0, 22.0, 30.0, 2.0, 2.4),
+    ("Street Food", "Fuchka (Crispy Puri)", 220, 6.0, 28.0, 10.0, 2.0, 1.2),
+    ("Mains", "Mowgli Curry Chicken", 550, 32.0, 38.0, 26.0, 3.0, 2.2),
+    ("Mains", "Yoghurt Chat Bowl", 380, 12.0, 44.0, 16.0, 4.0, 1.6),
+    ("Mains", "House Keema Lamb", 620, 34.0, 42.0, 30.0, 3.0, 2.6),
+    ("Sides", "Temple Daal", 280, 14.0, 36.0, 8.0, 6.0, 1.2),
+    ("Sides", "Chip Butty Naan", 340, 8.0, 48.0, 14.0, 2.0, 1.4),
+    ("Desserts", "Treacle Tart", 380, 4.0, 52.0, 18.0, 1.0, 0.4),
+]
+
+_KRISPY_KREME = [
+    ("Doughnuts", "Original Glazed", 190, 3.0, 22.0, 10.0, 0.5, 0.3),
+    ("Doughnuts", "Chocolate Iced Glazed", 240, 3.0, 30.0, 12.0, 1.0, 0.4),
+    ("Doughnuts", "Strawberries & Kreme", 300, 3.0, 36.0, 16.0, 1.0, 0.3),
+    ("Doughnuts", "Lotus Biscoff", 340, 4.0, 38.0, 18.0, 1.0, 0.5),
+    ("Doughnuts", "Caramel Iced Ring", 260, 3.0, 32.0, 14.0, 1.0, 0.4),
+    ("Doughnuts", "Chocolate Dreamcake", 320, 4.0, 36.0, 18.0, 1.0, 0.4),
+    ("Doughnuts", "Apple Crumble", 280, 3.0, 34.0, 14.0, 1.0, 0.3),
+    ("Drinks", "Iced Latte", 180, 6.0, 24.0, 6.0, 0, 0.2),
+    ("Drinks", "Hot Chocolate", 260, 8.0, 34.0, 10.0, 1.0, 0.4),
+    ("Shakes", "Chocolate Milkshake", 480, 10.0, 62.0, 20.0, 1.0, 0.6),
+]
+
+_DAVES_HOT_CHICKEN = [
+    ("Tenders", "Tenders x3 (No Spice)", 540, 36.0, 30.0, 28.0, 1.0, 2.4),
+    ("Tenders", "Tenders x3 (Hot)", 560, 36.0, 32.0, 28.0, 2.0, 2.8),
+    ("Tenders", "Tenders x3 (Reaper)", 580, 36.0, 34.0, 28.0, 2.0, 3.2),
+    ("Sliders", "Slider (Mild)", 420, 22.0, 38.0, 18.0, 2.0, 2.0),
+    ("Sliders", "Slider (Hot)", 440, 22.0, 40.0, 18.0, 2.0, 2.4),
+    ("Sides", "Fries (Regular)", 320, 4.0, 42.0, 16.0, 3.0, 0.8),
+    ("Sides", "Mac & Cheese", 380, 14.0, 34.0, 20.0, 1.0, 1.6),
+    ("Sides", "Coleslaw", 180, 1.0, 12.0, 14.0, 2.0, 0.6),
+    ("Drinks", "Kool-Aid (Regular)", 120, 0, 32.0, 0, 0, 0.1),
+]
+
+_BANANA_TREE = [
+    ("Starters", "Salt & Pepper Squid", 340, 18.0, 24.0, 18.0, 1.0, 2.2),
+    ("Starters", "Spring Rolls x4", 280, 8.0, 30.0, 14.0, 2.0, 1.6),
+    ("Curry", "Thai Green Curry Chicken", 580, 28.0, 44.0, 30.0, 3.0, 2.4),
+    ("Curry", "Rendang Beef", 650, 34.0, 38.0, 34.0, 2.0, 2.6),
+    ("Noodles", "Pad Thai Prawn", 620, 24.0, 72.0, 22.0, 3.0, 3.2),
+    ("Rice", "Nasi Goreng", 680, 26.0, 78.0, 26.0, 3.0, 2.8),
+    ("Sides", "Coconut Rice", 260, 4.0, 48.0, 6.0, 1.0, 0.4),
+    ("Desserts", "Banana Fritters & Ice Cream", 420, 4.0, 56.0, 20.0, 2.0, 0.3),
+]
+
+_BARBURRITO = [
+    ("Burritos", "Chicken Burrito", 680, 36.0, 72.0, 22.0, 8.0, 2.6),
+    ("Burritos", "Steak Burrito", 720, 38.0, 72.0, 26.0, 8.0, 2.8),
+    ("Burritos", "Veggie Burrito", 580, 18.0, 74.0, 18.0, 10.0, 2.2),
+    ("Bowls", "Chicken Naked Burrito", 520, 34.0, 48.0, 18.0, 6.0, 2.4),
+    ("Tacos", "Chicken Tacos x3", 480, 28.0, 42.0, 18.0, 4.0, 2.2),
+    ("Sides", "Nachos & Guac", 420, 8.0, 44.0, 24.0, 4.0, 1.8),
+    ("Sides", "Chips & Salsa", 280, 4.0, 36.0, 14.0, 3.0, 1.2),
+    ("Quesadillas", "Chicken Quesadilla", 560, 32.0, 42.0, 26.0, 3.0, 2.4),
+]
+
+_CARLUCCIOS = [
+    ("Pasta", "Spaghetti Bolognese", 620, 28.0, 68.0, 22.0, 4.0, 2.4),
+    ("Pasta", "Penne Arrabbiata", 520, 16.0, 72.0, 16.0, 4.0, 2.2),
+    ("Pasta", "Carbonara", 740, 30.0, 66.0, 36.0, 2.0, 2.8),
+    ("Pizza", "Margherita", 680, 26.0, 78.0, 24.0, 3.0, 2.6),
+    ("Pizza", "Diavola", 780, 32.0, 76.0, 32.0, 3.0, 3.2),
+    ("Mains", "Chicken Milanese", 720, 38.0, 52.0, 34.0, 2.0, 2.4),
+    ("Starters", "Bruschetta", 280, 6.0, 32.0, 14.0, 2.0, 1.4),
+    ("Desserts", "Tiramisu", 380, 6.0, 40.0, 22.0, 0.5, 0.3),
+]
+
+_FIREAWAY = [
+    ("Pizza", "Margherita (12\")", 680, 28.0, 76.0, 24.0, 3.0, 2.6),
+    ("Pizza", "Pepperoni (12\")", 780, 34.0, 74.0, 32.0, 3.0, 3.2),
+    ("Pizza", "BBQ Chicken (12\")", 740, 36.0, 78.0, 26.0, 3.0, 2.8),
+    ("Pizza", "Veggie Supreme (12\")", 640, 22.0, 78.0, 22.0, 4.0, 2.4),
+    ("Pizza", "Meat Feast (12\")", 820, 40.0, 74.0, 36.0, 3.0, 3.6),
+    ("Sides", "Garlic Bread", 280, 6.0, 34.0, 14.0, 1.0, 1.2),
+    ("Sides", "Chicken Wings x6", 380, 28.0, 12.0, 24.0, 0, 2.4),
+    ("Desserts", "Cookie Dough", 420, 4.0, 54.0, 22.0, 1.0, 0.4),
+]
+
+_GERMAN_GYMNASIUM = [
+    ("Starters", "Pretzel & Obatzda", 420, 14.0, 48.0, 18.0, 3.0, 2.4),
+    ("Mains", "Wiener Schnitzel", 780, 42.0, 52.0, 38.0, 2.0, 2.6),
+    ("Mains", "Currywurst & Fries", 720, 28.0, 56.0, 38.0, 3.0, 3.2),
+    ("Mains", "Bratwurst & Sauerkraut", 680, 32.0, 42.0, 36.0, 4.0, 3.0),
+    ("Desserts", "Apple Strudel", 380, 4.0, 48.0, 18.0, 2.0, 0.4),
+]
+
+_ABSURD_BIRD = [
+    ("Chicken", "Fried Chicken Burger", 720, 34.0, 56.0, 36.0, 2.0, 2.8),
+    ("Chicken", "Wings x6 (Hot Sauce)", 480, 32.0, 18.0, 28.0, 1.0, 3.0),
+    ("Chicken", "Tenders x5", 580, 38.0, 34.0, 28.0, 1.0, 2.6),
+    ("Chicken", "Half Rotisserie Chicken", 520, 48.0, 2.0, 34.0, 0, 2.8),
+    ("Sides", "Mac & Cheese", 380, 14.0, 34.0, 20.0, 1.0, 1.6),
+    ("Sides", "Fries", 320, 4.0, 42.0, 16.0, 3.0, 0.8),
+    ("Sides", "Coleslaw", 160, 1.0, 8.0, 14.0, 2.0, 0.6),
+    ("Desserts", "Brownie & Ice Cream", 480, 6.0, 58.0, 26.0, 2.0, 0.4),
+]
+
+_YARD_SALE_PIZZA = [
+    ("Pizza", "Margherita (14\")", 720, 28.0, 80.0, 26.0, 3.0, 2.8),
+    ("Pizza", "Pepperoni (14\")", 840, 36.0, 78.0, 36.0, 3.0, 3.4),
+    ("Pizza", "Holy Pepperoni (14\")", 880, 38.0, 78.0, 40.0, 3.0, 3.6),
+    ("Pizza", "Aubergine Parmigiana (14\")", 680, 22.0, 82.0, 24.0, 5.0, 2.6),
+    ("Sides", "Garlic Bread", 320, 8.0, 38.0, 16.0, 1.0, 1.4),
+    ("Sides", "Chicken Wings x8", 480, 36.0, 12.0, 28.0, 0, 2.8),
+    ("Desserts", "Nutella Pizza", 520, 10.0, 62.0, 26.0, 2.0, 0.4),
+]
+
+_FLAT_IRON = [
+    ("Steaks", "Flat Iron Steak (250g)", 560, 52.0, 0, 36.0, 0, 1.8),
+    ("Steaks", "Rump Steak (250g)", 480, 50.0, 0, 28.0, 0, 1.6),
+    ("Steaks", "Beef Dripping Fries", 380, 4.0, 46.0, 20.0, 3.0, 1.2),
+    ("Starters", "Roast Bone Marrow", 320, 8.0, 12.0, 28.0, 0, 1.4),
+    ("Sides", "Creamed Spinach", 220, 6.0, 8.0, 18.0, 3.0, 1.0),
+    ("Desserts", "Salted Caramel Ice Cream", 280, 4.0, 32.0, 16.0, 0, 0.4),
+]
+
+_PATTY_AND_BUN = [
+    ("Burgers", "Ari Gold (Cheeseburger)", 780, 38.0, 48.0, 44.0, 2.0, 2.8),
+    ("Burgers", "Smokey Robinson", 820, 42.0, 52.0, 44.0, 2.0, 3.0),
+    ("Burgers", "Jose Jose (Chicken)", 720, 36.0, 50.0, 38.0, 2.0, 2.6),
+    ("Burgers", "Whoopi Goldberger (Veggie)", 640, 18.0, 56.0, 34.0, 4.0, 2.2),
+    ("Sides", "Rosemary Fries", 380, 4.0, 48.0, 20.0, 3.0, 1.0),
+    ("Sides", "Onion Rings", 340, 4.0, 38.0, 18.0, 2.0, 1.2),
+    ("Shakes", "Peanut Butter Shake", 580, 14.0, 62.0, 30.0, 2.0, 0.6),
+]
+
+_MEATLIQUOR = [
+    ("Burgers", "Dead Hippie", 820, 40.0, 48.0, 48.0, 2.0, 3.2),
+    ("Burgers", "Green Chilli Cheeseburger", 780, 38.0, 46.0, 44.0, 2.0, 3.0),
+    ("Burgers", "Bacon Cheeseburger", 860, 44.0, 48.0, 50.0, 2.0, 3.4),
+    ("Chicken", "Buffalo Wings x8", 520, 36.0, 16.0, 30.0, 1.0, 3.2),
+    ("Chicken", "Deep Fried Pickles x6", 280, 4.0, 32.0, 16.0, 2.0, 1.8),
+    ("Sides", "Fries", 340, 4.0, 44.0, 16.0, 3.0, 0.8),
+    ("Shakes", "Hard Shake (Oreo)", 580, 10.0, 68.0, 30.0, 1.0, 0.4),
+]
+
+_BONE_DADDIES = [
+    ("Ramen", "Tonkotsu Ramen", 720, 32.0, 68.0, 32.0, 3.0, 4.2),
+    ("Ramen", "T22 Chicken Ramen", 680, 34.0, 64.0, 28.0, 3.0, 3.8),
+    ("Ramen", "Tantanmen Ramen", 740, 30.0, 66.0, 36.0, 3.0, 4.0),
+    ("Starters", "Karaage Chicken", 380, 24.0, 22.0, 20.0, 1.0, 2.2),
+    ("Starters", "Gyoza x6", 320, 12.0, 28.0, 16.0, 1.0, 2.0),
+    ("Sides", "Edamame", 120, 12.0, 6.0, 5.0, 4.0, 1.0),
+    ("Sides", "Rice", 200, 4.0, 44.0, 1.0, 0.5, 0.1),
+    ("Desserts", "Matcha Soft Serve", 240, 4.0, 32.0, 10.0, 0, 0.2),
+]
+
+_CHOPHOUSE = [
+    ("Steaks", "Ribeye Steak (300g)", 680, 54.0, 0, 48.0, 0, 2.0),
+    ("Steaks", "Fillet Steak (200g)", 440, 50.0, 0, 24.0, 0, 1.6),
+    ("Mains", "Lamb Cutlets", 580, 40.0, 8.0, 42.0, 1.0, 2.2),
+    ("Starters", "Prawn Cocktail", 280, 18.0, 8.0, 18.0, 1.0, 1.8),
+    ("Sides", "Triple Cooked Chips", 380, 4.0, 48.0, 20.0, 3.0, 1.0),
+    ("Desserts", "Sticky Toffee Pudding", 480, 4.0, 64.0, 24.0, 1.0, 0.6),
+]
+
+_ROSAS_THAI_CAFE = [
+    ("Curry", "Massaman Chicken", 620, 30.0, 42.0, 34.0, 3.0, 2.4),
+    ("Curry", "Jungle Curry Prawns", 480, 26.0, 32.0, 24.0, 4.0, 2.6),
+    ("Noodles", "Pad See Ew", 580, 24.0, 68.0, 22.0, 2.0, 3.0),
+    ("Rice", "Khao Pad (Fried Rice)", 620, 22.0, 76.0, 24.0, 2.0, 2.8),
+    ("Starters", "Thai Fish Cakes", 280, 16.0, 18.0, 14.0, 1.0, 2.0),
+    ("Starters", "Satay Chicken Skewers", 320, 24.0, 12.0, 18.0, 1.0, 1.8),
+    ("Desserts", "Mango Sticky Rice", 380, 4.0, 56.0, 14.0, 2.0, 0.2),
+]
+
+_GREGGS_CAFE = [
+    ("Hot Drinks", "Flat White", 120, 6.0, 10.0, 6.0, 0, 0.2),
+    ("Hot Drinks", "Cappuccino", 110, 6.0, 10.0, 5.0, 0, 0.2),
+    ("Hot Drinks", "Hot Chocolate", 220, 8.0, 30.0, 8.0, 1.0, 0.4),
+    ("Cold Drinks", "Iced Latte", 100, 5.0, 10.0, 4.0, 0, 0.2),
+    ("Sweet", "Yum Yum", 260, 3.0, 30.0, 14.0, 1.0, 0.4),
+    ("Sweet", "Belgian Bun", 340, 5.0, 48.0, 14.0, 1.0, 0.5),
+    ("Sweet", "Triple Chocolate Cookie", 280, 3.0, 34.0, 14.0, 1.0, 0.4),
+    ("Savoury", "Cheese & Onion Bake", 380, 10.0, 34.0, 22.0, 2.0, 1.6),
+]
+
+_OLE_AND_STEEN = [
+    ("Pastry", "Cinnamon Social", 420, 6.0, 48.0, 24.0, 1.0, 0.6),
+    ("Pastry", "Croissant", 280, 5.0, 28.0, 16.0, 1.0, 0.5),
+    ("Pastry", "Pain au Chocolat", 320, 5.0, 32.0, 18.0, 1.0, 0.4),
+    ("Bread", "Sourdough Loaf (per 100g)", 250, 8.0, 48.0, 1.0, 3.0, 1.2),
+    ("Sandwich", "Ham & Cheese Croissant", 420, 18.0, 28.0, 24.0, 1.0, 1.8),
+    ("Sandwich", "Smoked Salmon Open Sandwich", 380, 22.0, 32.0, 16.0, 2.0, 2.2),
+    ("Drinks", "Flat White", 120, 6.0, 10.0, 6.0, 0, 0.2),
+    ("Drinks", "Iced Matcha Latte", 160, 6.0, 22.0, 4.0, 0, 0.2),
+]
+
+_PAUL_BAKERY = [
+    ("Pastry", "Croissant au Beurre", 300, 5.0, 30.0, 18.0, 1.0, 0.5),
+    ("Pastry", "Pain au Chocolat", 340, 6.0, 34.0, 20.0, 1.0, 0.4),
+    ("Pastry", "Almond Croissant", 420, 8.0, 38.0, 26.0, 2.0, 0.4),
+    ("Sandwich", "Croque Monsieur", 480, 24.0, 34.0, 26.0, 1.0, 2.4),
+    ("Sandwich", "Jambon Beurre Baguette", 520, 22.0, 52.0, 22.0, 2.0, 2.6),
+    ("Salads", "Niçoise Salad", 380, 22.0, 18.0, 22.0, 3.0, 2.0),
+    ("Tarts", "Tarte au Citron", 340, 4.0, 38.0, 20.0, 0, 0.3),
+    ("Drinks", "Latte", 140, 7.0, 12.0, 6.0, 0, 0.2),
+]
+
+_EAT = [
+    ("Sandwiches", "Chicken Caesar Wrap", 480, 28.0, 38.0, 22.0, 3.0, 2.2),
+    ("Sandwiches", "BLT on Sourdough", 440, 18.0, 40.0, 22.0, 3.0, 2.0),
+    ("Soups", "Chicken & Sweetcorn Soup", 280, 16.0, 28.0, 10.0, 3.0, 1.8),
+    ("Soups", "Tomato & Basil Soup", 180, 4.0, 22.0, 8.0, 3.0, 1.4),
+    ("Salads", "Falafel & Halloumi Salad", 420, 18.0, 36.0, 22.0, 6.0, 2.0),
+    ("Hot", "Macaroni Cheese", 520, 18.0, 48.0, 28.0, 2.0, 2.2),
+    ("Sweet", "Brownie", 380, 4.0, 44.0, 22.0, 2.0, 0.4),
+    ("Drinks", "Flat White", 120, 6.0, 10.0, 6.0, 0, 0.2),
+]
+
+_BENUGO = [
+    ("Sandwiches", "Ham Hock & Piccalilli", 420, 22.0, 38.0, 18.0, 2.0, 2.2),
+    ("Sandwiches", "Egg Mayo & Cress", 380, 14.0, 36.0, 18.0, 2.0, 1.6),
+    ("Salads", "Grilled Chicken Caesar", 380, 28.0, 14.0, 22.0, 2.0, 1.8),
+    ("Hot", "Beef Chilli with Rice", 520, 26.0, 56.0, 18.0, 4.0, 2.4),
+    ("Pastry", "Almond Croissant", 420, 8.0, 36.0, 26.0, 2.0, 0.4),
+    ("Sweet", "Carrot Cake", 380, 4.0, 46.0, 20.0, 1.0, 0.4),
+    ("Drinks", "Cappuccino", 110, 6.0, 10.0, 5.0, 0, 0.2),
+]
+
+_BLACK_SHEEP_COFFEE = [
+    ("Hot Drinks", "Flat White", 120, 6.0, 10.0, 6.0, 0, 0.2),
+    ("Hot Drinks", "Dirty Chai Latte", 200, 6.0, 28.0, 6.0, 0, 0.3),
+    ("Hot Drinks", "Hot Chocolate", 260, 8.0, 34.0, 10.0, 1.0, 0.4),
+    ("Cold Drinks", "Iced Americano", 10, 0, 2.0, 0, 0, 0),
+    ("Cold Drinks", "Iced Mocha", 320, 8.0, 44.0, 12.0, 1.0, 0.3),
+    ("Food", "Bacon Roll", 380, 18.0, 34.0, 16.0, 1.0, 2.2),
+    ("Food", "Avocado Toast", 340, 8.0, 34.0, 18.0, 6.0, 1.0),
+    ("Sweet", "Cookie", 280, 3.0, 34.0, 14.0, 1.0, 0.4),
+]
+
+_PHO = [
+    ("Pho", "Pho Chin (Brisket)", 480, 28.0, 52.0, 14.0, 2.0, 3.8),
+    ("Pho", "Pho Ga (Chicken)", 420, 30.0, 48.0, 10.0, 2.0, 3.4),
+    ("Pho", "Pho Chay (Veggie)", 380, 12.0, 52.0, 10.0, 4.0, 3.0),
+    ("Rice", "Broken Rice Chicken", 580, 32.0, 64.0, 18.0, 2.0, 2.6),
+    ("Starters", "Summer Rolls", 220, 8.0, 28.0, 8.0, 2.0, 1.6),
+    ("Starters", "Vietnamese Spring Rolls", 280, 10.0, 24.0, 14.0, 1.0, 1.8),
+    ("Curry", "Saigon Curry Chicken", 540, 28.0, 42.0, 26.0, 3.0, 2.4),
+    ("Desserts", "Che (Sweet Soup)", 280, 4.0, 44.0, 10.0, 2.0, 0.2),
+]
+
+_COCO_DI_MAMA = [
+    ("Pasta", "Bolognese", 580, 26.0, 64.0, 20.0, 4.0, 2.4),
+    ("Pasta", "Carbonara", 680, 28.0, 62.0, 32.0, 2.0, 2.6),
+    ("Pasta", "Pesto Chicken", 620, 32.0, 60.0, 24.0, 3.0, 2.2),
+    ("Pasta", "Nduja Arrabbiata", 540, 18.0, 66.0, 20.0, 4.0, 2.4),
+    ("Salads", "Caesar Salad", 320, 18.0, 16.0, 20.0, 2.0, 1.8),
+    ("Sides", "Garlic Bread", 240, 6.0, 30.0, 10.0, 1.0, 1.2),
+    ("Drinks", "Espresso", 5, 0.3, 0.5, 0, 0, 0),
+]
+
+_BENITOS_HAT = [
+    ("Burritos", "Chicken Burrito", 720, 38.0, 74.0, 24.0, 8.0, 2.8),
+    ("Burritos", "Pork Carnitas Burrito", 760, 36.0, 76.0, 28.0, 8.0, 3.0),
+    ("Tacos", "Fish Tacos x3", 480, 24.0, 42.0, 20.0, 3.0, 2.2),
+    ("Tacos", "Chicken Tinga Tacos x3", 440, 26.0, 38.0, 18.0, 3.0, 2.0),
+    ("Bowls", "Naked Burrito Bowl", 520, 32.0, 52.0, 18.0, 6.0, 2.4),
+    ("Sides", "Guacamole & Chips", 380, 4.0, 36.0, 24.0, 6.0, 1.2),
+    ("Sides", "Elote (Street Corn)", 280, 6.0, 28.0, 16.0, 3.0, 1.4),
+]
+
+_PING_PONG = [
+    ("Dim Sum", "Har Gau (Prawn) x3", 180, 12.0, 18.0, 4.0, 0, 1.4),
+    ("Dim Sum", "Siu Mai (Pork) x3", 210, 14.0, 16.0, 8.0, 0, 1.6),
+    ("Dim Sum", "Char Sui Buns x2", 280, 10.0, 36.0, 10.0, 1.0, 1.4),
+    ("Dim Sum", "Vegetable Dumplings x3", 160, 6.0, 20.0, 6.0, 2.0, 1.2),
+    ("Mains", "Sweet & Sour Chicken", 580, 28.0, 56.0, 24.0, 2.0, 2.4),
+    ("Mains", "Kung Pao Prawns", 420, 24.0, 28.0, 20.0, 2.0, 2.6),
+    ("Sides", "Egg Fried Rice", 340, 8.0, 52.0, 12.0, 1.0, 1.8),
+    ("Desserts", "Mochi Ice Cream x3", 240, 4.0, 30.0, 10.0, 0, 0.2),
+]
+
+_INAMO = [
+    ("Sushi", "Salmon Nigiri x4", 220, 16.0, 28.0, 4.0, 0, 1.2),
+    ("Sushi", "Dragon Roll x8", 380, 14.0, 48.0, 14.0, 2.0, 2.0),
+    ("Sushi", "Tuna Sashimi x6", 180, 28.0, 0, 6.0, 0, 1.0),
+    ("Robata", "Teriyaki Chicken Skewers", 320, 24.0, 18.0, 14.0, 1.0, 2.2),
+    ("Robata", "Beef Tataki", 280, 22.0, 8.0, 16.0, 0, 1.8),
+    ("Mains", "Black Cod Miso", 420, 28.0, 18.0, 24.0, 0, 2.6),
+    ("Sides", "Edamame Truffle", 160, 12.0, 8.0, 8.0, 4.0, 1.2),
+    ("Desserts", "Matcha Cheesecake", 340, 6.0, 36.0, 18.0, 0, 0.3),
+]
+
 # ── All chains aggregated ──────────────────────────────────────────────
 _ALL_CHAINS = [
     ("KFC", "https://www.kfc.co.uk/nutrition-information", _KFC),
@@ -1115,4 +1416,33 @@ _ALL_CHAINS = [
     ("The Botanist", "https://thebotanist.uk.com/", _THE_BOTANIST),
     ("Comptoir Libanais", "https://www.comptoirlibanais.com/menus/", _COMPTOIR_LIBANAIS),
     ("Busaba", "https://www.busaba.com/menu/food", _BUSABA),
+    # ── Batch 3: Casual dining, coffee & bakery chains ──
+    ("Turtle Bay", "https://www.turtlebay.co.uk/food-drink/food-menu", _TURTLE_BAY),
+    ("Mowgli Street Food", "https://www.mowglistreetfood.com/menus/", _MOWGLI),
+    ("Krispy Kreme", "https://www.krispykreme.co.uk/menu", _KRISPY_KREME),
+    ("Daves Hot Chicken", "https://daveshotchicken.co.uk/menu", _DAVES_HOT_CHICKEN),
+    ("Banana Tree", "https://www.bananatree.co.uk/menus/", _BANANA_TREE),
+    ("Barburrito", "https://www.barburrito.co.uk/menu", _BARBURRITO),
+    ("Carluccios", "https://www.carluccios.com/menus/", _CARLUCCIOS),
+    ("Fireaway Pizza", "https://fireaway.co.uk/menu", _FIREAWAY),
+    ("German Gymnasium", "https://www.germangymnasium.com/menus", _GERMAN_GYMNASIUM),
+    ("Absurd Bird", "https://absurdbird.com/menu", _ABSURD_BIRD),
+    ("Yard Sale Pizza", "https://yardsalepizza.com/menu", _YARD_SALE_PIZZA),
+    ("Flat Iron", "https://flatironsteak.co.uk/", _FLAT_IRON),
+    ("Patty & Bun", "https://www.pattyandbun.co.uk/menus", _PATTY_AND_BUN),
+    ("MEATliquor", "https://meatliquor.com/menu", _MEATLIQUOR),
+    ("Bone Daddies", "https://bonedaddies.com/menu/", _BONE_DADDIES),
+    ("Chophouse", "https://www.hawksmoor.com/", _CHOPHOUSE),
+    ("Rosa's Thai Cafe", "https://rosasthai.com/menus/", _ROSAS_THAI_CAFE),
+    ("Greggs Cafe", "https://www.greggs.co.uk/nutrition", _GREGGS_CAFE),
+    ("Ole & Steen", "https://oleandsteen.co.uk/", _OLE_AND_STEEN),
+    ("Paul Bakery", "https://www.paul-uk.com/menu", _PAUL_BAKERY),
+    ("EAT.", "https://eat.co.uk/menu", _EAT),
+    ("Benugo", "https://www.benugo.com/menus", _BENUGO),
+    ("Black Sheep Coffee", "https://www.blacksheepcoffee.com/", _BLACK_SHEEP_COFFEE),
+    ("Pho", "https://www.phocafe.co.uk/food-menu/", _PHO),
+    ("Coco di Mama", "https://www.cocodimama.co.uk/menu", _COCO_DI_MAMA),
+    ("Benitos Hat", "https://www.benitoshat.com/menu", _BENITOS_HAT),
+    ("Ping Pong", "https://www.pingpongdimsum.com/menu", _PING_PONG),
+    ("Inamo", "https://www.inamo-restaurant.com/menu", _INAMO),
 ]

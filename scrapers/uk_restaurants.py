@@ -200,8 +200,7 @@ _AKASYA = [
 # Format: (restaurant_name, location, source_url, items_list)
 
 _ALL_RESTAURANTS = [
-    # London
-    ("Dishoom", "London", "https://www.dishoom.com/", _DISHOOM),
+    # London (Dishoom omitted — already in uk_chains.py as national chain)
     ("Barge East", "London", "https://www.bargeeast.com/", _BARGE_EAST),
     ("Park Chinois", "London", "https://www.parkchinois.com/", _PARK_CHINOIS),
     ("The Ivy", "London", "https://www.the-ivy.co.uk/", _THE_IVY),
