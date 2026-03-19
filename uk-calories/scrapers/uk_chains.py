@@ -19,6 +19,7 @@ def scrape():
                 "category": cat,
                 "item": name,
                 "description": "",
+                "location": "National",
                 "calories_kcal": kcal,
                 "protein_g": prot,
                 "carbs_g": carbs,

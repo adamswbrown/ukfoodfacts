@@ -112,6 +112,7 @@ async def _parse_rendered_dom(page, today):
                     "salt_g": None,
                     "allergens": [],
                     "dietary_flags": [],
+                    "location": "National",
                     "source_url": "https://www.wagamama.com/menu",
                     "scraped_at": today,
                 })
@@ -255,6 +256,7 @@ def _fallback_data():
             "salt_g": salt,
             "allergens": [],
             "dietary_flags": [],
+            "location": "National",
             "source_url": "https://www.wagamama.com/menu",
             "scraped_at": today,
         })

@@ -27,7 +27,8 @@ def save(items):
 
 def add_item(restaurant, category, item_name, calories_kcal,
              protein_g=None, carbs_g=None, fat_g=None,
-             fibre_g=None, salt_g=None, description=""):
+             fibre_g=None, salt_g=None, description="",
+             location="National"):
     """Add a single custom meal item."""
     items = load()
     new_item = {
@@ -35,6 +36,7 @@ def add_item(restaurant, category, item_name, calories_kcal,
         "category": category.strip(),
         "item": item_name.strip(),
         "description": description.strip(),
+        "location": location.strip() if location else "National",
         "calories_kcal": _safe_int(calories_kcal),
         "protein_g": _safe_float(protein_g),
         "carbs_g": _safe_float(carbs_g),

@@ -79,6 +79,8 @@ def _parse_mcdonalds_json(data):
             "salt_g": _safe_float(_find_nutrient(p, ["salt", "sodium"])),
             "allergens": p.get("allergens") or [],
             "dietary_flags": [],
+            "location": "National",
+            "location": "National",
             "source_url": "https://www.mcdonalds.com/gb/en-gb/eat/nutritioninfo.html",
             "scraped_at": today,
         })
@@ -165,6 +167,7 @@ def _fallback_data():
             "salt_g": salt,
             "allergens": [],
             "dietary_flags": [],
+            "location": "National",
             "source_url": "https://www.mcdonalds.com/gb/en-gb/eat/nutritioninfo.html",
             "scraped_at": today,
         })

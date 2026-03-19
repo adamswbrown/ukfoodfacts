@@ -597,6 +597,9 @@ HTML = r"""<!DOCTYPE html>
       <span class="search-icon">⌕</span>
       <input type="search" id="search" placeholder="Search dishes..." oninput="applyFilters()">
     </div>
+    <select id="location-filter" onchange="applyFilters()">
+      <option value="">All locations</option>
+    </select>
     <select id="category-filter" onchange="applyFilters()">
       <option value="">All categories</option>
     </select>
@@ -624,6 +627,7 @@ HTML = r"""<!DOCTYPE html>
       <thead>
         <tr>
           <th onclick="sortBy('restaurant')">Restaurant <span class="sort-indicator">↕</span></th>
+          <th onclick="sortBy('location')">Location <span class="sort-indicator">↕</span></th>
           <th onclick="sortBy('item')">Dish <span class="sort-indicator">↕</span></th>
           <th onclick="sortBy('category')">Category <span class="sort-indicator">↕</span></th>
           <th onclick="sortBy('calories_kcal')">Calories <span class="sort-indicator">↕</span></th>
@@ -672,6 +676,11 @@ HTML = r"""<!DOCTYPE html>
             <label>Restaurant *</label>
             <input type="text" id="add-restaurant" required placeholder="e.g. Greggs" list="restaurant-list">
             <datalist id="restaurant-list"></datalist>
+          </div>
+          <div class="form-group full">
+            <label>Location</label>
+            <input type="text" id="add-location" placeholder="e.g. Bangor, Cardiff... (default: National)" list="location-list">
+            <datalist id="location-list"></datalist>
           </div>
           <div class="form-group full">
             <label>Dish Name *</label>
@@ -746,6 +755,7 @@ async function loadData() {
 function init() {
   buildStats();
   buildRestaurantTabs();
+  buildLocationFilter();
   buildCategoryFilter();
   applyFilters();
   document.getElementById('header-meta').textContent =
@@ -800,6 +810,15 @@ function setRestaurant(r, el) {
   applyFilters();
 }
 
+// ── Location filter ────────────────────────────────────────────────
+function buildLocationFilter() {
+  const locations = [...new Set(allData.map(d => d.location || 'National'))].sort();
+  const sel = document.getElementById('location-filter');
+  const current = sel.value;
+  sel.innerHTML = '<option value="">All locations</option>' +
+    locations.map(l => `<option value="${l}" ${l===current?'selected':''}>${l}</option>`).join('');
+}
+
 // ── Category filter ────────────────────────────────────────────────
 function buildCategoryFilter() {
   const filtered = activeRestaurant === 'all'
@@ -825,9 +844,13 @@ function applyFilters() {
     data = data.filter(d =>
       d.item.toLowerCase().includes(q) ||
       d.category.toLowerCase().includes(q) ||
-      d.restaurant.toLowerCase().includes(q)
+      d.restaurant.toLowerCase().includes(q) ||
+      (d.location || '').toLowerCase().includes(q)
     );
   }
+
+  const loc = document.getElementById('location-filter').value;
+  if (loc) data = data.filter(d => (d.location || 'National') === loc);
 
   const cat = document.getElementById('category-filter').value;
   if (cat) data = data.filter(d => d.category === cat);
@@ -884,6 +907,7 @@ function renderTable(data) {
           ${d.restaurant}${d.custom ? '<span class="custom-badge">custom</span>' : ''}
         </div>
       </td>
+      <td class="cell-category">${d.location || 'National'}</td>
       <td class="cell-item">${d.item}</td>
       <td class="cell-category">${d.category}</td>
       <td><span class="cal-badge ${calClass(d.calories_kcal)}">${d.calories_kcal ?? '—'} kcal</span></td>
@@ -912,7 +936,7 @@ function openModal(i, d) {
   const item = window._tableData[i] || d;
   document.getElementById('modal-title').textContent = item.item;
   document.getElementById('modal-subtitle').textContent =
-    `${item.restaurant} · ${item.category}`;
+    `${item.restaurant} · ${item.location || 'National'} · ${item.category}`;
 
   const pct = item.calories_kcal ? Math.min(100, Math.round(item.calories_kcal / 2000 * 100)) : 0;
   const barColor = item.calories_kcal < 400 ? '#3ecf8e' : item.calories_kcal < 700 ? '#f59e0b' : '#ef4444';
@@ -1006,9 +1030,13 @@ function showToast(msg) {
 // ── Add modal ─────────────────────────────────────────────────────────
 function openAddModal() {
   // Populate restaurant datalist for autocomplete
-  const list = document.getElementById('restaurant-list');
+  const rlist = document.getElementById('restaurant-list');
   const restaurants = [...new Set(allData.map(d => d.restaurant))].sort();
-  list.innerHTML = restaurants.map(r => `<option value="${r}">`).join('');
+  rlist.innerHTML = restaurants.map(r => `<option value="${r}">`).join('');
+  // Populate location datalist
+  const llist = document.getElementById('location-list');
+  const locations = [...new Set(allData.map(d => d.location || 'National'))].sort();
+  llist.innerHTML = locations.map(l => `<option value="${l}">`).join('');
   document.getElementById('add-modal').classList.add('open');
 }
 
@@ -1026,6 +1054,7 @@ async function submitAddForm(e) {
 
   const payload = {
     restaurant: document.getElementById('add-restaurant').value,
+    location: document.getElementById('add-location').value || 'National',
     category: document.getElementById('add-category').value,
     item: document.getElementById('add-item').value,
     calories_kcal: document.getElementById('add-calories').value,
@@ -1129,6 +1158,7 @@ def api_add_item():
         fibre_g=data.get("fibre_g"),
         salt_g=data.get("salt_g"),
         description=data.get("description", ""),
+        location=data.get("location", "National"),
     )
 
     # Also append to the main DB so it shows immediately

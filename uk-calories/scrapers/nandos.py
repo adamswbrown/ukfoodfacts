@@ -77,6 +77,7 @@ def scrape():
                     "salt_g": _safe_float(nutrition.get("salt") or nutrition.get("sodium")),
                     "allergens": product.get("allergens", []),
                     "dietary_flags": _extract_dietary(product),
+                    "location": "National",
                     "source_url": "https://www.nandos.co.uk/food/menu",
                     "scraped_at": today,
                 })
@@ -177,6 +178,7 @@ def _fallback_data():
             "salt_g": salt,
             "allergens": [],
             "dietary_flags": [],
+            "location": "National",
             "source_url": "https://www.nandos.co.uk/food/menu",
             "scraped_at": today,
         })
