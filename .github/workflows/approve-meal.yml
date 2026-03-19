@@ -1,0 +1,120 @@
+name: Approve Meal Submission
+
+on:
+  issues:
+    types: [closed]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  process-meal:
+    if: contains(github.event.issue.labels.*.name, 'meal-submission')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Extract and add meal
+        run: |
+          python3 << 'PYEOF'
+          import json
+          import re
+          import sys
+          from pathlib import Path
+          from datetime import date
+
+          # Get issue body from environment
+          import os
+          body = os.environ.get("ISSUE_BODY", "")
+
+          # Extract JSON block from issue body
+          match = re.search(r'```json\s*\n(.*?)\n```', body, re.DOTALL)
+          if not match:
+              print("ERROR: No JSON block found in issue body")
+              sys.exit(1)
+
+          data = json.loads(match.group(1))
+
+          # Build the item
+          def safe_float(v):
+              try:
+                  return round(float(v), 1) if v is not None else None
+              except (ValueError, TypeError):
+                  return None
+
+          def safe_int(v):
+              try:
+                  return int(float(v)) if v is not None else None
+              except (ValueError, TypeError):
+                  return None
+
+          new_item = {
+              "restaurant": data.get("restaurant", "").strip(),
+              "category": data.get("category", "").strip(),
+              "item": data.get("item", "").strip(),
+              "description": data.get("description", "").strip(),
+              "location": (data.get("location") or "National").strip(),
+              "calories_kcal": safe_int(data.get("calories_kcal")),
+              "protein_g": safe_float(data.get("protein_g")),
+              "carbs_g": safe_float(data.get("carbs_g")),
+              "fat_g": safe_float(data.get("fat_g")),
+              "fibre_g": safe_float(data.get("fibre_g")),
+              "salt_g": safe_float(data.get("salt_g")),
+              "allergens": [],
+              "dietary_flags": [],
+              "source_url": "user-submitted",
+              "scraped_at": str(date.today()),
+              "custom": True,
+          }
+
+          # Add to custom_items.json
+          custom_path = Path("output/custom_items.json")
+          items = []
+          if custom_path.exists():
+              with open(custom_path) as f:
+                  items = json.load(f)
+          items.append(new_item)
+          with open(custom_path, "w") as f:
+              json.dump(items, f, indent=2)
+
+          # Also add to nutrition_db.json
+          db_path = Path("output/nutrition_db.json")
+          if db_path.exists():
+              with open(db_path) as f:
+                  db = json.load(f)
+              db.append(new_item)
+              with open(db_path, "w") as f:
+                  json.dump(db, f, indent=2)
+
+          print(f"Added: {new_item['restaurant']} - {new_item['item']} ({new_item['location']})")
+          PYEOF
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add output/custom_items.json output/nutrition_db.json
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "feat: add user-submitted meal from #${{ github.event.issue.number }}"
+          git push
+
+      - name: Comment on issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '✅ Meal has been added to the database and will appear on the site shortly.'
+            })
