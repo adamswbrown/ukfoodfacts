@@ -1233,6 +1233,7 @@ def api_refresh():
 
 
 ADMIN_KEY = os.environ.get("ADMIN_KEY", "ukfoodfacts2026")
+API_KEY = os.environ.get("API_KEY", "")
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 GITHUB_REPO = os.environ.get("GITHUB_REPO", "adamswbrown/ukfoodfacts")
 
@@ -1337,6 +1338,101 @@ def api_delete_item():
         json.dump(db, f, indent=2)
 
     return jsonify({"ok": True})
+
+
+# ── Authenticated API (v1) ─────────────────────────────────────────
+
+
+def _check_api_key():
+    """Validate API key from header or query param."""
+    if not API_KEY:
+        return False, jsonify({"ok": False, "error": "API not configured"}), 503
+    key = request.headers.get("X-API-Key") or request.args.get("api_key")
+    if key != API_KEY:
+        return False, jsonify({"ok": False, "error": "Invalid or missing API key"}), 401
+    return True, None, None
+
+
+@app.route("/api/v1/data")
+def api_v1_data():
+    """Full nutrition database — authenticated for external apps."""
+    ok, err, code = _check_api_key()
+    if not ok:
+        return err, code
+    db = load_db()
+    # Support optional filters via query params
+    restaurant = request.args.get("restaurant")
+    location = request.args.get("location")
+    category = request.args.get("category")
+    search = request.args.get("q", "").lower()
+    if restaurant:
+        db = [d for d in db if d["restaurant"] == restaurant]
+    if location:
+        db = [d for d in db if d.get("location", "National") == location]
+    if category:
+        db = [d for d in db if d["category"] == category]
+    if search:
+        db = [d for d in db if search in d["item"].lower()
+              or search in d["restaurant"].lower()
+              or search in d.get("category", "").lower()]
+    return jsonify({
+        "ok": True,
+        "count": len(db),
+        "data": db,
+    })
+
+
+@app.route("/api/v1/restaurants")
+def api_v1_restaurants():
+    """List all restaurants with item counts — authenticated."""
+    ok, err, code = _check_api_key()
+    if not ok:
+        return err, code
+    db = load_db()
+    restaurants = {}
+    for d in db:
+        name = d["restaurant"]
+        if name not in restaurants:
+            restaurants[name] = {"restaurant": name, "locations": set(), "count": 0}
+        restaurants[name]["count"] += 1
+        restaurants[name]["locations"].add(d.get("location", "National"))
+    result = [{"restaurant": v["restaurant"], "locations": sorted(v["locations"]),
+               "item_count": v["count"]} for v in restaurants.values()]
+    return jsonify({"ok": True, "count": len(result), "data": result})
+
+
+@app.route("/api/v1/locations")
+def api_v1_locations():
+    """List all locations with restaurant counts — authenticated."""
+    ok, err, code = _check_api_key()
+    if not ok:
+        return err, code
+    db = load_db()
+    locations = {}
+    for d in db:
+        loc = d.get("location", "National")
+        if loc not in locations:
+            locations[loc] = {"location": loc, "restaurants": set(), "count": 0}
+        locations[loc]["count"] += 1
+        locations[loc]["restaurants"].add(d["restaurant"])
+    result = [{"location": v["location"], "restaurants": sorted(v["restaurants"]),
+               "item_count": v["count"]} for v in locations.values()]
+    return jsonify({"ok": True, "count": len(result), "data": result})
+
+
+@app.route("/api/v1/search")
+def api_v1_search():
+    """Search meals by name — authenticated."""
+    ok, err, code = _check_api_key()
+    if not ok:
+        return err, code
+    q = request.args.get("q", "").lower().strip()
+    if not q:
+        return jsonify({"ok": False, "error": "q parameter required"}), 400
+    db = load_db()
+    results = [d for d in db if q in d["item"].lower()
+               or q in d["restaurant"].lower()]
+    return jsonify({"ok": True, "count": len(results), "data": results})
 
 
 if __name__ == "__main__":
