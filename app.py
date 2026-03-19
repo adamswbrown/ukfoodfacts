@@ -646,7 +646,10 @@ HTML = r"""<!DOCTYPE html>
 
   <!-- Contribution banner -->
   <div class="contrib-banner">
-    <p><strong>Know a restaurant we're missing?</strong> Add meals from any UK restaurant or takeaway — submissions are reviewed before going live.</p>
+    <div>
+      <p><strong>Know a restaurant we're missing?</strong> Add meals from any UK restaurant or takeaway — submissions are reviewed before going live.</p>
+      <p style="margin-top:6px;font-size:0.75rem;color:var(--muted);opacity:0.7">Data refreshes automatically every day at 06:15 UTC. Last update shown above.</p>
+    </div>
     <button class="contrib-btn" onclick="openAddModal()">+ Add a Meal</button>
   </div>
 
