@@ -91,13 +91,45 @@ python app.py
 
 The nutrition database is automatically refreshed via **GitHub Actions**.
 
-### How it works
+### Schedule
 
-1. A cron job runs daily at **06:15 UTC** (see `.github/workflows/scrape.yml`)
-2. It installs Python, dependencies, and Playwright Chromium on a GitHub runner
-3. Runs `python main.py` which executes all scrapers (including the Playwright-based Wagamama scraper)
-4. If `output/nutrition_db.json` has changed, it commits and pushes the update
-5. The push triggers a **Vercel redeploy**, so the live site gets fresh data automatically
+| What | When | Workflow |
+|------|------|----------|
+| **Daily scrape** | Every day at **06:15 UTC** (07:15 BST) | `scrape.yml` |
+| **Meal approval** | When you close a `meal-submission` issue | `approve-meal.yml` |
+| **Meal deletion** | Manual trigger from Actions tab | `delete-meal.yml` |
+
+All three workflows commit changes to the repo, which triggers a **Vercel redeploy** automatically.
+
+### How the daily scrape works
+
+1. GitHub Actions cron fires at **06:15 UTC** daily (see `.github/workflows/scrape.yml`)
+2. Spins up a Linux VM, installs Python 3.12, dependencies, and Playwright Chromium
+3. Runs `python main.py` — executes all scrapers including the Playwright-based Wagamama scraper
+4. If `output/nutrition_db.json` changed, commits and pushes the update
+5. The push triggers a **Vercel redeploy** — the live site gets fresh data automatically
+6. If nothing changed (same data), no commit is made — keeps git history clean
+
+### How meal submissions work
+
+1. A user clicks **"+ Add a Meal"** on the site and fills in the form
+2. The app creates a **GitHub Issue** with the `meal-submission` label (requires `GITHUB_TOKEN` env var)
+3. You review the issue on GitHub — it has a formatted table of the nutrition data
+4. **To approve**: close the issue. The `approve-meal.yml` workflow parses the data, adds it to the database, commits, and Vercel redeploys
+5. **To reject**: remove the `meal-submission` label, then close (or just ignore it)
+
+### How to delete a meal
+
+1. Go to **Actions** > **Delete Meal** > **Run workflow**
+2. Enter the exact restaurant name and dish name
+3. The workflow removes it from both `nutrition_db.json` and `custom_items.json`, commits, and Vercel redeploys
+4. Only repo collaborators can trigger this — no keys or passwords needed
+
+### Manual scrape trigger
+
+You can trigger a full re-scrape anytime:
+1. Go to **Actions** > **Scrape Nutrition Data**
+2. Click **Run workflow** > **Run workflow**
 
 ### Why GitHub Actions (not Vercel Cron)?
 
@@ -106,25 +138,22 @@ The nutrition database is automatically refreshed via **GitHub Actions**.
 - Playwright browser binaries are cached between runs for speed
 - It's **free** for public repos (unlimited minutes) or ~100-150 min/month for private repos (well within the 2,000 free minutes on GitHub Free)
 
-### Manual trigger
-
-You can trigger a scrape anytime from the GitHub Actions tab:
-1. Go to **Actions** > **Scrape Nutrition Data**
-2. Click **Run workflow** > **Run workflow**
-
 ### Required setup
 
-In your GitHub repo settings (**Settings > Actions > General**):
+**GitHub repo settings** (Settings > Actions > General):
 - Under **Workflow permissions**, select **"Read and write permissions"**
-- This allows the workflow to commit and push updated data
+
+**Vercel environment variables** (Settings > Environment Variables):
+- `GITHUB_TOKEN` — a GitHub PAT with `repo` scope (allows the app to create issues)
+- `ADMIN_KEY` — protects the DELETE API endpoint (set to something unguessable)
 
 ### Vercel deployment
 
 The app is deployed as a Python serverless function on Vercel:
 - **Viewing data**: Works normally (reads bundled JSON)
-- **Adding custom meals**: Works within a function instance (ephemeral — resets on cold start)
+- **Submitting meals**: Creates a GitHub Issue for review
 - **Refresh button**: Disabled on Vercel (returns 501) since scrapers can't run serverless
-- Data freshness is maintained by the GitHub Actions cron, not by live scraping
+- Data freshness is maintained by the daily GitHub Actions cron
 
 ## Adding a new restaurant
 
@@ -138,11 +167,11 @@ The app is deployed as a Python serverless function on Vercel:
 
 1. Add a `_YOUR_RESTAURANT` list with the same item format
 2. Add it to `_ALL_LOCAL` with `(name, location, source_url, items_list)`
-3. The `location` field should be the town/city (e.g. "Bangor", "Belfast")
+3. The `location` field should be the town/city (e.g. "Bangor, NI", "Belfast")
 
-### Via the UI
+### Via the site
 
-Click **"+ Add Meal"** in the web interface to add individual items with a location.
+Click **"+ Add a Meal"** on the live site. The submission creates a GitHub Issue for review — once approved, it's added to the database automatically.
 
 ## Scraper strategies
 
