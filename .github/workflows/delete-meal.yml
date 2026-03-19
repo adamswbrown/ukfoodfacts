@@ -1,0 +1,72 @@
+name: Delete Meal
+
+on:
+  workflow_dispatch:
+    inputs:
+      restaurant:
+        description: "Restaurant name (exact match)"
+        required: true
+        type: string
+      item:
+        description: "Dish name (exact match)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Delete meal from database
+        run: |
+          python3 << 'PYEOF'
+          import json
+          import sys
+          import os
+          from pathlib import Path
+
+          restaurant = os.environ["INPUT_RESTAURANT"].strip()
+          item = os.environ["INPUT_ITEM"].strip()
+
+          # Remove from nutrition_db.json
+          db_path = Path("output/nutrition_db.json")
+          db = json.loads(db_path.read_text())
+          before = len(db)
+          db = [d for d in db if not (d["restaurant"] == restaurant and d["item"] == item)]
+          after = len(db)
+
+          if before == after:
+              print(f"ERROR: No match found for '{restaurant}' - '{item}'")
+              print(f"Tip: names must be exact. Check the JSON for the precise spelling.")
+              sys.exit(1)
+
+          db_path.write_text(json.dumps(db, indent=2))
+          print(f"Removed {before - after} item(s) from nutrition_db.json")
+
+          # Also remove from custom_items.json if present
+          custom_path = Path("output/custom_items.json")
+          if custom_path.exists():
+              custom = json.loads(custom_path.read_text())
+              custom = [d for d in custom if not (d["restaurant"] == restaurant and d["item"] == item)]
+              custom_path.write_text(json.dumps(custom, indent=2))
+              print("Also checked custom_items.json")
+
+          PYEOF
+        env:
+          INPUT_RESTAURANT: ${{ inputs.restaurant }}
+          INPUT_ITEM: ${{ inputs.item }}
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add output/nutrition_db.json output/custom_items.json
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "chore: delete '${{ inputs.item }}' from ${{ inputs.restaurant }}"
+          git push
