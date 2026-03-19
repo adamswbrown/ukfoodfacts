@@ -571,6 +571,57 @@ HTML = r"""<!DOCTYPE html>
     pointer-events: none;
   }
   .toast.show { opacity: 1; transform: none; }
+
+  /* Region tags */
+  .region-map { grid-column: 1 / -1; }
+  .region-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+  .region-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-family: 'DM Mono', monospace;
+    background: #1a2744;
+    border: 1px solid #2a3a5c;
+    color: #8bb4f0;
+  }
+  .region-tag.national {
+    background: #1a3328;
+    border-color: #2a5c3a;
+    color: #4ade80;
+  }
+
+  /* Contribution banner */
+  .contrib-banner {
+    background: linear-gradient(135deg, #1a2744 0%, #1a3328 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .contrib-banner p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .contrib-banner strong { color: var(--text); }
+  .contrib-banner .contrib-btn {
+    padding: 7px 18px;
+    border-radius: 6px;
+    background: #4ade80;
+    color: #0a0a0a;
+    font-weight: 600;
+    font-size: 0.8rem;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .contrib-banner .contrib-btn:hover { background: #22c55e; }
 </style>
 </head>
 <body>
@@ -592,6 +643,12 @@ HTML = r"""<!DOCTYPE html>
 
   <!-- Stats -->
   <div class="stats-bar" id="stats-bar"></div>
+
+  <!-- Contribution banner -->
+  <div class="contrib-banner">
+    <p><strong>Know a restaurant we're missing?</strong> Add meals from any UK restaurant or takeaway — submissions are reviewed before going live.</p>
+    <button class="contrib-btn" onclick="openAddModal()">+ Add a Meal</button>
+  </div>
 
   <!-- Controls -->
   <div class="controls">
@@ -771,10 +828,12 @@ function buildStats() {
   const min = Math.min(...cals);
   const max = Math.max(...cals);
   const restaurants = [...new Set(allData.map(d=>d.restaurant))];
+  const locations = [...new Set(allData.map(d=>d.location || 'National'))];
 
   const bars = [
     { label: 'Total Dishes', value: allData.length },
     { label: 'Restaurants', value: restaurants.length },
+    { label: 'Locations', value: locations.length },
     { label: 'Avg Calories', value: avg + ' kcal' },
     { label: 'Lowest Cal', value: min + ' kcal' },
     { label: 'Highest Cal', value: max + ' kcal' },
@@ -783,7 +842,13 @@ function buildStats() {
     <div class="stat-card">
       <div class="stat-label">${s.label}</div>
       <div class="stat-value">${s.value}</div>
-    </div>`).join('');
+    </div>`).join('') + `
+    <div class="stat-card region-map">
+      <div class="stat-label">Regions Covered</div>
+      <div class="region-tags">${locations.map(l =>
+        `<span class="region-tag${l === 'National' ? ' national' : ''}">${l}</span>`
+      ).join('')}</div>
+    </div>`;
 }
 
 // ── Restaurant tabs ────────────────────────────────────────────────
