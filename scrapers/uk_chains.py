@@ -1343,6 +1343,89 @@ _INAMO = [
     ("Desserts", "Matcha Cheesecake", 340, 6.0, 36.0, 18.0, 0, 0.3),
 ]
 
+# ── Batch 4: Coffee, bakery & breakfast chains ────────────────────────
+
+_PATISSERIE_VALERIE = [
+    ("Cakes", "Mille-Feuille", 437, 6.0, 42.0, 28.0, 1.0, 0.4),
+    ("Cakes", "Double Chocolate Slice", 490, 6.0, 52.0, 28.0, 2.0, 0.5),
+    ("Cakes", "Strawberry Gateau (slice)", 275, 4.0, 32.0, 14.0, 1.0, 0.3),
+    ("Cakes", "Black Forest Gateau (slice)", 350, 4.0, 38.0, 20.0, 1.0, 0.3),
+    ("Cakes", "Victoria Sponge (slice)", 320, 4.0, 36.0, 18.0, 0, 0.3),
+    ("Pastry", "Plain Scone", 354, 6.0, 44.0, 16.0, 1.0, 1.0),
+    ("Pastry", "Fruit Scone", 386, 6.0, 52.0, 16.0, 2.0, 1.0),
+    ("Pastry", "Coffee Eclair", 300, 5.0, 28.0, 18.0, 0, 0.3),
+    ("Pastry", "Croissant", 280, 5.0, 28.0, 16.0, 1.0, 0.5),
+    ("Drinks", "Latte", 140, 7.0, 12.0, 6.0, 0, 0.2),
+]
+
+_UPPER_CRUST = [
+    ("Baguettes", "Ham & Mozzarella Baguette", 488, 24.0, 48.0, 18.0, 2.0, 2.6),
+    ("Baguettes", "Tuna Mayo Baguette", 535, 22.0, 50.0, 26.0, 2.0, 2.2),
+    ("Baguettes", "Chicken & Bacon Baguette", 520, 28.0, 48.0, 22.0, 2.0, 2.4),
+    ("Baguettes", "Meatball Marinara Baguette", 560, 24.0, 54.0, 24.0, 3.0, 2.8),
+    ("Baguettes", "Veggie Baguette", 420, 14.0, 52.0, 16.0, 3.0, 2.0),
+    ("Baguettes", "Steak & Cheese Baguette", 580, 30.0, 50.0, 26.0, 2.0, 2.6),
+    ("Sides", "Artisan Baguette (4\" slice)", 160, 5.0, 30.0, 2.0, 1.0, 0.8),
+    ("Drinks", "Americano", 10, 0.5, 1.0, 0, 0, 0),
+]
+
+_CORNISH_BAKERY = [
+    ("Pasties", "Traditional Steak Pasty", 740, 22.0, 58.0, 44.0, 3.0, 2.2),
+    ("Pasties", "Steak & Stilton Pasty", 831, 26.0, 56.0, 54.0, 3.0, 2.6),
+    ("Pasties", "Cheese & Onion Pasty", 680, 16.0, 58.0, 40.0, 3.0, 2.0),
+    ("Pasties", "Chicken & Bacon Pasty", 720, 24.0, 56.0, 42.0, 2.0, 2.4),
+    ("Pasties", "Vegan Pasty", 620, 12.0, 60.0, 34.0, 4.0, 1.8),
+    ("Sweet", "Cornish Cream Tea Scone", 380, 6.0, 46.0, 18.0, 1.0, 1.0),
+    ("Sweet", "Sausage Roll", 420, 14.0, 32.0, 26.0, 1.0, 1.8),
+    ("Drinks", "Flat White", 120, 6.0, 10.0, 6.0, 0, 0.2),
+]
+
+_ESQUIRES_COFFEE = [
+    ("Breakfast", "Bacon Roll", 514, 22.0, 42.0, 26.0, 1.0, 2.8),
+    ("Breakfast", "Smashed Avocado on Sourdough", 372, 8.0, 38.0, 20.0, 6.0, 1.2),
+    ("Breakfast", "Smashed Avo + Halloumi + Egg", 630, 26.0, 40.0, 38.0, 6.0, 2.4),
+    ("Breakfast", "Eggs Benedict", 480, 22.0, 28.0, 28.0, 1.0, 2.2),
+    ("Hot Drinks", "Flat White", 120, 6.0, 10.0, 6.0, 0, 0.2),
+    ("Hot Drinks", "Chai Latte", 200, 6.0, 30.0, 6.0, 0, 0.3),
+    ("Cold Drinks", "Iced Latte", 100, 5.0, 10.0, 4.0, 0, 0.2),
+    ("Sweet", "Chocolate Brownie", 380, 4.0, 44.0, 22.0, 2.0, 0.4),
+]
+
+_MUFFIN_BREAK = [
+    ("Muffins", "Apple & Cinnamon Muffin", 380, 5.0, 46.0, 18.0, 2.0, 0.6),
+    ("Muffins", "Mixed Berry Muffin", 360, 5.0, 44.0, 16.0, 2.0, 0.5),
+    ("Muffins", "Chocolate Chip Muffin", 420, 6.0, 50.0, 22.0, 1.0, 0.5),
+    ("Muffins", "Blueberry Muffin", 370, 5.0, 44.0, 18.0, 2.0, 0.5),
+    ("Savoury", "Bacon, Egg & Cheese Bagel", 479, 24.0, 40.0, 22.0, 2.0, 2.4),
+    ("Savoury", "Ham & Cheese Toastie", 420, 20.0, 36.0, 20.0, 1.0, 2.2),
+    ("Drinks", "Flat White", 120, 6.0, 10.0, 6.0, 0, 0.2),
+    ("Drinks", "Hot Chocolate", 260, 8.0, 34.0, 10.0, 1.0, 0.4),
+]
+
+_THE_BREAKFAST_CLUB = [
+    ("Breakfast", "The Full Monty", 1342, 52.0, 82.0, 86.0, 6.0, 4.8),
+    ("Breakfast", "Smashed Avocado on Toast", 133, 4.0, 12.0, 8.0, 4.0, 0.6),
+    ("Breakfast", "Pancake Stack (3)", 726, 14.0, 88.0, 34.0, 2.0, 1.8),
+    ("Breakfast", "Eggs Benedict", 520, 24.0, 30.0, 32.0, 1.0, 2.4),
+    ("Breakfast", "Huevos Rancheros", 580, 22.0, 48.0, 30.0, 6.0, 2.6),
+    ("Sides", "Hash Browns x2", 220, 2.0, 26.0, 12.0, 2.0, 0.8),
+    ("Sides", "Homestyle Potatoes", 280, 4.0, 34.0, 14.0, 3.0, 1.0),
+    ("Sides", "Pancake Balls", 726, 10.0, 84.0, 38.0, 1.0, 1.2),
+    ("Burgers", "Classic Cheeseburger", 680, 34.0, 46.0, 36.0, 2.0, 2.6),
+    ("Drinks", "Milkshake (Vanilla)", 480, 10.0, 58.0, 22.0, 0, 0.4),
+]
+
+_BIRDS_BAKERY = [
+    ("Savoury", "Sausage Roll", 380, 12.0, 28.0, 24.0, 1.0, 1.6),
+    ("Savoury", "Pork Pie", 440, 14.0, 30.0, 28.0, 1.0, 1.8),
+    ("Savoury", "Cheese & Onion Roll", 360, 10.0, 32.0, 20.0, 1.0, 1.4),
+    ("Savoury", "Steak Bake", 420, 16.0, 34.0, 24.0, 1.0, 1.8),
+    ("Bread", "White Farmhouse Loaf (per 100g)", 240, 8.0, 46.0, 2.0, 2.0, 1.0),
+    ("Sweet", "Cream Doughnut", 320, 4.0, 36.0, 18.0, 1.0, 0.4),
+    ("Sweet", "Vanilla Slice", 280, 3.0, 34.0, 14.0, 0, 0.3),
+    ("Sweet", "Iced Bun", 260, 4.0, 38.0, 10.0, 1.0, 0.4),
+]
+
 # ── All chains aggregated ──────────────────────────────────────────────
 _ALL_CHAINS = [
     ("KFC", "https://www.kfc.co.uk/nutrition-information", _KFC),
@@ -1445,4 +1528,12 @@ _ALL_CHAINS = [
     ("Benitos Hat", "https://www.benitoshat.com/menu", _BENITOS_HAT),
     ("Ping Pong", "https://www.pingpongdimsum.com/menu", _PING_PONG),
     ("Inamo", "https://www.inamo-restaurant.com/menu", _INAMO),
+    # ── Batch 4: Coffee, bakery & breakfast chains ──
+    ("Patisserie Valerie", "https://patisserie-valerie.co.uk/pages/nutritional-and-allergen-information", _PATISSERIE_VALERIE),
+    ("Upper Crust", "https://uppercrust.co.uk/menu/", _UPPER_CRUST),
+    ("Cornish Bakery", "https://thecornishbakery.com/pages/nutritional-information", _CORNISH_BAKERY),
+    ("Esquires Coffee", "https://esquirescoffee.co.uk/food-drink/", _ESQUIRES_COFFEE),
+    ("Muffin Break", "https://muffinbreak.co.uk/our-menu/", _MUFFIN_BREAK),
+    ("The Breakfast Club", "https://thebreakfastclubcafes.com/menu/", _THE_BREAKFAST_CLUB),
+    ("Birds Bakery", "https://birdsbakery.com/pages/nutrition-and-allergen-data", _BIRDS_BAKERY),
 ]
