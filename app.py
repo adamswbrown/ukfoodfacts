@@ -54,6 +54,15 @@ HTML = r"""<!DOCTYPE html>
     --radius: 10px;
   }
 
+  [data-theme="light"] {
+    --bg: #f5f5f7;
+    --surface: #ffffff;
+    --surface2: #f0f0f3;
+    --border: #d8d8e0;
+    --text: #1a1a2e;
+    --muted: #6b6b80;
+  }
+
   html { scroll-behavior: smooth; }
 
   body {
@@ -76,6 +85,9 @@ HTML = r"""<!DOCTYPE html>
     background: rgba(14,14,16,0.92);
     backdrop-filter: blur(12px);
     z-index: 100;
+  }
+  [data-theme="light"] header {
+    background: rgba(245,245,247,0.92);
   }
 
   .logo {
@@ -359,6 +371,9 @@ HTML = r"""<!DOCTYPE html>
     justify-content: center;
     padding: 24px;
   }
+  [data-theme="light"] .modal-overlay {
+    background: rgba(0,0,0,0.3);
+  }
   .modal-overlay.open { display: flex; }
   .modal {
     background: var(--surface);
@@ -590,10 +605,23 @@ HTML = r"""<!DOCTYPE html>
     border-color: #2a5c3a;
     color: #4ade80;
   }
+  [data-theme="light"] .region-tag {
+    background: #e0ecff;
+    border-color: #b0c8f0;
+    color: #2a5090;
+  }
+  [data-theme="light"] .region-tag.national {
+    background: #d8f5e0;
+    border-color: #90d8a0;
+    color: #1a7030;
+  }
 
   /* Contribution banner */
   .contrib-banner {
     background: linear-gradient(135deg, #1a2744 0%, #1a3328 100%);
+  }
+  [data-theme="light"] .contrib-banner {
+    background: linear-gradient(135deg, #e0ecff 0%, #d8f5e0 100%);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 14px 20px;
@@ -743,6 +771,7 @@ HTML = r"""<!DOCTYPE html>
   </div>
   <div style="display:flex;align-items:center;gap:10px;">
     <div class="header-meta" id="header-meta"></div>
+    <button class="header-btn" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀ Light</button>
     <button class="header-btn" onclick="openRequestModal()">Request Restaurant</button>
     <button class="header-btn primary" onclick="openAddModal()">+ Add Meal</button>
     <button class="header-btn" id="refresh-btn" onclick="refreshData()">
@@ -1392,6 +1421,20 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') { closeAddModal(); closeRequestModal(); }
 });
 
+// ── Theme toggle ──────────────────────────────────────────────────
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+  const btn = document.getElementById('theme-toggle');
+  btn.textContent = theme === 'light' ? '\u263D Dark' : '\u2600 Light';
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme') || 'dark';
+  applyTheme(current === 'dark' ? 'light' : 'dark');
+}
+
+applyTheme(localStorage.getItem('theme') || 'dark');
 loadData();
 </script>
 </body>
