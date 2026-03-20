@@ -1,7 +1,8 @@
 """
 Nandos UK nutrition scraper
-Fetches from https://www.nandos.co.uk/food/menu
-Nandos renders menu data as JSON in a <script> tag (Next.js __NEXT_DATA__)
+Fetches structured menu data from Nandos' Gatsby page-data JSON endpoint.
+Includes full dietary flags (vegan, vegetarian, gluten-free) and allergens
+directly from the source data.
 """
 
 import requests
@@ -9,88 +10,117 @@ import json
 import re
 from datetime import date
 
+from scrapers.dietary_utils import infer_dietary_flags
+
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; HobbyNutritionBot/1.0; personal use)",
-    "Accept": "text/html,application/xhtml+xml",
+    "Accept": "application/json",
 }
+
+# Gatsby page-data endpoint — returns full menu JSON without JS rendering
+PAGE_DATA_URL = "https://www.nandos.co.uk/food/menu/page-data/index/page-data.json"
 
 
 def scrape():
-    print("  [Nandos] Fetching menu page...")
+    print("  [Nandos] Fetching menu data...")
     try:
-        resp = requests.get(
-            "https://www.nandos.co.uk/food/menu", headers=HEADERS, timeout=15
-        )
+        resp = requests.get(PAGE_DATA_URL, headers=HEADERS, timeout=15)
         resp.raise_for_status()
+        data = resp.json()
     except Exception as e:
         print(f"  [Nandos] Request failed: {e}")
+        return _fallback_data()
+
+    items = _parse_page_data(data)
+    if items:
+        print(f"  [Nandos] Scraped {len(items)} items")
+        return items
+
+    print("  [Nandos] Could not parse page data, using fallback")
+    return _fallback_data()
+
+
+def _parse_page_data(data):
+    """Parse the Gatsby page-data JSON for menu items."""
+    try:
+        sections = data["result"]["data"]["nandos"]["menu"]["sections"]
+    except (KeyError, TypeError):
         return []
 
-    # Nandos (Next.js) embeds all menu data in __NEXT_DATA__ JSON script tag
-    match = re.search(
-        r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>',
-        resp.text,
-        re.DOTALL,
-    )
-    if not match:
-        print("  [Nandos] Could not find __NEXT_DATA__ - site structure may have changed")
-        return _fallback_data()
-
-    try:
-        next_data = json.loads(match.group(1))
-    except json.JSONDecodeError as e:
-        print(f"  [Nandos] JSON parse error: {e}")
-        return _fallback_data()
-
-    items = []
     today = str(date.today())
+    items = []
 
-    # Walk the page props to find menu sections
-    try:
-        # Path varies by Next.js version; try common paths
-        page_props = next_data.get("props", {}).get("pageProps", {})
-        menu_data = (
-            page_props.get("menu")
-            or page_props.get("menuData")
-            or page_props.get("categories")
-        )
+    for section in sections:
+        category = section.get("displayName", "Menu")
+        for product in section.get("items", []):
+            name = product.get("displayName", "")
+            if not name:
+                continue
 
-        if not menu_data:
-            print("  [Nandos] Menu structure not found in expected location")
-            return _fallback_data()
+            description = product.get("description", "") or ""
 
-        for category in menu_data:
-            cat_name = category.get("name", "Unknown")
-            products = category.get("products") or category.get("items") or []
-            for product in products:
-                nutrition = product.get("nutrition") or product.get("nutritionInfo") or {}
-                items.append({
-                    "restaurant": "Nandos",
-                    "category": cat_name,
-                    "item": product.get("name", "Unknown"),
-                    "description": product.get("description", ""),
-                    "calories_kcal": _safe_int(nutrition.get("calories") or nutrition.get("energy")),
-                    "protein_g": _safe_float(nutrition.get("protein")),
-                    "carbs_g": _safe_float(nutrition.get("carbohydrates") or nutrition.get("carbs")),
-                    "fat_g": _safe_float(nutrition.get("fat") or nutrition.get("totalFat")),
-                    "fibre_g": _safe_float(nutrition.get("fibre") or nutrition.get("fiber")),
-                    "salt_g": _safe_float(nutrition.get("salt") or nutrition.get("sodium")),
-                    "allergens": product.get("allergens", []),
-                    "dietary_flags": _extract_dietary(product),
-                    "location": "National",
-                    "source_url": "https://www.nandos.co.uk/food/menu",
-                    "scraped_at": today,
-                })
-    except Exception as e:
-        print(f"  [Nandos] Parse error: {e}")
-        return _fallback_data()
+            # Dietary flags directly from source
+            diets = product.get("diets", [])
+            dietary_flags = []
+            if "VEGAN" in diets:
+                dietary_flags.append("vegan")
+            if "VEGETARIAN" in diets and "vegan" not in dietary_flags:
+                dietary_flags.append("vegetarian")
+            if "GLUTEN_FREE" in diets:
+                dietary_flags.append("gluten_free")
 
-    if not items:
-        print("  [Nandos] No items parsed, using fallback data")
-        return _fallback_data()
+            # Allergens from source — only include confirmed ("YES")
+            allergens = []
+            for a in product.get("allergens", []):
+                if a.get("present") == "YES":
+                    allergen_name = a.get("name", "")
+                    # Normalise: GLUTEN_WHEAT -> gluten (wheat), etc.
+                    clean = allergen_name.lower().replace("_", " ")
+                    allergens.append(clean)
 
-    print(f"  [Nandos] Scraped {len(items)} items")
+            # Nutrition — values are in milligrams, convert to grams
+            nutrition = {}
+            portions = (product.get("nutritionalInfo") or {}).get("factsForPortionSizes", [])
+            if portions:
+                p = portions[0]
+                nutrition = {
+                    "kcal": p.get("energyKcal"),
+                    "protein": _mg_to_g(p.get("proteinMg")),
+                    "carbs": _mg_to_g(p.get("totalCarbsMg")),
+                    "fat": _mg_to_g(p.get("fatMg")),
+                    "fibre": _mg_to_g(p.get("fibreMg")),
+                    "salt": _mg_to_g(p.get("saltMg")),
+                }
+
+            items.append({
+                "restaurant": "Nandos",
+                "category": category,
+                "item": name,
+                "description": description,
+                "calories_kcal": _safe_int(nutrition.get("kcal")),
+                "protein_g": nutrition.get("protein"),
+                "carbs_g": nutrition.get("carbs"),
+                "fat_g": nutrition.get("fat"),
+                "fibre_g": nutrition.get("fibre"),
+                "salt_g": nutrition.get("salt"),
+                "allergens": allergens,
+                "dietary_flags": dietary_flags if dietary_flags else infer_dietary_flags(name, description),
+                "location": "National",
+                "source_url": "https://www.nandos.co.uk/food/menu",
+                "scraped_at": today,
+            })
+
     return items
+
+
+def _mg_to_g(mg_val):
+    """Convert milligrams to grams, rounded to 1 decimal."""
+    if mg_val is None:
+        return None
+    try:
+        return round(float(mg_val) / 1000, 1)
+    except (ValueError, TypeError):
+        return None
 
 
 def _safe_int(val):
@@ -105,23 +135,6 @@ def _safe_float(val):
         return round(float(val), 1) if val is not None else None
     except (ValueError, TypeError):
         return None
-
-
-def _extract_dietary(product):
-    flags = []
-    name_lower = (product.get("name") or "").lower()
-    desc_lower = (product.get("description") or "").lower()
-    tags = product.get("tags") or product.get("dietaryInfo") or []
-    tags_lower = [str(t).lower() for t in tags]
-
-    if any(t in ["vegan", "plant-based"] for t in tags_lower) or "plant" in name_lower:
-        flags.append("vegan")
-    if any(t in ["vegetarian"] for t in tags_lower):
-        flags.append("vegetarian")
-    if any(t in ["gluten-free", "gf"] for t in tags_lower):
-        flags.append("gluten_free")
-
-    return flags
 
 
 def _fallback_data():
@@ -177,7 +190,7 @@ def _fallback_data():
             "fibre_g": fibre,
             "salt_g": salt,
             "allergens": [],
-            "dietary_flags": [],
+            "dietary_flags": infer_dietary_flags(name),
             "location": "National",
             "source_url": "https://www.nandos.co.uk/food/menu",
             "scraped_at": today,

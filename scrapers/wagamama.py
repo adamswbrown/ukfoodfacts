@@ -1,193 +1,167 @@
 """
 Wagamama UK nutrition scraper
-Wagamama's menu is JS-rendered (React), so we use Playwright to load the page
-and then intercept the network requests for nutrition JSON data.
-URL: https://www.wagamama.com/menu
+Wagamama embeds full menu data (via Tenkites) in a Nuxt payload on their menu page.
+The payload contains structured dietary/allergen data for every dish.
+URL: https://www.wagamama.com/our-menu
 """
 
 import json
-import asyncio
+import re
+import requests
 from datetime import date
 
-try:
-    from playwright.async_api import async_playwright
-    PLAYWRIGHT_AVAILABLE = True
-except ImportError:
-    PLAYWRIGHT_AVAILABLE = False
+from scrapers.dietary_utils import infer_dietary_flags
+
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (compatible; HobbyNutritionBot/1.0; personal use)",
+    "Accept": "text/html,application/xhtml+xml",
+}
 
 
 def scrape():
-    if not PLAYWRIGHT_AVAILABLE:
-        print("  [Wagamama] Playwright not available, using fallback data")
+    print("  [Wagamama] Fetching menu page...")
+    try:
+        resp = requests.get(
+            "https://www.wagamama.com/our-menu",
+            headers=HEADERS,
+            timeout=20,
+        )
+        resp.raise_for_status()
+    except Exception as e:
+        print(f"  [Wagamama] Request failed: {e}")
         return _fallback_data()
 
-    print("  [Wagamama] Launching headless browser...")
-    try:
-        items = asyncio.run(_async_scrape())
-        if items:
-            print(f"  [Wagamama] Scraped {len(items)} items")
-            return items
-    except Exception as e:
-        print(f"  [Wagamama] Headless scrape failed: {e}")
+    items = _parse_nuxt_payload(resp.text)
+    if items:
+        print(f"  [Wagamama] Scraped {len(items)} items")
+        return items
 
+    print("  [Wagamama] Could not parse Nuxt payload, using fallback")
     return _fallback_data()
 
 
-async def _async_scrape():
-    items = []
+def _parse_nuxt_payload(html):
+    """Extract menu data from the Nuxt/Tenkites payload embedded in the page."""
+    # Find the large script tag containing the Nuxt payload
+    scripts = re.findall(r'<script[^>]*>(.*?)</script>', html, re.DOTALL)
+    payload = None
+    for s in scripts:
+        if len(s) > 100000 and '"Reactive"' in s[:50]:
+            try:
+                payload = json.loads(s)
+                break
+            except json.JSONDecodeError:
+                continue
+
+    if not payload or not isinstance(payload, list):
+        return []
+
+    arr = payload
     today = str(date.today())
-    captured_responses = []
 
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
-        context = await browser.new_context(
-            user_agent="Mozilla/5.0 (compatible; HobbyNutritionBot/1.0; personal use)"
-        )
-        page = await context.new_page()
+    def deep_resolve(val, depth=0):
+        """Resolve Nuxt positional references."""
+        if depth > 5:
+            return val
+        if isinstance(val, int) and 0 <= val < len(arr):
+            return deep_resolve(arr[val], depth + 1)
+        return val
 
-        # Intercept network responses to catch nutrition JSON
-        async def handle_response(response):
-            url = response.url
-            # Look for any API calls that might contain menu/nutrition data
-            if any(kw in url.lower() for kw in ["menu", "nutrition", "product", "item"]):
-                if "json" in response.headers.get("content-type", "") or url.endswith(".json"):
-                    try:
-                        body = await response.body()
-                        data = json.loads(body)
-                        captured_responses.append((url, data))
-                    except Exception:
-                        pass
+    # Find all recipe template positions (objects with Intols + Nutrs + Name keys)
+    recipe_positions = []
+    for i, item in enumerate(arr):
+        if isinstance(item, dict) and "Intols" in item and "Nutrs" in item and "Name" in item:
+            recipe_positions.append(i)
 
-        page.on("response", handle_response)
+    if not recipe_positions:
+        return []
 
-        try:
-            await page.goto(
-                "https://www.wagamama.com/menu",
-                wait_until="networkidle",
-                timeout=30000,
-            )
-            # Give JS time to render
-            await asyncio.sleep(3)
-        except Exception as e:
-            print(f"  [Wagamama] Page load error: {e}")
-            await browser.close()
-            return []
+    # Find section/category info — objects with Sections + Recipes + Name keys
+    section_map = {}  # recipe_position -> section_name
+    for i, item in enumerate(arr):
+        if isinstance(item, dict) and "Recipes" in item and "Name" in item and "Sections" in item:
+            section_name = deep_resolve(item.get("Name", ""))
+            if isinstance(section_name, str) and section_name:
+                recipes_ref = deep_resolve(item["Recipes"])
+                if isinstance(recipes_ref, list):
+                    for rref in recipes_ref:
+                        resolved_ref = deep_resolve(rref)
+                        if isinstance(resolved_ref, dict) and "Name" in resolved_ref:
+                            # Find which recipe_position this maps to
+                            for rpos in recipe_positions:
+                                if arr[rpos] is resolved_ref:
+                                    section_map[rpos] = section_name.title()
+                                    break
 
-        # Try to parse intercepted JSON responses
-        for url, data in captured_responses:
-            parsed = _try_parse_wagamama_json(data, today)
-            if parsed:
-                items.extend(parsed)
-
-        # If nothing from network intercept, try scraping rendered DOM
-        if not items:
-            items = await _parse_rendered_dom(page, today)
-
-        await browser.close()
-
-    return items
-
-
-async def _parse_rendered_dom(page, today):
-    """Fall back to scraping the rendered HTML for nutrition info."""
     items = []
-    try:
-        # Look for menu item containers
-        cards = await page.query_selector_all("[class*='menu-item'], [class*='dish'], [data-testid*='product']")
-        for card in cards[:100]:  # cap to avoid runaway
-            name = await _get_text(card, ["[class*='name']", "h2", "h3", "h4"])
-            cal_text = await _get_text(card, ["[class*='calorie']", "[class*='kcal']", "[class*='energy']"])
-            cal = _extract_number(cal_text)
-            if name:
-                items.append({
-                    "restaurant": "Wagamama",
-                    "category": "Menu",
-                    "item": name,
-                    "description": "",
-                    "calories_kcal": cal,
-                    "protein_g": None,
-                    "carbs_g": None,
-                    "fat_g": None,
-                    "fibre_g": None,
-                    "salt_g": None,
-                    "allergens": [],
-                    "dietary_flags": [],
-                    "location": "National",
-                    "source_url": "https://www.wagamama.com/menu",
-                    "scraped_at": today,
-                })
-    except Exception as e:
-        print(f"  [Wagamama] DOM parse error: {e}")
+    for pos in recipe_positions:
+        template = arr[pos]
+        name = deep_resolve(template["Name"])
+        if not isinstance(name, str) or not name.strip():
+            continue
+
+        desc = deep_resolve(template.get("Desc", ""))
+        if not isinstance(desc, str):
+            desc = ""
+
+        # Extract dietary flags and allergens from Intols
+        dietary_flags = []
+        allergens = []
+        intols_list = deep_resolve(template.get("Intols"))
+        if isinstance(intols_list, list):
+            for iref in intols_list:
+                intol_obj = arr[iref] if isinstance(iref, int) and iref < len(arr) else iref
+                if not isinstance(intol_obj, dict):
+                    continue
+                intol_id = deep_resolve(intol_obj.get("Id", ""))
+                val = deep_resolve(intol_obj.get("Val", ""))
+
+                if isinstance(intol_id, str) and val == "yes":
+                    lid = intol_id.lower()
+                    if lid == "vegan":
+                        dietary_flags.append("vegan")
+                    elif lid == "vegetarian":
+                        dietary_flags.append("vegetarian")
+                    elif lid in ("celery", "crustaceans", "eggs", "fish", "lupin",
+                                 "milk", "molluscs", "mustard", "sesame", "soya",
+                                 "sulphites", "peanuts"):
+                        allergens.append(intol_id)
+                    elif lid == "cereals containing gluten":
+                        allergens.append("gluten")
+
+        # Extract nutrition from Nutrs
+        nutrition = {}
+        nutrs_list = deep_resolve(template.get("Nutrs"))
+        if isinstance(nutrs_list, list):
+            for nref in nutrs_list:
+                nutr_obj = arr[nref] if isinstance(nref, int) and nref < len(arr) else nref
+                if isinstance(nutr_obj, dict):
+                    ndesc = deep_resolve(nutr_obj.get("Desc", ""))
+                    per_serv = deep_resolve(nutr_obj.get("PerServ", ""))
+                    if isinstance(ndesc, str) and per_serv:
+                        nutrition[ndesc.lower()] = str(per_serv).replace(",", "")
+
+        category = section_map.get(pos, "Menu")
+
+        items.append({
+            "restaurant": "Wagamama",
+            "category": category,
+            "item": name.strip().title(),
+            "description": desc.strip(),
+            "calories_kcal": _safe_int(nutrition.get("energy (kcal)")),
+            "protein_g": _safe_float(nutrition.get("protein (g)")),
+            "carbs_g": _safe_float(nutrition.get("carbohydrate (g)")),
+            "fat_g": _safe_float(nutrition.get("fat (g)")),
+            "fibre_g": _safe_float(nutrition.get("fibre (g)")),
+            "salt_g": _safe_float(nutrition.get("salt (g)")),
+            "allergens": allergens,
+            "dietary_flags": dietary_flags if dietary_flags else infer_dietary_flags(name, desc),
+            "location": "National",
+            "source_url": "https://www.wagamama.com/our-menu",
+            "scraped_at": today,
+        })
+
     return items
-
-
-async def _get_text(element, selectors):
-    for sel in selectors:
-        try:
-            el = await element.query_selector(sel)
-            if el:
-                text = await el.inner_text()
-                if text.strip():
-                    return text.strip()
-        except Exception:
-            pass
-    return ""
-
-
-def _try_parse_wagamama_json(data, today):
-    items = []
-    try:
-        if isinstance(data, list):
-            products = data
-        elif isinstance(data, dict):
-            # Try various common structures
-            products = (
-                data.get("items")
-                or data.get("products")
-                or data.get("menu")
-                or data.get("categories")
-                or data.get("data")
-                or []
-            )
-            # Handle nested categories
-            if products and isinstance(products[0], dict) and "items" in products[0]:
-                nested = []
-                for cat in products:
-                    cat_name = cat.get("name", "Menu")
-                    for item in cat.get("items", []):
-                        item["_category"] = cat_name
-                        nested.append(item)
-                products = nested
-        else:
-            return []
-
-        for p in products:
-            nutrition = p.get("nutrition") or p.get("nutrients") or p.get("nutritionalInfo") or {}
-            items.append({
-                "restaurant": "Wagamama",
-                "category": p.get("_category") or p.get("category") or p.get("menuSection") or "Menu",
-                "item": p.get("name") or p.get("title") or "Unknown",
-                "description": p.get("description") or "",
-                "calories_kcal": _safe_int(nutrition.get("calories") or nutrition.get("energy") or nutrition.get("kcal")),
-                "protein_g": _safe_float(nutrition.get("protein")),
-                "carbs_g": _safe_float(nutrition.get("carbohydrates") or nutrition.get("carbs")),
-                "fat_g": _safe_float(nutrition.get("fat") or nutrition.get("totalFat")),
-                "fibre_g": _safe_float(nutrition.get("fibre") or nutrition.get("fiber")),
-                "salt_g": _safe_float(nutrition.get("salt") or nutrition.get("sodium")),
-                "allergens": p.get("allergens") or [],
-                "dietary_flags": [],
-                "source_url": "https://www.wagamama.com/menu",
-                "scraped_at": today,
-            })
-    except Exception:
-        pass
-    return items
-
-
-def _extract_number(text):
-    import re
-    m = re.search(r"(\d+)", str(text))
-    return int(m.group(1)) if m else None
 
 
 def _safe_int(val):
@@ -255,9 +229,9 @@ def _fallback_data():
             "fibre_g": fibre,
             "salt_g": salt,
             "allergens": [],
-            "dietary_flags": [],
+            "dietary_flags": infer_dietary_flags(name),
             "location": "National",
-            "source_url": "https://www.wagamama.com/menu",
+            "source_url": "https://www.wagamama.com/our-menu",
             "scraped_at": today,
         })
     print(f"  [Wagamama] Using {len(items)} fallback items")

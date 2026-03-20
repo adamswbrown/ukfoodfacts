@@ -1,0 +1,333 @@
+{
+  "timestamp": "2026-03-20T19:08:01.868485+00:00",
+  "duration_seconds": 12.5,
+  "summary": {
+    "total_items": 1765,
+    "total_restaurants": 159,
+    "previous_items": 1723,
+    "previous_restaurants": 159,
+    "new_items": 94,
+    "removed_items": 52,
+    "duplicates_removed": 333,
+    "new_restaurants": [],
+    "net_change": 42
+  },
+  "scrapers": [
+    {
+      "scraper": "Nandos",
+      "status": "success",
+      "items": 201,
+      "restaurants": 1,
+      "elapsed_seconds": 0.4,
+      "error": null
+    },
+    {
+      "scraper": "McDonalds",
+      "status": "success",
+      "items": 30,
+      "restaurants": 1,
+      "elapsed_seconds": 1.9,
+      "error": null
+    },
+    {
+      "scraper": "Wagamama",
+      "status": "success",
+      "items": 500,
+      "restaurants": 1,
+      "elapsed_seconds": 2.2,
+      "error": null
+    },
+    {
+      "scraper": "UK Chains",
+      "status": "success",
+      "items": 1066,
+      "restaurants": 105,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "UK Pubs",
+      "status": "success",
+      "items": 115,
+      "restaurants": 15,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "UK Restaurants",
+      "status": "success",
+      "items": 76,
+      "restaurants": 19,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Local NI",
+      "status": "success",
+      "items": 110,
+      "restaurants": 17,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Custom",
+      "status": "success",
+      "items": 0,
+      "restaurants": 0,
+      "elapsed_seconds": 0.0,
+      "error": null
+    }
+  ],
+  "new_items_detail": [
+    {
+      "restaurant": "Nandos",
+      "item": "Halloumi Sticks & Dip",
+      "calories_kcal": 452
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Sweet Potato Wedges with Garlic PERinaise",
+      "calories_kcal": 440
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Halloumi & Dip",
+      "calories_kcal": 519
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "15 Chicken Wings",
+      "calories_kcal": 1179
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "10 Wing Roulette",
+      "calories_kcal": null
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "1/4 Chicken Breast",
+      "calories_kcal": 323
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "1/4 Chicken Leg",
+      "calories_kcal": 245
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Chicken Livers & Portuguese Roll",
+      "calories_kcal": null
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Butterfly Burger",
+      "calories_kcal": 632
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Fino Pitta (Boneless Chicken Thighs)",
+      "calories_kcal": 763
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Rainbow Bowl",
+      "calories_kcal": 528
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Rainbow Bowl (Northern Ireland Only)",
+      "calories_kcal": 528
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Wing Platter",
+      "calories_kcal": 786
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Portobello Mushroom & Halloumi Pitta",
+      "calories_kcal": null
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Spiced Chickpea Burger",
+      "calories_kcal": 534
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "The Great Imitator Burger",
+      "calories_kcal": 502
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "The Great Imitator Pitta",
+      "calories_kcal": 585
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Chicken Burger",
+      "calories_kcal": 288
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Chicken Breast Fillet",
+      "calories_kcal": 138
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Spiced Grains & Butternut Squash",
+      "calories_kcal": 95
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Long Stem Broccoli",
+      "calories_kcal": 16
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Little Tomatoes",
+      "calories_kcal": 13
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Chilly Billy Lolly",
+      "calories_kcal": 30
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Bottomless Vanilla Frozen Yoghurt",
+      "calories_kcal": 88
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Bottomless Strawberry Frozen Yoghurt",
+      "calories_kcal": 86
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Bottomless Chocolate Frozen Yoghurt",
+      "calories_kcal": 96
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Bottomless Mango Frozen Yoghurt",
+      "calories_kcal": 87
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Scoop of Vanilla Gelado",
+      "calories_kcal": 153
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Kid's Cawston Press Apple & Pear",
+      "calories_kcal": 54
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Kid's Cawston Press Summer Berry",
+      "calories_kcal": 50
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Bottle Green Apple Cordial",
+      "calories_kcal": 25
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Bottle Green Strawberry Cordial",
+      "calories_kcal": 25
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Mixed Leaf Salad",
+      "calories_kcal": 13
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "PERi-PERi Chicken Gravy",
+      "calories_kcal": 54
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "PERi-BBQ",
+      "calories_kcal": 61
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Mayonnaise",
+      "calories_kcal": 73
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "PERinaise Mild",
+      "calories_kcal": 46
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Medium PERi-PERi Sauce",
+      "calories_kcal": 9
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Garlic PERi-PERi Sauce",
+      "calories_kcal": 10
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Lemon & Herb PERi-PERi Sauce",
+      "calories_kcal": 8
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Hot PERi-PERi Sauce",
+      "calories_kcal": 9
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Vusa PERi-PERi Sauce",
+      "calories_kcal": 35
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Extra Hot PERi-PERi Sauce",
+      "calories_kcal": 9
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "PERi-PERi Salt",
+      "calories_kcal": null
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Portobello Mushroom",
+      "calories_kcal": null
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Houmous",
+      "calories_kcal": 202
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Salted Caramel Brownie",
+      "calories_kcal": 389
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Naughty Nata",
+      "calories_kcal": 169
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Vanilla Gelado",
+      "calories_kcal": 161
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Chocolate Gelado",
+      "calories_kcal": 145
+    }
+  ]
+}

@@ -1,13 +1,15 @@
 """
 McDonald's UK nutrition scraper
 McDonald's exposes menu data via an internal API used by their website.
-Endpoint: https://www.mcdonalds.com/gb/en-gb/eat/nutritioninfo.html
-They also serve structured JSON from their menu API.
+Also scrapes their vegan/vegetarian category pages for source dietary flags.
 """
 
 import requests
 import json
+import re
 from datetime import date
+
+from scrapers.dietary_utils import infer_dietary_flags
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; HobbyNutritionBot/1.0; personal use)",
@@ -27,11 +29,13 @@ NUTRITION_API = "https://www.mcdonalds.com/dnaapp/itemDetails"
 def scrape():
     print("  [McDonalds] Fetching nutrition data...")
 
+    # Fetch source dietary flags from McDonalds vegan/vegetarian pages
+    dietary_map = _fetch_dietary_categories()
+
     items = []
 
     # Try the nutrition JSON endpoint McDonald's uses for their interactive tool
     try:
-        # This endpoint is used by their own nutrition calculator page
         resp = requests.get(
             "https://www.mcdonalds.com/content/dam/sites/gb/nfl/feeding-business/"
             "nutrition-data/GB_NutritionData_en_GB.json",
@@ -40,7 +44,7 @@ def scrape():
         )
         if resp.status_code == 200:
             data = resp.json()
-            items = _parse_mcdonalds_json(data)
+            items = _parse_mcdonalds_json(data, dietary_map)
             if items:
                 print(f"  [McDonalds] Scraped {len(items)} items via JSON endpoint")
                 return items
@@ -49,14 +53,69 @@ def scrape():
 
     # Fallback to hardcoded seed data
     print("  [McDonalds] Using fallback data")
-    return _fallback_data()
+    return _fallback_data(dietary_map)
 
 
-def _parse_mcdonalds_json(data):
+def _fetch_dietary_categories():
+    """
+    Fetch McDonald's vegan and vegetarian category pages to build a map
+    of product URL slugs to dietary flags.
+    Returns dict: {"vegan-mcplant": "vegan", "fries-medium": "vegetarian", ...}
+    """
+    dietary_map = {}  # slug -> "vegan" or "vegetarian"
+
+    for diet, url in [
+        ("vegan", "https://www.mcdonalds.com/gb/en-gb/menu/vegan.html"),
+        ("vegetarian", "https://www.mcdonalds.com/gb/en-gb/menu/vegetarian.html"),
+    ]:
+        try:
+            resp = requests.get(url, headers=HEADERS, timeout=10)
+            if resp.status_code != 200:
+                continue
+            # Extract product slugs from href links
+            for m in re.finditer(
+                r'href="/gb/en-gb/product/([^"]+?)\.html"', resp.text
+            ):
+                slug = m.group(1)
+                # Vegan takes priority over vegetarian
+                if slug not in dietary_map:
+                    dietary_map[slug] = diet
+        except Exception:
+            continue
+
+    if dietary_map:
+        vegan_count = sum(1 for v in dietary_map.values() if v == "vegan")
+        veg_count = sum(1 for v in dietary_map.values() if v == "vegetarian")
+        print(f"  [McDonalds] Source dietary data: {vegan_count} vegan, {veg_count} vegetarian")
+
+    return dietary_map
+
+
+def _match_dietary(item_name, dietary_map):
+    """Match an item name to dietary flags from the source map."""
+    if not dietary_map:
+        return infer_dietary_flags(item_name)
+
+    # Normalise the item name to a slug-like form for matching
+    slug = item_name.lower().replace("'", "").replace("&", "and")
+    slug = re.sub(r'[^a-z0-9]+', '-', slug).strip('-')
+
+    for map_slug, diet in dietary_map.items():
+        # Check if the map slug contains the item slug or vice versa
+        map_normalised = map_slug.lower().replace("-", " ")
+        item_normalised = item_name.lower()
+        if (map_normalised in item_normalised or
+                item_normalised in map_normalised or
+                slug == map_slug):
+            return [diet]
+
+    return infer_dietary_flags(item_name)
+
+
+def _parse_mcdonalds_json(data, dietary_map=None):
     items = []
     today = str(date.today())
 
-    # McDonald's JSON structure varies — handle both array and dict forms
     if isinstance(data, list):
         products = data
     elif isinstance(data, dict):
@@ -65,11 +124,12 @@ def _parse_mcdonalds_json(data):
         return []
 
     for p in products:
+        name = p.get("name") or p.get("item") or p.get("title") or "Unknown"
         cal = _find_nutrient(p, ["calories", "energy", "kcal", "cal"])
         items.append({
             "restaurant": "McDonalds",
             "category": p.get("category") or p.get("menuCategory") or "Menu",
-            "item": p.get("name") or p.get("item") or p.get("title") or "Unknown",
+            "item": name,
             "description": p.get("description") or "",
             "calories_kcal": _safe_int(cal),
             "protein_g": _safe_float(_find_nutrient(p, ["protein"])),
@@ -78,10 +138,9 @@ def _parse_mcdonalds_json(data):
             "fibre_g": _safe_float(_find_nutrient(p, ["fibre", "fiber", "dietaryFiber"])),
             "salt_g": _safe_float(_find_nutrient(p, ["salt", "sodium"])),
             "allergens": p.get("allergens") or [],
-            "dietary_flags": [],
+            "dietary_flags": _match_dietary(name, dietary_map),
             "location": "National",
-            "location": "National",
-            "source_url": "https://www.mcdonalds.com/gb/en-gb/eat/nutritioninfo.html",
+            "source_url": "https://www.mcdonalds.com/gb/en-gb/menu/vegan.html",
             "scraped_at": today,
         })
     return items
@@ -113,10 +172,10 @@ def _safe_float(val):
         return None
 
 
-def _fallback_data():
+def _fallback_data(dietary_map=None):
     """
     Hardcoded seed data for McDonald's UK.
-    Source: mcdonalds.com/gb/en-gb/eat/nutritioninfo.html (verified March 2026)
+    Source: mcdonalds.com/gb/en-gb (verified March 2026)
     """
     today = str(date.today())
     raw = [
@@ -166,9 +225,9 @@ def _fallback_data():
             "fibre_g": fibre,
             "salt_g": salt,
             "allergens": [],
-            "dietary_flags": [],
+            "dietary_flags": _match_dietary(name, dietary_map),
             "location": "National",
-            "source_url": "https://www.mcdonalds.com/gb/en-gb/eat/nutritioninfo.html",
+            "source_url": "https://www.mcdonalds.com/gb/en-gb/menu/vegan.html",
             "scraped_at": today,
         })
     print(f"  [McDonalds] Using {len(items)} fallback items")

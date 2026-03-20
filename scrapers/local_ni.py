@@ -6,6 +6,8 @@ Calorie estimates are based on typical portion sizes for similar dishes.
 
 from datetime import date
 
+from scrapers.dietary_utils import infer_dietary_flags
+
 
 def scrape():
     """Return estimated nutrition data for local NI restaurants."""
@@ -27,7 +29,7 @@ def scrape():
                 "fibre_g": fibre,
                 "salt_g": salt,
                 "allergens": [],
-                "dietary_flags": [],
+                "dietary_flags": infer_dietary_flags(name),
                 "source_url": source_url,
                 "scraped_at": today,
             })

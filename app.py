@@ -639,6 +639,100 @@ HTML = r"""<!DOCTYPE html>
     transition: border-color 0.15s;
   }
   .request-form textarea:focus { border-color: var(--accent-default); }
+
+  /* ── Mobile responsive ── */
+  @media (max-width: 768px) {
+    header {
+      padding: 12px 16px;
+      flex-direction: column;
+      gap: 10px;
+      align-items: stretch;
+    }
+    header > div:last-child {
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 6px;
+    }
+    .logo { font-size: 1.15rem; }
+    .logo span { font-size: 0.75rem; }
+    .header-btn { padding: 6px 10px; font-size: 0.68rem; }
+
+    .container { padding: 16px; }
+
+    .stats-bar {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .stat-card { padding: 10px 14px; }
+    .stat-value { font-size: 1.3rem; }
+    .stat-label { font-size: 0.6rem; }
+
+    .contrib-banner {
+      flex-direction: column;
+      padding: 12px 14px;
+      gap: 10px;
+      align-items: stretch;
+    }
+    .contrib-banner p { font-size: 0.78rem; }
+    .contrib-banner .contrib-btn { text-align: center; }
+
+    .controls {
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .search-wrap { min-width: 100%; }
+    select { min-width: 0; flex: 1 1 calc(50% - 4px); font-size: 0.8rem; }
+    input[type="search"], select { padding: 9px 12px; font-size: 0.82rem; }
+
+    .restaurant-tabs {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      margin-bottom: 12px;
+      padding-bottom: 4px;
+    }
+    .restaurant-tabs::-webkit-scrollbar { display: none; }
+    .tab { flex-shrink: 0; padding: 6px 12px; font-size: 0.75rem; }
+
+    /* Table: hide location & macros on mobile, compact cells */
+    thead th:nth-child(2), tbody td:nth-child(2),
+    thead th:nth-child(6), tbody td:nth-child(6) { display: none; }
+    thead th { padding: 8px 10px; font-size: 0.6rem; }
+    td { padding: 8px 10px; font-size: 0.8rem; }
+    .cell-item { font-size: 0.82rem; }
+    .cell-category { font-size: 0.65rem; }
+    .cal-badge { font-size: 0.78rem; padding: 2px 7px; }
+
+    /* Modal */
+    .modal-overlay { padding: 12px; }
+    .modal { border-radius: 12px; }
+    .modal-header { padding: 16px 16px 12px; }
+    .modal-title { font-size: 1.05rem; }
+    .modal-body { padding: 14px 16px 18px; }
+    .calories-big { font-size: 2.5rem; }
+    .macros-grid { gap: 6px; }
+    .macro-block { padding: 10px 8px; }
+    .macro-block-val { font-size: 1.1rem; }
+
+    /* Forms */
+    .form-grid { grid-template-columns: 1fr; }
+
+    /* Toast */
+    .toast { bottom: 12px; right: 12px; left: 12px; font-size: 0.75rem; }
+  }
+
+  /* Extra small (< 400px) */
+  @media (max-width: 400px) {
+    header > div:last-child .header-btn:not(.primary) span:not(#refresh-icon) {
+      display: none;
+    }
+    .stats-bar { grid-template-columns: 1fr 1fr; }
+    select { flex: 1 1 100%; }
+    thead th:nth-child(4), tbody td:nth-child(4) { display: none; }
+    .calories-big { font-size: 2rem; }
+  }
 </style>
 </head>
 <body>
@@ -682,6 +776,12 @@ HTML = r"""<!DOCTYPE html>
     </select>
     <select id="category-filter" onchange="applyFilters()">
       <option value="">All categories</option>
+    </select>
+    <select id="diet-filter" onchange="applyFilters()">
+      <option value="">All diets</option>
+      <option value="vegan">Vegan</option>
+      <option value="vegetarian">Vegetarian</option>
+      <option value="gluten_free">Gluten free</option>
     </select>
     <select id="sort-by" onchange="applyFilters()">
       <option value="">Sort: Default</option>
@@ -1003,6 +1103,9 @@ function applyFilters() {
   const cat = document.getElementById('category-filter').value;
   if (cat) data = data.filter(d => d.category === cat);
 
+  const diet = document.getElementById('diet-filter').value;
+  if (diet) data = data.filter(d => (d.dietary_flags || []).includes(diet));
+
   const sort = document.getElementById('sort-by').value;
   if (sort === 'calories_asc') data.sort((a,b) => (a.calories_kcal||999) - (b.calories_kcal||999));
   if (sort === 'calories_desc') data.sort((a,b) => (b.calories_kcal||0) - (a.calories_kcal||0));
@@ -1056,7 +1159,7 @@ function renderTable(data) {
         </div>
       </td>
       <td class="cell-category">${d.location || 'National'}</td>
-      <td class="cell-item">${d.item}</td>
+      <td class="cell-item">${d.item}${(d.dietary_flags||[]).length ? ' <span style="font-size:0.65rem;color:var(--green);opacity:0.85">' + d.dietary_flags.map(f=>f==='gluten_free'?'GF':f==='vegan'?'V':f==='vegetarian'?'VG':f).join(' · ') + '</span>' : ''}</td>
       <td class="cell-category">${d.category}</td>
       <td><span class="cal-badge ${calClass(d.calories_kcal)}">${d.calories_kcal ?? '—'} kcal</span></td>
       <td>

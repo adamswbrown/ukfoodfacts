@@ -1,0 +1,333 @@
+{
+  "timestamp": "2026-03-20T19:03:27.204451+00:00",
+  "duration_seconds": 11.2,
+  "summary": {
+    "total_items": 1723,
+    "total_restaurants": 159,
+    "previous_items": 1455,
+    "previous_restaurants": 159,
+    "new_items": 308,
+    "removed_items": 40,
+    "duplicates_removed": 302,
+    "new_restaurants": [],
+    "net_change": 268
+  },
+  "scrapers": [
+    {
+      "scraper": "Nandos",
+      "status": "success",
+      "items": 128,
+      "restaurants": 1,
+      "elapsed_seconds": 1.2,
+      "error": null
+    },
+    {
+      "scraper": "McDonalds",
+      "status": "success",
+      "items": 30,
+      "restaurants": 1,
+      "elapsed_seconds": 1.0,
+      "error": null
+    },
+    {
+      "scraper": "Wagamama",
+      "status": "success",
+      "items": 500,
+      "restaurants": 1,
+      "elapsed_seconds": 0.9,
+      "error": null
+    },
+    {
+      "scraper": "UK Chains",
+      "status": "success",
+      "items": 1066,
+      "restaurants": 105,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "UK Pubs",
+      "status": "success",
+      "items": 115,
+      "restaurants": 15,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "UK Restaurants",
+      "status": "success",
+      "items": 76,
+      "restaurants": 19,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Local NI",
+      "status": "success",
+      "items": 110,
+      "restaurants": 17,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Custom",
+      "status": "success",
+      "items": 0,
+      "restaurants": 0,
+      "elapsed_seconds": 0.0,
+      "error": null
+    }
+  ],
+  "new_items_detail": [
+    {
+      "restaurant": "Nandos",
+      "item": "Sol Bowl",
+      "calories_kcal": 583
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Hearty Bowl",
+      "calories_kcal": 432
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Dare to share",
+      "calories_kcal": null
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Halloumi Sticks & Chilli Jam",
+      "calories_kcal": 452
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Halloumi Sticks & PERi-Honey",
+      "calories_kcal": 526
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Houmous with PERi-PERi Drizzle",
+      "calories_kcal": 790
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Sweet Potato Wedges",
+      "calories_kcal": 367
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Cheesy Garlic Pitta",
+      "calories_kcal": 595
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "PERi-PERi Nuts",
+      "calories_kcal": 793
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "4 Boneless Chicken Thighs",
+      "calories_kcal": 706
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Chicken Butterfly",
+      "calories_kcal": 331
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "1/2 Chicken",
+      "calories_kcal": 579
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "1/4 Chicken",
+      "calories_kcal": 289
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Wing Roulette",
+      "calories_kcal": 821
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "10 Chicken Wings",
+      "calories_kcal": 784
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "5 Chicken Wings",
+      "calories_kcal": 392
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "3 Chicken Wings",
+      "calories_kcal": 235
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "10 Extra Saucy Wings",
+      "calories_kcal": 1071
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "5 Extra Saucy Wings",
+      "calories_kcal": 570
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "3 Extra Saucy Wings",
+      "calories_kcal": 333
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Chicken Livers & Rustic Portuguese Roll",
+      "calories_kcal": 553
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Sunset Burger",
+      "calories_kcal": 733
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "The Chickle Burger",
+      "calories_kcal": 526
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Garlic Churrasco Burger",
+      "calories_kcal": 794
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Grilled Chicken Burger",
+      "calories_kcal": 443
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Double Chicken Burger",
+      "calories_kcal": 581
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Grilled Chicken Wrap",
+      "calories_kcal": 556
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Double Chicken Wrap",
+      "calories_kcal": 694
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Fino Pitta",
+      "calories_kcal": 817
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Grilled Chicken Pitta",
+      "calories_kcal": 508
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Double Chicken Pitta",
+      "calories_kcal": 691
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Spicy Rice Bowl",
+      "calories_kcal": 600
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Full Platter",
+      "calories_kcal": null
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Boneless Platter",
+      "calories_kcal": null
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "All-in Platter",
+      "calories_kcal": null
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "XL Wing Platter",
+      "calories_kcal": null
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Family Platter",
+      "calories_kcal": null
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "The Big Cheese",
+      "calories_kcal": 748
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "The Great Imitator Wrap",
+      "calories_kcal": 597
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Beanie Burger",
+      "calories_kcal": 553
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Beanie Wrap",
+      "calories_kcal": 680
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Beanie Pitta",
+      "calories_kcal": 632
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Nandino Burger",
+      "calories_kcal": 285
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Chicken Breast",
+      "calories_kcal": 138
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Mac & Cheese",
+      "calories_kcal": 435
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Little Pitta",
+      "calories_kcal": 302
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Bottomless Soft Swirl Tub",
+      "calories_kcal": 189
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Pip Organic Cloudy Apple Juice",
+      "calories_kcal": 77
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Pip Organic Pineapple & Mango Smoothie",
+      "calories_kcal": 95
+    },
+    {
+      "restaurant": "Nandos",
+      "item": "Charred Corn",
+      "calories_kcal": 255
+    }
+  ]
+}
