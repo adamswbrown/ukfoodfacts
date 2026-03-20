@@ -1,9 +1,12 @@
 __pycache__/
 *.pyc
 .env
-output/custom_items.json
-{scrapers,output,static}
 .vercel
 .DS_Store
-output/logs/
-output/pending_items.json
+
+# Ignore output directory except the DB and logs the workflow commits
+output/*
+!output/nutrition_db.json
+!output/logs/
+output/logs/*
+!output/logs/scrape-*.json
