@@ -25,6 +25,14 @@ def dedup_key(item):
     return (item["restaurant"].strip().lower(), item["item"].strip().lower())
 
 
+def _strip_volatile_fields(items):
+    """Return a comparable representation of items, ignoring fields that change every run."""
+    return sorted(
+        [{k: v for k, v in item.items() if k != "scraped_at"} for item in items],
+        key=lambda x: (x.get("restaurant", ""), x.get("item", "")),
+    )
+
+
 def load_existing():
     """Load the current database for comparison."""
     if OUTPUT_FILE.exists():
@@ -168,23 +176,29 @@ def run_all():
     if failed:
         print(f"\n  WARNING: {len(failed)} scraper(s) failed!")
 
-    # Save database
-    OUTPUT_FILE.parent.mkdir(exist_ok=True)
-    with open(OUTPUT_FILE, "w") as f:
-        json.dump(deduped, f, indent=2)
-    print(f"\n  Database saved: {OUTPUT_FILE}")
+    # Check if data actually changed (ignore scraped_at timestamps)
+    data_changed = _strip_volatile_fields(deduped) != _strip_volatile_fields(existing)
 
-    # Save log
-    LOG_DIR.mkdir(exist_ok=True)
-    log_filename = f"scrape-{start_time.strftime('%Y-%m-%d-%H%M')}.json"
-    log_path = LOG_DIR / log_filename
-    with open(log_path, "w") as f:
-        json.dump(report, f, indent=2)
-    print(f"  Log saved: {log_path}")
+    if data_changed:
+        # Save database
+        OUTPUT_FILE.parent.mkdir(exist_ok=True)
+        with open(OUTPUT_FILE, "w") as f:
+            json.dump(deduped, f, indent=2)
+        print(f"\n  Database saved: {OUTPUT_FILE}")
 
-    # Write GitHub Actions job summary (if running in CI)
+        # Save log
+        LOG_DIR.mkdir(exist_ok=True)
+        log_filename = f"scrape-{start_time.strftime('%Y-%m-%d-%H%M')}.json"
+        log_path = LOG_DIR / log_filename
+        with open(log_path, "w") as f:
+            json.dump(report, f, indent=2)
+        print(f"  Log saved: {log_path}")
+    else:
+        print(f"\n  No data changes detected — skipping database and log write.")
+
+    # Write GitHub Actions job summary (if running in CI and data changed)
     summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
-    if summary_path:
+    if summary_path and data_changed:
         with open(summary_path, "a") as f:
             f.write(f"## Scrape Report — {start_time.strftime('%Y-%m-%d %H:%M UTC')}\n\n")
             f.write(f"| Metric | Value |\n|--------|-------|\n")
