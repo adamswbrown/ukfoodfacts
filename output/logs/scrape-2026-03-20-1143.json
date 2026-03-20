@@ -1,0 +1,369 @@
+{
+  "timestamp": "2026-03-20T11:43:19.536759+00:00",
+  "duration_seconds": 16.7,
+  "summary": {
+    "total_items": 1455,
+    "total_restaurants": 159,
+    "previous_items": 1185,
+    "previous_restaurants": 124,
+    "new_items": 275,
+    "removed_items": 2,
+    "duplicates_removed": 0,
+    "new_restaurants": [
+      "Banana Tree",
+      "Benitos Hat",
+      "Birds Bakery",
+      "Daves Hot Chicken",
+      "Ping Pong",
+      "Pho",
+      "Benugo",
+      "Esquires Coffee",
+      "Cornish Bakery",
+      "Carluccios",
+      "Mowgli Street Food",
+      "Fireaway Pizza",
+      "Muffin Break",
+      "Paul Bakery",
+      "Yard Sale Pizza",
+      "Chophouse",
+      "Flat Iron",
+      "Barburrito",
+      "Inamo",
+      "Absurd Bird",
+      "Upper Crust",
+      "Turtle Bay",
+      "Coco di Mama",
+      "Greggs Cafe",
+      "Patty & Bun",
+      "EAT.",
+      "Black Sheep Coffee",
+      "The Breakfast Club",
+      "Ole & Steen",
+      "Patisserie Valerie",
+      "MEATliquor",
+      "Bone Daddies",
+      "Rosa's Thai Cafe",
+      "Krispy Kreme",
+      "German Gymnasium"
+    ],
+    "net_change": 270
+  },
+  "scrapers": [
+    {
+      "scraper": "Nandos",
+      "status": "success",
+      "items": 30,
+      "restaurants": 1,
+      "elapsed_seconds": 0.8,
+      "error": null
+    },
+    {
+      "scraper": "McDonalds",
+      "status": "success",
+      "items": 30,
+      "restaurants": 1,
+      "elapsed_seconds": 0.3,
+      "error": null
+    },
+    {
+      "scraper": "Wagamama",
+      "status": "success",
+      "items": 28,
+      "restaurants": 1,
+      "elapsed_seconds": 7.6,
+      "error": null
+    },
+    {
+      "scraper": "UK Chains",
+      "status": "success",
+      "items": 1066,
+      "restaurants": 105,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "UK Pubs",
+      "status": "success",
+      "items": 115,
+      "restaurants": 15,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "UK Restaurants",
+      "status": "success",
+      "items": 76,
+      "restaurants": 19,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Local NI",
+      "status": "success",
+      "items": 110,
+      "restaurants": 17,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Custom",
+      "status": "success",
+      "items": 0,
+      "restaurants": 0,
+      "elapsed_seconds": 0.0,
+      "error": null
+    }
+  ],
+  "new_items_detail": [
+    {
+      "restaurant": "Turtle Bay",
+      "item": "Jerk Chicken",
+      "calories_kcal": 680
+    },
+    {
+      "restaurant": "Turtle Bay",
+      "item": "Jerk Pork Belly",
+      "calories_kcal": 750
+    },
+    {
+      "restaurant": "Turtle Bay",
+      "item": "Curry Goat",
+      "calories_kcal": 620
+    },
+    {
+      "restaurant": "Turtle Bay",
+      "item": "Bajan Burger",
+      "calories_kcal": 780
+    },
+    {
+      "restaurant": "Turtle Bay",
+      "item": "Reggae Wings",
+      "calories_kcal": 520
+    },
+    {
+      "restaurant": "Turtle Bay",
+      "item": "Roti Wrap Chicken",
+      "calories_kcal": 640
+    },
+    {
+      "restaurant": "Turtle Bay",
+      "item": "Caribbean Fish Curry",
+      "calories_kcal": 580
+    },
+    {
+      "restaurant": "Turtle Bay",
+      "item": "Rice & Peas",
+      "calories_kcal": 280
+    },
+    {
+      "restaurant": "Turtle Bay",
+      "item": "Plantain Fries",
+      "calories_kcal": 320
+    },
+    {
+      "restaurant": "Turtle Bay",
+      "item": "Rum Cake",
+      "calories_kcal": 420
+    },
+    {
+      "restaurant": "Mowgli Street Food",
+      "item": "Gunpowder Chicken Wings",
+      "calories_kcal": 480
+    },
+    {
+      "restaurant": "Mowgli Street Food",
+      "item": "Fuchka (Crispy Puri)",
+      "calories_kcal": 220
+    },
+    {
+      "restaurant": "Mowgli Street Food",
+      "item": "Mowgli Curry Chicken",
+      "calories_kcal": 550
+    },
+    {
+      "restaurant": "Mowgli Street Food",
+      "item": "Yoghurt Chat Bowl",
+      "calories_kcal": 380
+    },
+    {
+      "restaurant": "Mowgli Street Food",
+      "item": "House Keema Lamb",
+      "calories_kcal": 620
+    },
+    {
+      "restaurant": "Mowgli Street Food",
+      "item": "Temple Daal",
+      "calories_kcal": 280
+    },
+    {
+      "restaurant": "Mowgli Street Food",
+      "item": "Chip Butty Naan",
+      "calories_kcal": 340
+    },
+    {
+      "restaurant": "Mowgli Street Food",
+      "item": "Treacle Tart",
+      "calories_kcal": 380
+    },
+    {
+      "restaurant": "Krispy Kreme",
+      "item": "Original Glazed",
+      "calories_kcal": 190
+    },
+    {
+      "restaurant": "Krispy Kreme",
+      "item": "Chocolate Iced Glazed",
+      "calories_kcal": 240
+    },
+    {
+      "restaurant": "Krispy Kreme",
+      "item": "Strawberries & Kreme",
+      "calories_kcal": 300
+    },
+    {
+      "restaurant": "Krispy Kreme",
+      "item": "Lotus Biscoff",
+      "calories_kcal": 340
+    },
+    {
+      "restaurant": "Krispy Kreme",
+      "item": "Caramel Iced Ring",
+      "calories_kcal": 260
+    },
+    {
+      "restaurant": "Krispy Kreme",
+      "item": "Chocolate Dreamcake",
+      "calories_kcal": 320
+    },
+    {
+      "restaurant": "Krispy Kreme",
+      "item": "Apple Crumble",
+      "calories_kcal": 280
+    },
+    {
+      "restaurant": "Krispy Kreme",
+      "item": "Iced Latte",
+      "calories_kcal": 180
+    },
+    {
+      "restaurant": "Krispy Kreme",
+      "item": "Hot Chocolate",
+      "calories_kcal": 260
+    },
+    {
+      "restaurant": "Krispy Kreme",
+      "item": "Chocolate Milkshake",
+      "calories_kcal": 480
+    },
+    {
+      "restaurant": "Daves Hot Chicken",
+      "item": "Tenders x3 (No Spice)",
+      "calories_kcal": 540
+    },
+    {
+      "restaurant": "Daves Hot Chicken",
+      "item": "Tenders x3 (Hot)",
+      "calories_kcal": 560
+    },
+    {
+      "restaurant": "Daves Hot Chicken",
+      "item": "Tenders x3 (Reaper)",
+      "calories_kcal": 580
+    },
+    {
+      "restaurant": "Daves Hot Chicken",
+      "item": "Slider (Mild)",
+      "calories_kcal": 420
+    },
+    {
+      "restaurant": "Daves Hot Chicken",
+      "item": "Slider (Hot)",
+      "calories_kcal": 440
+    },
+    {
+      "restaurant": "Daves Hot Chicken",
+      "item": "Fries (Regular)",
+      "calories_kcal": 320
+    },
+    {
+      "restaurant": "Daves Hot Chicken",
+      "item": "Mac & Cheese",
+      "calories_kcal": 380
+    },
+    {
+      "restaurant": "Daves Hot Chicken",
+      "item": "Coleslaw",
+      "calories_kcal": 180
+    },
+    {
+      "restaurant": "Daves Hot Chicken",
+      "item": "Kool-Aid (Regular)",
+      "calories_kcal": 120
+    },
+    {
+      "restaurant": "Banana Tree",
+      "item": "Salt & Pepper Squid",
+      "calories_kcal": 340
+    },
+    {
+      "restaurant": "Banana Tree",
+      "item": "Spring Rolls x4",
+      "calories_kcal": 280
+    },
+    {
+      "restaurant": "Banana Tree",
+      "item": "Thai Green Curry Chicken",
+      "calories_kcal": 580
+    },
+    {
+      "restaurant": "Banana Tree",
+      "item": "Rendang Beef",
+      "calories_kcal": 650
+    },
+    {
+      "restaurant": "Banana Tree",
+      "item": "Pad Thai Prawn",
+      "calories_kcal": 620
+    },
+    {
+      "restaurant": "Banana Tree",
+      "item": "Nasi Goreng",
+      "calories_kcal": 680
+    },
+    {
+      "restaurant": "Banana Tree",
+      "item": "Coconut Rice",
+      "calories_kcal": 260
+    },
+    {
+      "restaurant": "Banana Tree",
+      "item": "Banana Fritters & Ice Cream",
+      "calories_kcal": 420
+    },
+    {
+      "restaurant": "Barburrito",
+      "item": "Chicken Burrito",
+      "calories_kcal": 680
+    },
+    {
+      "restaurant": "Barburrito",
+      "item": "Steak Burrito",
+      "calories_kcal": 720
+    },
+    {
+      "restaurant": "Barburrito",
+      "item": "Veggie Burrito",
+      "calories_kcal": 580
+    },
+    {
+      "restaurant": "Barburrito",
+      "item": "Chicken Naked Burrito",
+      "calories_kcal": 520
+    },
+    {
+      "restaurant": "Barburrito",
+      "item": "Chicken Tacos x3",
+      "calories_kcal": 480
+    }
+  ]
+}
