@@ -72,7 +72,7 @@ The entire UI is the `HTML` multiline string in `app.py`. Key JS functions:
 
 The calorie colour coding: green = under 400 kcal, amber = 400–699, red = 700+. These thresholds are in `calClass()`.
 
-Fonts are loaded from Google Fonts (Syne + DM Mono). The UI will still work offline — fonts just won't load.
+Fonts are loaded from Google Fonts (Manrope + Source Code Pro). The UI will still work offline — fonts just won't load.
 
 ## Running locally
 

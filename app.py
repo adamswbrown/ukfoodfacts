@@ -33,7 +33,7 @@ HTML = r"""<!DOCTYPE html>
 <title>UK Eats — Restaurant Calorie Explorer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -57,7 +57,7 @@ HTML = r"""<!DOCTYPE html>
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Manrope', sans-serif;
     background: var(--bg);
     color: var(--text);
     min-height: 100vh;
@@ -89,7 +89,7 @@ HTML = r"""<!DOCTYPE html>
   .logo span { color: var(--muted); font-weight: 400; font-size: 0.85rem; }
 
   .header-meta {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 0.72rem;
     color: var(--muted);
     text-align: right;
@@ -99,7 +99,7 @@ HTML = r"""<!DOCTYPE html>
     background: var(--surface2);
     border: 1px solid var(--border);
     color: var(--text);
-    font-family: 'DM Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 0.75rem;
     padding: 7px 14px;
     border-radius: 6px;
@@ -136,7 +136,7 @@ HTML = r"""<!DOCTYPE html>
     padding: 16px 20px;
   }
   .stat-label {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 0.68rem;
     color: var(--muted);
     text-transform: uppercase;
@@ -178,7 +178,7 @@ HTML = r"""<!DOCTYPE html>
     border: 1px solid var(--border);
     color: var(--text);
     border-radius: 8px;
-    font-family: 'Syne', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 0.9rem;
     padding: 10px 14px;
     outline: none;
@@ -193,7 +193,7 @@ HTML = r"""<!DOCTYPE html>
     background: var(--surface);
     border: 1px solid var(--border);
     color: var(--muted);
-    font-family: 'DM Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 0.75rem;
     padding: 10px 14px;
     border-radius: 8px;
@@ -221,7 +221,7 @@ HTML = r"""<!DOCTYPE html>
     border: 1px solid var(--border);
     background: transparent;
     color: var(--muted);
-    font-family: 'Syne', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 0.82rem;
     font-weight: 600;
     cursor: pointer;
@@ -236,14 +236,14 @@ HTML = r"""<!DOCTYPE html>
   .tab[data-restaurant="McDonalds"].active { border-color: var(--accent-mcdonalds); color: var(--accent-mcdonalds); }
   .tab[data-restaurant="Wagamama"].active { border-color: var(--accent-wagamama); color: var(--accent-wagamama); }
   .tab-count {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 0.7rem;
     opacity: 0.7;
   }
 
   /* ── Results info ── */
   .results-info {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 0.75rem;
     color: var(--muted);
     margin-bottom: 14px;
@@ -267,7 +267,7 @@ HTML = r"""<!DOCTYPE html>
   thead th {
     padding: 12px 16px;
     text-align: left;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 0.68rem;
     font-weight: 500;
     text-transform: uppercase;
@@ -314,13 +314,13 @@ HTML = r"""<!DOCTYPE html>
 
   .cell-item { font-weight: 600; }
   .cell-category {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 0.72rem;
     color: var(--muted);
   }
 
   .cal-badge {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-weight: 500;
     font-size: 0.9rem;
     display: inline-block;
@@ -332,7 +332,7 @@ HTML = r"""<!DOCTYPE html>
   .cal-high { background: rgba(239,68,68,0.12); color: var(--red); }
 
   .macro {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 0.8rem;
     color: var(--muted);
   }
@@ -384,7 +384,7 @@ HTML = r"""<!DOCTYPE html>
   }
   .modal-title { font-size: 1.2rem; font-weight: 800; line-height: 1.3; }
   .modal-subtitle {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 0.72rem;
     color: var(--muted);
     margin-top: 4px;
@@ -415,7 +415,7 @@ HTML = r"""<!DOCTYPE html>
     margin-bottom: 4px;
   }
   .calories-label {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 0.75rem;
     color: var(--muted);
     margin-bottom: 24px;
@@ -424,7 +424,7 @@ HTML = r"""<!DOCTYPE html>
   .daily-bar-label {
     display: flex;
     justify-content: space-between;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 0.7rem;
     color: var(--muted);
     margin-bottom: 6px;
@@ -455,14 +455,14 @@ HTML = r"""<!DOCTYPE html>
     text-align: center;
   }
   .macro-block-val {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 1.3rem;
     font-weight: 500;
     display: block;
     margin-bottom: 2px;
   }
   .macro-block-label {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 0.65rem;
     color: var(--muted);
     text-transform: uppercase;
@@ -478,7 +478,7 @@ HTML = r"""<!DOCTYPE html>
   .extra-row {
     display: flex;
     justify-content: space-between;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 0.78rem;
     background: var(--surface2);
     border: 1px solid var(--border);
@@ -488,7 +488,7 @@ HTML = r"""<!DOCTYPE html>
   .extra-row-label { color: var(--muted); }
 
   .source-link {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 0.68rem;
     color: var(--muted);
     text-decoration: none;
@@ -506,7 +506,7 @@ HTML = r"""<!DOCTYPE html>
   .form-grid .full { grid-column: 1 / -1; }
   .form-group label {
     display: block;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 0.68rem;
     color: var(--muted);
     text-transform: uppercase;
@@ -519,7 +519,7 @@ HTML = r"""<!DOCTYPE html>
     border: 1px solid var(--border);
     color: var(--text);
     border-radius: 6px;
-    font-family: 'Syne', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 0.85rem;
     padding: 8px 12px;
     outline: none;
@@ -534,7 +534,7 @@ HTML = r"""<!DOCTYPE html>
     border: none;
     background: var(--accent-default);
     color: #fff;
-    font-family: 'Syne', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 0.9rem;
     font-weight: 700;
     cursor: pointer;
@@ -543,7 +543,7 @@ HTML = r"""<!DOCTYPE html>
   .form-submit:hover { opacity: 0.85; }
   .form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
   .custom-badge {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 0.6rem;
     background: var(--accent-default);
     color: #fff;
@@ -562,7 +562,7 @@ HTML = r"""<!DOCTYPE html>
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 12px 18px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     font-size: 0.8rem;
     opacity: 0;
     transform: translateY(8px);
@@ -580,7 +580,7 @@ HTML = r"""<!DOCTYPE html>
     padding: 3px 10px;
     border-radius: 20px;
     font-size: 0.75rem;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
     background: #1a2744;
     border: 1px solid #2a3a5c;
     color: #8bb4f0;
@@ -630,7 +630,7 @@ HTML = r"""<!DOCTYPE html>
     border: 1px solid var(--border);
     color: var(--text);
     border-radius: 6px;
-    font-family: 'Syne', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 0.85rem;
     padding: 8px 12px;
     outline: none;
@@ -1235,8 +1235,8 @@ function openModal(i, d) {
       </div>
     </div>
 
-    ${item.allergens?.length ? `<div style="font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--muted);margin-top:8px">Allergens: ${item.allergens.join(', ')}</div>` : ''}
-    ${item.dietary_flags?.length ? `<div style="font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--green);margin-top:4px">${item.dietary_flags.join(' · ')}</div>` : ''}
+    ${item.allergens?.length ? `<div style="font-family:'Source Code Pro',monospace;font-size:0.72rem;color:var(--muted);margin-top:8px">Allergens: ${item.allergens.join(', ')}</div>` : ''}
+    ${item.dietary_flags?.length ? `<div style="font-family:'Source Code Pro',monospace;font-size:0.72rem;color:var(--green);margin-top:4px">${item.dietary_flags.join(' · ')}</div>` : ''}
 
     <a class="source-link" href="${item.source_url}" target="_blank" rel="noopener">
       ↗ Source: ${item.source_url}
