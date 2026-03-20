@@ -622,6 +622,23 @@ HTML = r"""<!DOCTYPE html>
     white-space: nowrap;
   }
   .contrib-banner .contrib-btn:hover { background: #22c55e; }
+
+  /* ── Request restaurant form ── */
+  .request-form textarea {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 6px;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem;
+    padding: 8px 12px;
+    outline: none;
+    resize: vertical;
+    min-height: 60px;
+    transition: border-color 0.15s;
+  }
+  .request-form textarea:focus { border-color: var(--accent-default); }
 </style>
 </head>
 <body>
@@ -632,6 +649,7 @@ HTML = r"""<!DOCTYPE html>
   </div>
   <div style="display:flex;align-items:center;gap:10px;">
     <div class="header-meta" id="header-meta"></div>
+    <button class="header-btn" onclick="openRequestModal()">Request Restaurant</button>
     <button class="header-btn primary" onclick="openAddModal()">+ Add Meal</button>
     <button class="header-btn" id="refresh-btn" onclick="refreshData()">
       <span id="refresh-icon">↺</span> Refresh
@@ -647,7 +665,7 @@ HTML = r"""<!DOCTYPE html>
   <!-- Contribution banner -->
   <div class="contrib-banner">
     <div>
-      <p><strong>Know a restaurant we're missing?</strong> Add meals from any UK restaurant or takeaway — submissions are reviewed before going live.</p>
+      <p><strong>Know a restaurant we're missing?</strong> Add meals manually or <a href="#" onclick="openRequestModal();return false" style="color:#8bb4f0;text-decoration:underline">request a restaurant</a> to be scraped — both create a GitHub issue for review.</p>
       <p style="margin-top:6px;font-size:0.75rem;color:var(--muted);opacity:0.7">Data refreshes automatically every day at 06:15 UTC. Last update shown above.</p>
     </div>
     <button class="contrib-btn" onclick="openAddModal()">+ Add a Meal</button>
@@ -782,6 +800,44 @@ HTML = r"""<!DOCTYPE html>
           </div>
         </div>
         <button type="submit" class="form-submit" id="add-submit">Add to Database</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Request restaurant modal -->
+<div class="modal-overlay" id="request-modal" onclick="closeRequestModal(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Request a Restaurant</div>
+        <div class="modal-subtitle">don't see a restaurant? let us know</div>
+      </div>
+      <button class="modal-close" onclick="closeRequestModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:16px;line-height:1.6">
+        This creates a <strong style="color:var(--text)">GitHub issue</strong> on the project repo.
+        A scraper won't be built automatically — the maintainer will review the request
+        and add support when they can. Including a link to the restaurant's nutrition page
+        helps speed things up.
+      </p>
+      <form id="request-form" class="request-form" onsubmit="submitRequestForm(event)">
+        <div class="form-grid">
+          <div class="form-group full">
+            <label>Restaurant Name *</label>
+            <input type="text" id="req-restaurant" required placeholder="e.g. Greggs, Pret A Manger, Five Guys...">
+          </div>
+          <div class="form-group full">
+            <label>Nutrition Page URL (helps a lot!)</label>
+            <input type="url" id="req-url" placeholder="https://www.example.com/nutrition">
+          </div>
+          <div class="form-group full">
+            <label>Notes (optional)</label>
+            <textarea id="req-notes" placeholder="Any extra context — e.g. which region, specific menu items you want..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="form-submit" id="req-submit">Submit Request</button>
       </form>
     </div>
   </div>
@@ -1182,8 +1238,55 @@ async function submitAddForm(e) {
   btn.textContent = 'Add to Database';
 }
 
+// ── Request restaurant modal ──────────────────────────────────────────
+function openRequestModal() {
+  document.getElementById('request-modal').classList.add('open');
+}
+
+function closeRequestModal(e) {
+  if (!e || e.target === document.getElementById('request-modal')) {
+    document.getElementById('request-modal').classList.remove('open');
+  }
+}
+
+async function submitRequestForm(e) {
+  e.preventDefault();
+  const btn = document.getElementById('req-submit');
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+
+  const payload = {
+    restaurant: document.getElementById('req-restaurant').value,
+    url: document.getElementById('req-url').value || null,
+    notes: document.getElementById('req-notes').value || null,
+  };
+
+  try {
+    const res = await fetch('/api/scrape-request', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const result = await res.json();
+    if (result.ok) {
+      const msg = result.issue_url
+        ? 'Request logged for review — <a href="' + result.issue_url + '" target="_blank" style="color:#4ade80;text-decoration:underline">track on GitHub</a>'
+        : 'Request logged for review';
+      showToast(msg, true);
+      document.getElementById('request-form').reset();
+      document.getElementById('request-modal').classList.remove('open');
+    } else {
+      showToast('Error: ' + (result.error || 'Unknown'));
+    }
+  } catch(err) {
+    showToast('Failed to submit request');
+  }
+  btn.disabled = false;
+  btn.textContent = 'Submit Request';
+}
+
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { closeAddModal(); }
+  if (e.key === 'Escape') { closeAddModal(); closeRequestModal(); }
 });
 
 loadData();
@@ -1314,6 +1417,78 @@ def api_add_item():
     except Exception as exc:
         return jsonify({"ok": False, "error": f"GitHub API error: {str(exc)}"}), 502
 
+
+
+SCRAPE_REQUESTS_PATH = Path(__file__).parent / "output" / "scrape_requests.json"
+
+
+@app.route("/api/scrape-request", methods=["POST"])
+def api_scrape_request():
+    """Request a new restaurant to be scraped — creates a GitHub issue or logs locally."""
+    data = request.get_json(force=True)
+    restaurant = data.get("restaurant", "").strip()
+    if not restaurant:
+        return jsonify({"ok": False, "error": "Restaurant name is required"}), 400
+
+    url = data.get("url", "").strip() or None
+    notes = data.get("notes", "").strip() or None
+
+    if not GITHUB_TOKEN:
+        # Fall back to local JSON log
+        requests_log = []
+        if SCRAPE_REQUESTS_PATH.exists():
+            with open(SCRAPE_REQUESTS_PATH) as f:
+                requests_log = json.load(f)
+        from datetime import date
+        requests_log.append({
+            "restaurant": restaurant,
+            "url": url,
+            "notes": notes,
+            "requested_at": date.today().isoformat(),
+            "status": "pending",
+        })
+        SCRAPE_REQUESTS_PATH.parent.mkdir(parents=True, exist_ok=True)
+        with open(SCRAPE_REQUESTS_PATH, "w") as f:
+            json.dump(requests_log, f, indent=2)
+        return jsonify({"ok": True, "status": "logged_locally"})
+
+    # Build GitHub Issue
+    title = f"[Scrape Request] {restaurant}"
+    body_parts = [
+        "### Restaurant Scrape Request\n",
+        f"**Restaurant:** {restaurant}",
+    ]
+    if url:
+        body_parts.append(f"**Nutrition page URL:** {url}")
+    if notes:
+        body_parts.append(f"**Notes:** {notes}")
+    body_parts.append("\n---\n*Submitted via the UK Eats UI*")
+    body = "\n".join(body_parts)
+
+    try:
+        resp = http_requests.post(
+            f"https://api.github.com/repos/{GITHUB_REPO}/issues",
+            headers={
+                "Authorization": f"token {GITHUB_TOKEN}",
+                "Accept": "application/vnd.github.v3+json",
+            },
+            json={
+                "title": title,
+                "body": body,
+                "labels": ["scrape-request"],
+            },
+            timeout=15,
+        )
+        resp.raise_for_status()
+        issue = resp.json()
+        return jsonify({
+            "ok": True,
+            "status": "submitted",
+            "issue_url": issue["html_url"],
+            "issue_number": issue["number"],
+        })
+    except Exception as exc:
+        return jsonify({"ok": False, "error": f"GitHub API error: {str(exc)}"}), 502
 
 
 @app.route("/api/items", methods=["DELETE"])
