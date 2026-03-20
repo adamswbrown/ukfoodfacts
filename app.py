@@ -1270,8 +1270,8 @@ async function submitRequestForm(e) {
     const result = await res.json();
     if (result.ok) {
       const msg = result.issue_url
-        ? 'Request submitted! <a href="' + result.issue_url + '" target="_blank" style="color:#4ade80;text-decoration:underline">Track on GitHub</a>'
-        : 'Request logged locally!';
+        ? 'Request logged for review — <a href="' + result.issue_url + '" target="_blank" style="color:#4ade80;text-decoration:underline">track on GitHub</a>'
+        : 'Request logged for review';
       showToast(msg, true);
       document.getElementById('request-form').reset();
       document.getElementById('request-modal').classList.remove('open');
