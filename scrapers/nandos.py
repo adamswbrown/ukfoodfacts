@@ -9,6 +9,8 @@ import json
 import re
 from datetime import date
 
+from scrapers.dietary_utils import infer_dietary_flags
+
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; HobbyNutritionBot/1.0; personal use)",
     "Accept": "text/html,application/xhtml+xml",
@@ -76,7 +78,11 @@ def scrape():
                     "fibre_g": _safe_float(nutrition.get("fibre") or nutrition.get("fiber")),
                     "salt_g": _safe_float(nutrition.get("salt") or nutrition.get("sodium")),
                     "allergens": product.get("allergens", []),
-                    "dietary_flags": _extract_dietary(product),
+                    "dietary_flags": infer_dietary_flags(
+                        product.get("name", ""),
+                        product.get("description", ""),
+                        source_tags=product.get("tags") or product.get("dietaryInfo"),
+                    ),
                     "location": "National",
                     "source_url": "https://www.nandos.co.uk/food/menu",
                     "scraped_at": today,
@@ -105,23 +111,6 @@ def _safe_float(val):
         return round(float(val), 1) if val is not None else None
     except (ValueError, TypeError):
         return None
-
-
-def _extract_dietary(product):
-    flags = []
-    name_lower = (product.get("name") or "").lower()
-    desc_lower = (product.get("description") or "").lower()
-    tags = product.get("tags") or product.get("dietaryInfo") or []
-    tags_lower = [str(t).lower() for t in tags]
-
-    if any(t in ["vegan", "plant-based"] for t in tags_lower) or "plant" in name_lower:
-        flags.append("vegan")
-    if any(t in ["vegetarian"] for t in tags_lower):
-        flags.append("vegetarian")
-    if any(t in ["gluten-free", "gf"] for t in tags_lower):
-        flags.append("gluten_free")
-
-    return flags
 
 
 def _fallback_data():
@@ -177,7 +166,7 @@ def _fallback_data():
             "fibre_g": fibre,
             "salt_g": salt,
             "allergens": [],
-            "dietary_flags": [],
+            "dietary_flags": infer_dietary_flags(name),
             "location": "National",
             "source_url": "https://www.nandos.co.uk/food/menu",
             "scraped_at": today,

@@ -7,6 +7,8 @@ import json
 from datetime import date
 from pathlib import Path
 
+from scrapers.dietary_utils import infer_dietary_flags
+
 CUSTOM_DB = Path(__file__).parent.parent / "output" / "custom_items.json"
 PENDING_DB = Path(__file__).parent.parent / "output" / "pending_items.json"
 
@@ -45,7 +47,7 @@ def add_item(restaurant, category, item_name, calories_kcal,
         "fibre_g": _safe_float(fibre_g),
         "salt_g": _safe_float(salt_g),
         "allergens": [],
-        "dietary_flags": [],
+        "dietary_flags": infer_dietary_flags(item_name.strip(), description.strip()),
         "source_url": "manual",
         "scraped_at": str(date.today()),
         "custom": True,
@@ -114,7 +116,7 @@ def submit_item(restaurant, category, item_name, calories_kcal,
         "fibre_g": _safe_float(fibre_g),
         "salt_g": _safe_float(salt_g),
         "allergens": [],
-        "dietary_flags": [],
+        "dietary_flags": infer_dietary_flags(item_name.strip(), description.strip()),
         "source_url": "user-submitted",
         "scraped_at": str(date.today()),
         "custom": True,

@@ -683,6 +683,12 @@ HTML = r"""<!DOCTYPE html>
     <select id="category-filter" onchange="applyFilters()">
       <option value="">All categories</option>
     </select>
+    <select id="diet-filter" onchange="applyFilters()">
+      <option value="">All diets</option>
+      <option value="vegan">Vegan</option>
+      <option value="vegetarian">Vegetarian</option>
+      <option value="gluten_free">Gluten free</option>
+    </select>
     <select id="sort-by" onchange="applyFilters()">
       <option value="">Sort: Default</option>
       <option value="calories_asc">Calories ↑ Low first</option>
@@ -1003,6 +1009,9 @@ function applyFilters() {
   const cat = document.getElementById('category-filter').value;
   if (cat) data = data.filter(d => d.category === cat);
 
+  const diet = document.getElementById('diet-filter').value;
+  if (diet) data = data.filter(d => (d.dietary_flags || []).includes(diet));
+
   const sort = document.getElementById('sort-by').value;
   if (sort === 'calories_asc') data.sort((a,b) => (a.calories_kcal||999) - (b.calories_kcal||999));
   if (sort === 'calories_desc') data.sort((a,b) => (b.calories_kcal||0) - (a.calories_kcal||0));
@@ -1056,7 +1065,7 @@ function renderTable(data) {
         </div>
       </td>
       <td class="cell-category">${d.location || 'National'}</td>
-      <td class="cell-item">${d.item}</td>
+      <td class="cell-item">${d.item}${(d.dietary_flags||[]).length ? ' <span style="font-size:0.65rem;color:var(--green);opacity:0.85">' + d.dietary_flags.map(f=>f==='gluten_free'?'GF':f==='vegan'?'V':f==='vegetarian'?'VG':f).join(' · ') + '</span>' : ''}</td>
       <td class="cell-category">${d.category}</td>
       <td><span class="cal-badge ${calClass(d.calories_kcal)}">${d.calories_kcal ?? '—'} kcal</span></td>
       <td>

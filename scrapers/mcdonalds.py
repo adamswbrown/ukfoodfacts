@@ -9,6 +9,8 @@ import requests
 import json
 from datetime import date
 
+from scrapers.dietary_utils import infer_dietary_flags
+
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; HobbyNutritionBot/1.0; personal use)",
     "Accept": "application/json, text/html",
@@ -78,7 +80,10 @@ def _parse_mcdonalds_json(data):
             "fibre_g": _safe_float(_find_nutrient(p, ["fibre", "fiber", "dietaryFiber"])),
             "salt_g": _safe_float(_find_nutrient(p, ["salt", "sodium"])),
             "allergens": p.get("allergens") or [],
-            "dietary_flags": [],
+            "dietary_flags": infer_dietary_flags(
+                p.get("name") or p.get("item") or p.get("title") or "",
+                p.get("description") or "",
+            ),
             "location": "National",
             "location": "National",
             "source_url": "https://www.mcdonalds.com/gb/en-gb/eat/nutritioninfo.html",
@@ -166,7 +171,7 @@ def _fallback_data():
             "fibre_g": fibre,
             "salt_g": salt,
             "allergens": [],
-            "dietary_flags": [],
+            "dietary_flags": infer_dietary_flags(name),
             "location": "National",
             "source_url": "https://www.mcdonalds.com/gb/en-gb/eat/nutritioninfo.html",
             "scraped_at": today,

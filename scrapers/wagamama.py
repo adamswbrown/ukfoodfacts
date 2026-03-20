@@ -9,6 +9,8 @@ import json
 import asyncio
 from datetime import date
 
+from scrapers.dietary_utils import infer_dietary_flags
+
 try:
     from playwright.async_api import async_playwright
     PLAYWRIGHT_AVAILABLE = True
@@ -111,7 +113,7 @@ async def _parse_rendered_dom(page, today):
                     "fibre_g": None,
                     "salt_g": None,
                     "allergens": [],
-                    "dietary_flags": [],
+                    "dietary_flags": infer_dietary_flags(name),
                     "location": "National",
                     "source_url": "https://www.wagamama.com/menu",
                     "scraped_at": today,
@@ -175,7 +177,10 @@ def _try_parse_wagamama_json(data, today):
                 "fibre_g": _safe_float(nutrition.get("fibre") or nutrition.get("fiber")),
                 "salt_g": _safe_float(nutrition.get("salt") or nutrition.get("sodium")),
                 "allergens": p.get("allergens") or [],
-                "dietary_flags": [],
+                "dietary_flags": infer_dietary_flags(
+                    p.get("name") or p.get("title") or "",
+                    p.get("description") or "",
+                ),
                 "source_url": "https://www.wagamama.com/menu",
                 "scraped_at": today,
             })
@@ -255,7 +260,7 @@ def _fallback_data():
             "fibre_g": fibre,
             "salt_g": salt,
             "allergens": [],
-            "dietary_flags": [],
+            "dietary_flags": infer_dietary_flags(name),
             "location": "National",
             "source_url": "https://www.wagamama.com/menu",
             "scraped_at": today,
