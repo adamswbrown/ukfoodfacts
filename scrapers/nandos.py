@@ -1,7 +1,7 @@
 """
 Nandos UK nutrition scraper
 Fetches from https://www.nandos.co.uk/food/menu
-Nandos renders menu data as JSON in a <script> tag (Next.js __NEXT_DATA__)
+Nandos marks vegetarian items with <i class="veggie"> tags in the rendered HTML.
 """
 
 import requests
@@ -26,40 +26,50 @@ def scrape():
         resp.raise_for_status()
     except Exception as e:
         print(f"  [Nandos] Request failed: {e}")
-        return []
+        return _fallback_data()
 
-    # Nandos (Next.js) embeds all menu data in __NEXT_DATA__ JSON script tag
+    # Try parsing __NEXT_DATA__ first (original approach)
+    items = _try_next_data(resp.text)
+    if items:
+        print(f"  [Nandos] Scraped {len(items)} items via __NEXT_DATA__")
+        return items
+
+    # Try parsing the rendered HTML for product buttons
+    items = _parse_html_products(resp.text)
+    if items:
+        print(f"  [Nandos] Scraped {len(items)} items from HTML")
+        return items
+
+    print("  [Nandos] Could not parse menu, using fallback data")
+    return _fallback_data()
+
+
+def _try_next_data(html):
+    """Try to extract menu data from Next.js __NEXT_DATA__ tag."""
     match = re.search(
         r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>',
-        resp.text,
-        re.DOTALL,
+        html, re.DOTALL,
     )
     if not match:
-        print("  [Nandos] Could not find __NEXT_DATA__ - site structure may have changed")
-        return _fallback_data()
+        return []
 
     try:
         next_data = json.loads(match.group(1))
-    except json.JSONDecodeError as e:
-        print(f"  [Nandos] JSON parse error: {e}")
-        return _fallback_data()
+    except json.JSONDecodeError:
+        return []
 
     items = []
     today = str(date.today())
 
-    # Walk the page props to find menu sections
     try:
-        # Path varies by Next.js version; try common paths
         page_props = next_data.get("props", {}).get("pageProps", {})
         menu_data = (
             page_props.get("menu")
             or page_props.get("menuData")
             or page_props.get("categories")
         )
-
         if not menu_data:
-            print("  [Nandos] Menu structure not found in expected location")
-            return _fallback_data()
+            return []
 
         for category in menu_data:
             cat_name = category.get("name", "Unknown")
@@ -87,15 +97,85 @@ def scrape():
                     "source_url": "https://www.nandos.co.uk/food/menu",
                     "scraped_at": today,
                 })
-    except Exception as e:
-        print(f"  [Nandos] Parse error: {e}")
-        return _fallback_data()
+    except Exception:
+        return []
 
-    if not items:
-        print("  [Nandos] No items parsed, using fallback data")
-        return _fallback_data()
+    return items
 
-    print(f"  [Nandos] Scraped {len(items)} items")
+
+def _parse_html_products(html):
+    """
+    Parse product info from rendered HTML buttons.
+    Nandos marks vegetarian items with <i class="veggie">Vegetarian</i>.
+    """
+    today = str(date.today())
+
+    # Pattern: <button title="Open product description for X">
+    #   <h3>Name</h3>
+    #   <div class="nutritionalinfo"><p>NNN kcal</p></div>
+    #   <p>description</p>
+    #   possibly <i class="veggie">Vegetarian</i>
+    # </button>
+    products = re.findall(
+        r'<button[^>]*title="Open product description for [^"]*"[^>]*>'
+        r'.*?<h3>([^<]+)</h3>'
+        r'.*?<div class="nutritionalinfo"><p>(.*?)</p></div>'
+        r'(.*?)'
+        r'</button>',
+        html, re.DOTALL,
+    )
+
+    if not products:
+        return []
+
+    items = []
+    for name_raw, cal_text, rest in products:
+        name = re.sub(r'&amp;', '&', name_raw).strip()
+        if not name:
+            continue
+
+        # Extract calories
+        cal_match = re.search(r'(\d[\d,]*)\s*kcal', cal_text)
+        calories = _safe_int(cal_match.group(1).replace(",", "")) if cal_match else None
+
+        # Check for vegetarian tag from source
+        is_vegetarian = 'class="veggie"' in rest
+
+        # Extract description (first <p> in the rest)
+        desc_match = re.search(r'<p>(.+?)</p>', rest)
+        description = ""
+        if desc_match:
+            description = re.sub(r'<[^>]+>', '', desc_match.group(1)).strip()
+
+        # Build dietary flags: source vegetarian tag takes priority
+        if is_vegetarian:
+            # Check if it's actually vegan (use inference for vegan distinction)
+            inferred = infer_dietary_flags(name, description)
+            if "vegan" in inferred:
+                dietary_flags = ["vegan"]
+            else:
+                dietary_flags = ["vegetarian"]
+        else:
+            dietary_flags = infer_dietary_flags(name, description)
+
+        items.append({
+            "restaurant": "Nandos",
+            "category": "Menu",
+            "item": name,
+            "description": description,
+            "calories_kcal": calories,
+            "protein_g": None,
+            "carbs_g": None,
+            "fat_g": None,
+            "fibre_g": None,
+            "salt_g": None,
+            "allergens": [],
+            "dietary_flags": dietary_flags,
+            "location": "National",
+            "source_url": "https://www.nandos.co.uk/food/menu",
+            "scraped_at": today,
+        })
+
     return items
 
 
