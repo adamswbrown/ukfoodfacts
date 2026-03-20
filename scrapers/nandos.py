@@ -1,7 +1,8 @@
 """
 Nandos UK nutrition scraper
-Fetches from https://www.nandos.co.uk/food/menu
-Nandos marks vegetarian items with <i class="veggie"> tags in the rendered HTML.
+Fetches structured menu data from Nandos' Gatsby page-data JSON endpoint.
+Includes full dietary flags (vegan, vegetarian, gluten-free) and allergens
+directly from the source data.
 """
 
 import requests
@@ -13,170 +14,113 @@ from scrapers.dietary_utils import infer_dietary_flags
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; HobbyNutritionBot/1.0; personal use)",
-    "Accept": "text/html,application/xhtml+xml",
+    "Accept": "application/json",
 }
+
+# Gatsby page-data endpoint — returns full menu JSON without JS rendering
+PAGE_DATA_URL = "https://www.nandos.co.uk/food/menu/page-data/index/page-data.json"
 
 
 def scrape():
-    print("  [Nandos] Fetching menu page...")
+    print("  [Nandos] Fetching menu data...")
     try:
-        resp = requests.get(
-            "https://www.nandos.co.uk/food/menu", headers=HEADERS, timeout=15
-        )
+        resp = requests.get(PAGE_DATA_URL, headers=HEADERS, timeout=15)
         resp.raise_for_status()
+        data = resp.json()
     except Exception as e:
         print(f"  [Nandos] Request failed: {e}")
         return _fallback_data()
 
-    # Try parsing __NEXT_DATA__ first (original approach)
-    items = _try_next_data(resp.text)
+    items = _parse_page_data(data)
     if items:
-        print(f"  [Nandos] Scraped {len(items)} items via __NEXT_DATA__")
+        print(f"  [Nandos] Scraped {len(items)} items")
         return items
 
-    # Try parsing the rendered HTML for product buttons
-    items = _parse_html_products(resp.text)
-    if items:
-        print(f"  [Nandos] Scraped {len(items)} items from HTML")
-        return items
-
-    print("  [Nandos] Could not parse menu, using fallback data")
+    print("  [Nandos] Could not parse page data, using fallback")
     return _fallback_data()
 
 
-def _try_next_data(html):
-    """Try to extract menu data from Next.js __NEXT_DATA__ tag."""
-    match = re.search(
-        r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>',
-        html, re.DOTALL,
-    )
-    if not match:
-        return []
-
+def _parse_page_data(data):
+    """Parse the Gatsby page-data JSON for menu items."""
     try:
-        next_data = json.loads(match.group(1))
-    except json.JSONDecodeError:
+        sections = data["result"]["data"]["nandos"]["menu"]["sections"]
+    except (KeyError, TypeError):
         return []
 
-    items = []
     today = str(date.today())
+    items = []
 
-    try:
-        page_props = next_data.get("props", {}).get("pageProps", {})
-        menu_data = (
-            page_props.get("menu")
-            or page_props.get("menuData")
-            or page_props.get("categories")
-        )
-        if not menu_data:
-            return []
+    for section in sections:
+        category = section.get("displayName", "Menu")
+        for product in section.get("items", []):
+            name = product.get("displayName", "")
+            if not name:
+                continue
 
-        for category in menu_data:
-            cat_name = category.get("name", "Unknown")
-            products = category.get("products") or category.get("items") or []
-            for product in products:
-                nutrition = product.get("nutrition") or product.get("nutritionInfo") or {}
-                items.append({
-                    "restaurant": "Nandos",
-                    "category": cat_name,
-                    "item": product.get("name", "Unknown"),
-                    "description": product.get("description", ""),
-                    "calories_kcal": _safe_int(nutrition.get("calories") or nutrition.get("energy")),
-                    "protein_g": _safe_float(nutrition.get("protein")),
-                    "carbs_g": _safe_float(nutrition.get("carbohydrates") or nutrition.get("carbs")),
-                    "fat_g": _safe_float(nutrition.get("fat") or nutrition.get("totalFat")),
-                    "fibre_g": _safe_float(nutrition.get("fibre") or nutrition.get("fiber")),
-                    "salt_g": _safe_float(nutrition.get("salt") or nutrition.get("sodium")),
-                    "allergens": product.get("allergens", []),
-                    "dietary_flags": infer_dietary_flags(
-                        product.get("name", ""),
-                        product.get("description", ""),
-                        source_tags=product.get("tags") or product.get("dietaryInfo"),
-                    ),
-                    "location": "National",
-                    "source_url": "https://www.nandos.co.uk/food/menu",
-                    "scraped_at": today,
-                })
-    except Exception:
-        return []
+            description = product.get("description", "") or ""
+
+            # Dietary flags directly from source
+            diets = product.get("diets", [])
+            dietary_flags = []
+            if "VEGAN" in diets:
+                dietary_flags.append("vegan")
+            if "VEGETARIAN" in diets and "vegan" not in dietary_flags:
+                dietary_flags.append("vegetarian")
+            if "GLUTEN_FREE" in diets:
+                dietary_flags.append("gluten_free")
+
+            # Allergens from source — only include confirmed ("YES")
+            allergens = []
+            for a in product.get("allergens", []):
+                if a.get("present") == "YES":
+                    allergen_name = a.get("name", "")
+                    # Normalise: GLUTEN_WHEAT -> gluten (wheat), etc.
+                    clean = allergen_name.lower().replace("_", " ")
+                    allergens.append(clean)
+
+            # Nutrition — values are in milligrams, convert to grams
+            nutrition = {}
+            portions = (product.get("nutritionalInfo") or {}).get("factsForPortionSizes", [])
+            if portions:
+                p = portions[0]
+                nutrition = {
+                    "kcal": p.get("energyKcal"),
+                    "protein": _mg_to_g(p.get("proteinMg")),
+                    "carbs": _mg_to_g(p.get("totalCarbsMg")),
+                    "fat": _mg_to_g(p.get("fatMg")),
+                    "fibre": _mg_to_g(p.get("fibreMg")),
+                    "salt": _mg_to_g(p.get("saltMg")),
+                }
+
+            items.append({
+                "restaurant": "Nandos",
+                "category": category,
+                "item": name,
+                "description": description,
+                "calories_kcal": _safe_int(nutrition.get("kcal")),
+                "protein_g": nutrition.get("protein"),
+                "carbs_g": nutrition.get("carbs"),
+                "fat_g": nutrition.get("fat"),
+                "fibre_g": nutrition.get("fibre"),
+                "salt_g": nutrition.get("salt"),
+                "allergens": allergens,
+                "dietary_flags": dietary_flags if dietary_flags else infer_dietary_flags(name, description),
+                "location": "National",
+                "source_url": "https://www.nandos.co.uk/food/menu",
+                "scraped_at": today,
+            })
 
     return items
 
 
-def _parse_html_products(html):
-    """
-    Parse product info from rendered HTML buttons.
-    Nandos marks vegetarian items with <i class="veggie">Vegetarian</i>.
-    """
-    today = str(date.today())
-
-    # Pattern: <button title="Open product description for X">
-    #   <h3>Name</h3>
-    #   <div class="nutritionalinfo"><p>NNN kcal</p></div>
-    #   <p>description</p>
-    #   possibly <i class="veggie">Vegetarian</i>
-    # </button>
-    products = re.findall(
-        r'<button[^>]*title="Open product description for [^"]*"[^>]*>'
-        r'.*?<h3>([^<]+)</h3>'
-        r'.*?<div class="nutritionalinfo"><p>(.*?)</p></div>'
-        r'(.*?)'
-        r'</button>',
-        html, re.DOTALL,
-    )
-
-    if not products:
-        return []
-
-    items = []
-    for name_raw, cal_text, rest in products:
-        name = re.sub(r'&amp;', '&', name_raw).strip()
-        if not name:
-            continue
-
-        # Extract calories
-        cal_match = re.search(r'(\d[\d,]*)\s*kcal', cal_text)
-        calories = _safe_int(cal_match.group(1).replace(",", "")) if cal_match else None
-
-        # Check for vegetarian tag from source
-        is_vegetarian = 'class="veggie"' in rest
-
-        # Extract description (first <p> in the rest)
-        desc_match = re.search(r'<p>(.+?)</p>', rest)
-        description = ""
-        if desc_match:
-            description = re.sub(r'<[^>]+>', '', desc_match.group(1)).strip()
-
-        # Build dietary flags: source vegetarian tag takes priority
-        if is_vegetarian:
-            # Check if it's actually vegan (use inference for vegan distinction)
-            inferred = infer_dietary_flags(name, description)
-            if "vegan" in inferred:
-                dietary_flags = ["vegan"]
-            else:
-                dietary_flags = ["vegetarian"]
-        else:
-            dietary_flags = infer_dietary_flags(name, description)
-
-        items.append({
-            "restaurant": "Nandos",
-            "category": "Menu",
-            "item": name,
-            "description": description,
-            "calories_kcal": calories,
-            "protein_g": None,
-            "carbs_g": None,
-            "fat_g": None,
-            "fibre_g": None,
-            "salt_g": None,
-            "allergens": [],
-            "dietary_flags": dietary_flags,
-            "location": "National",
-            "source_url": "https://www.nandos.co.uk/food/menu",
-            "scraped_at": today,
-        })
-
-    return items
+def _mg_to_g(mg_val):
+    """Convert milligrams to grams, rounded to 1 decimal."""
+    if mg_val is None:
+        return None
+    try:
+        return round(float(mg_val) / 1000, 1)
+    except (ValueError, TypeError):
+        return None
 
 
 def _safe_int(val):
