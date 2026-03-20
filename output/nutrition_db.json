@@ -249,7 +249,9 @@
     "fibre_g": 2,
     "salt_g": 0.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "location": "National",
     "source_url": "https://www.nandos.co.uk/food/menu",
     "scraped_at": "2026-03-20"
@@ -266,7 +268,9 @@
     "fibre_g": 2,
     "salt_g": 0.5,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "location": "National",
     "source_url": "https://www.nandos.co.uk/food/menu",
     "scraped_at": "2026-03-20"
@@ -283,7 +287,9 @@
     "fibre_g": 3,
     "salt_g": 0.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "location": "National",
     "source_url": "https://www.nandos.co.uk/food/menu",
     "scraped_at": "2026-03-20"
@@ -300,7 +306,9 @@
     "fibre_g": 3,
     "salt_g": 0.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "location": "National",
     "source_url": "https://www.nandos.co.uk/food/menu",
     "scraped_at": "2026-03-20"
@@ -317,7 +325,9 @@
     "fibre_g": 4,
     "salt_g": 0.1,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "location": "National",
     "source_url": "https://www.nandos.co.uk/food/menu",
     "scraped_at": "2026-03-20"
@@ -334,7 +344,9 @@
     "fibre_g": 2,
     "salt_g": 1.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "location": "National",
     "source_url": "https://www.nandos.co.uk/food/menu",
     "scraped_at": "2026-03-20"
@@ -351,7 +363,9 @@
     "fibre_g": 2,
     "salt_g": 1.1,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "location": "National",
     "source_url": "https://www.nandos.co.uk/food/menu",
     "scraped_at": "2026-03-20"
@@ -368,7 +382,9 @@
     "fibre_g": 1,
     "salt_g": 2.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "location": "National",
     "source_url": "https://www.nandos.co.uk/food/menu",
     "scraped_at": "2026-03-20"
@@ -385,7 +401,9 @@
     "fibre_g": 8,
     "salt_g": 1.3,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "location": "National",
     "source_url": "https://www.nandos.co.uk/food/menu",
     "scraped_at": "2026-03-20"
@@ -402,7 +420,9 @@
     "fibre_g": 2,
     "salt_g": 2.1,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "location": "National",
     "source_url": "https://www.nandos.co.uk/food/menu",
     "scraped_at": "2026-03-20"
@@ -419,7 +439,9 @@
     "fibre_g": 2,
     "salt_g": 0.1,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "location": "National",
     "source_url": "https://www.nandos.co.uk/food/menu",
     "scraped_at": "2026-03-20"
@@ -640,7 +662,9 @@
     "fibre_g": 5,
     "salt_g": 2.1,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "location": "National",
     "source_url": "https://www.mcdonalds.com/gb/en-gb/eat/nutritioninfo.html",
     "scraped_at": "2026-03-20"
@@ -776,7 +800,9 @@
     "fibre_g": 1,
     "salt_g": 0.1,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "location": "National",
     "source_url": "https://www.mcdonalds.com/gb/en-gb/eat/nutritioninfo.html",
     "scraped_at": "2026-03-20"
@@ -793,7 +819,9 @@
     "fibre_g": 2,
     "salt_g": 0.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "location": "National",
     "source_url": "https://www.mcdonalds.com/gb/en-gb/eat/nutritioninfo.html",
     "scraped_at": "2026-03-20"
@@ -810,7 +838,9 @@
     "fibre_g": 1,
     "salt_g": 0.9,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "location": "National",
     "source_url": "https://www.mcdonalds.com/gb/en-gb/eat/nutritioninfo.html",
     "scraped_at": "2026-03-20"
@@ -878,7 +908,9 @@
     "fibre_g": 1,
     "salt_g": 0.5,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "location": "National",
     "source_url": "https://www.mcdonalds.com/gb/en-gb/eat/nutritioninfo.html",
     "scraped_at": "2026-03-20"
@@ -1014,7 +1046,9 @@
     "fibre_g": 4,
     "salt_g": 1.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "location": "National",
     "source_url": "https://www.mcdonalds.com/gb/en-gb/eat/nutritioninfo.html",
     "scraped_at": "2026-03-20"
@@ -1048,7 +1082,9 @@
     "fibre_g": 7,
     "salt_g": 2.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "location": "National",
     "source_url": "https://www.wagamama.com/menu",
     "scraped_at": "2026-03-20"
@@ -1133,7 +1169,9 @@
     "fibre_g": 7,
     "salt_g": 2.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "location": "National",
     "source_url": "https://www.wagamama.com/menu",
     "scraped_at": "2026-03-20"
@@ -1167,7 +1205,9 @@
     "fibre_g": 9,
     "salt_g": 2.1,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "location": "National",
     "source_url": "https://www.wagamama.com/menu",
     "scraped_at": "2026-03-20"
@@ -1269,7 +1309,9 @@
     "fibre_g": 8,
     "salt_g": 2.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "location": "National",
     "source_url": "https://www.wagamama.com/menu",
     "scraped_at": "2026-03-20"
@@ -1286,7 +1328,9 @@
     "fibre_g": 6,
     "salt_g": 0.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "location": "National",
     "source_url": "https://www.wagamama.com/menu",
     "scraped_at": "2026-03-20"
@@ -1354,7 +1398,9 @@
     "fibre_g": 4,
     "salt_g": 1.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "location": "National",
     "source_url": "https://www.wagamama.com/menu",
     "scraped_at": "2026-03-20"
@@ -1371,7 +1417,9 @@
     "fibre_g": 1,
     "salt_g": 0.1,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "location": "National",
     "source_url": "https://www.wagamama.com/menu",
     "scraped_at": "2026-03-20"
@@ -1388,7 +1436,9 @@
     "fibre_g": 2,
     "salt_g": 0.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "location": "National",
     "source_url": "https://www.wagamama.com/menu",
     "scraped_at": "2026-03-20"
@@ -1456,7 +1506,9 @@
     "fibre_g": 0,
     "salt_g": 0.1,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "location": "National",
     "source_url": "https://www.wagamama.com/menu",
     "scraped_at": "2026-03-20"
@@ -1712,7 +1764,9 @@
     "fibre_g": 3,
     "salt_g": 0.1,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.kfc.co.uk/nutrition-information",
     "scraped_at": "2026-03-20"
   },
@@ -1729,7 +1783,9 @@
     "fibre_g": 1,
     "salt_g": 0.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.kfc.co.uk/nutrition-information",
     "scraped_at": "2026-03-20"
   },
@@ -1967,7 +2023,9 @@
     "fibre_g": 2,
     "salt_g": 0.9,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.burgerking.co.uk/nutrition",
     "scraped_at": "2026-03-20"
   },
@@ -2154,7 +2212,9 @@
     "fibre_g": 5,
     "salt_g": 0.7,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.subway.com/en-GB/MenuNutrition/Nutrition",
     "scraped_at": "2026-03-20"
   },
@@ -2290,7 +2350,9 @@
     "fibre_g": 1,
     "salt_g": 1.1,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.pizzahut.co.uk/order/nutritional-information",
     "scraped_at": "2026-03-20"
   },
@@ -2358,7 +2420,9 @@
     "fibre_g": 2,
     "salt_g": 1.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.pizzahut.co.uk/order/nutritional-information",
     "scraped_at": "2026-03-20"
   },
@@ -2392,7 +2456,9 @@
     "fibre_g": 2,
     "salt_g": 1.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.pizzahut.co.uk/order/nutritional-information",
     "scraped_at": "2026-03-20"
   },
@@ -2443,7 +2509,9 @@
     "fibre_g": 3,
     "salt_g": 0.5,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.pizzahut.co.uk/order/nutritional-information",
     "scraped_at": "2026-03-20"
   },
@@ -2460,7 +2528,9 @@
     "fibre_g": 1,
     "salt_g": 0.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.pizzahut.co.uk/order/nutritional-information",
     "scraped_at": "2026-03-20"
   },
@@ -2477,7 +2547,9 @@
     "fibre_g": 2,
     "salt_g": 2.1,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.pizzahut.co.uk/order/nutritional-information",
     "scraped_at": "2026-03-20"
   },
@@ -2545,7 +2617,9 @@
     "fibre_g": 1,
     "salt_g": 1.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.dominos.co.uk/menu/nutritional-info",
     "scraped_at": "2026-03-20"
   },
@@ -2732,7 +2806,9 @@
     "fibre_g": 1,
     "salt_g": 0.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.dominos.co.uk/menu/nutritional-info",
     "scraped_at": "2026-03-20"
   },
@@ -3378,7 +3454,9 @@
     "fibre_g": 5,
     "salt_g": 2.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.pret.co.uk/en-GB/our-menu",
     "scraped_at": "2026-03-20"
   },
@@ -3446,7 +3524,9 @@
     "fibre_g": 4,
     "salt_g": 1.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.pret.co.uk/en-GB/our-menu",
     "scraped_at": "2026-03-20"
   },
@@ -3752,7 +3832,9 @@
     "fibre_g": 3,
     "salt_g": 2.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.pizzaexpress.com/our-food",
     "scraped_at": "2026-03-20"
   },
@@ -3820,7 +3902,9 @@
     "fibre_g": 5,
     "salt_g": 1.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.pizzaexpress.com/our-food",
     "scraped_at": "2026-03-20"
   },
@@ -3871,7 +3955,9 @@
     "fibre_g": 3,
     "salt_g": 1.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.pizzaexpress.com/our-food",
     "scraped_at": "2026-03-20"
   },
@@ -3956,7 +4042,9 @@
     "fibre_g": 3,
     "salt_g": 2.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.zizzi.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -4058,7 +4146,9 @@
     "fibre_g": 3,
     "salt_g": 1.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.zizzi.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -4075,7 +4165,9 @@
     "fibre_g": 2,
     "salt_g": 1.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.zizzi.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -4126,7 +4218,9 @@
     "fibre_g": 3,
     "salt_g": 2.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.prezzorestaurants.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -4211,7 +4305,9 @@
     "fibre_g": 5,
     "salt_g": 1.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.prezzorestaurants.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -4228,7 +4324,9 @@
     "fibre_g": 3,
     "salt_g": 1.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.prezzorestaurants.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -4721,7 +4819,9 @@
     "fibre_g": 3,
     "salt_g": 2.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.frankieandbennys.com/food-and-drink",
     "scraped_at": "2026-03-20"
   },
@@ -4772,7 +4872,9 @@
     "fibre_g": 5,
     "salt_g": 1.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.frankieandbennys.com/food-and-drink",
     "scraped_at": "2026-03-20"
   },
@@ -4789,7 +4891,9 @@
     "fibre_g": 2,
     "salt_g": 1.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.frankieandbennys.com/food-and-drink",
     "scraped_at": "2026-03-20"
   },
@@ -4976,7 +5080,9 @@
     "fibre_g": 2,
     "salt_g": 1.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.harvester.co.uk/menus",
     "scraped_at": "2026-03-20"
   },
@@ -5010,7 +5116,9 @@
     "fibre_g": 4,
     "salt_g": 0.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.harvester.co.uk/menus",
     "scraped_at": "2026-03-20"
   },
@@ -5452,7 +5560,9 @@
     "fibre_g": 4,
     "salt_g": 0.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.jdwetherspoon.com/food",
     "scraped_at": "2026-03-20"
   },
@@ -5554,7 +5664,9 @@
     "fibre_g": 5,
     "salt_g": 1.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.gbk.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -5571,7 +5683,9 @@
     "fibre_g": 4,
     "salt_g": 0.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.gbk.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -5605,7 +5719,9 @@
     "fibre_g": 2,
     "salt_g": 0.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.gbk.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -5741,7 +5857,9 @@
     "fibre_g": 5,
     "salt_g": 1.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://leon.co/menu",
     "scraped_at": "2026-03-20"
   },
@@ -5928,7 +6046,9 @@
     "fibre_g": 3,
     "salt_g": 1.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.itsu.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -5996,7 +6116,9 @@
     "fibre_g": 6,
     "salt_g": 1.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.itsu.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -6013,7 +6135,9 @@
     "fibre_g": 5,
     "salt_g": 0.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.itsu.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -6183,7 +6307,9 @@
     "fibre_g": 5,
     "salt_g": 0.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://yosushi.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -6217,7 +6343,9 @@
     "fibre_g": 0,
     "salt_g": 0.1,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://yosushi.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -6336,7 +6464,9 @@
     "fibre_g": 2,
     "salt_g": 0.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.honestburgers.co.uk/food/burgers",
     "scraped_at": "2026-03-20"
   },
@@ -6353,7 +6483,9 @@
     "fibre_g": 1,
     "salt_g": 0.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.honestburgers.co.uk/food/burgers",
     "scraped_at": "2026-03-20"
   },
@@ -6421,7 +6553,9 @@
     "fibre_g": 3,
     "salt_g": 1.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.therealgreek.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -6455,7 +6589,9 @@
     "fibre_g": 4,
     "salt_g": 1.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.therealgreek.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -6506,7 +6642,9 @@
     "fibre_g": 1,
     "salt_g": 2.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.therealgreek.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -6676,7 +6814,9 @@
     "fibre_g": 4,
     "salt_g": 0.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.lasiguanas.co.uk/food-and-drink",
     "scraped_at": "2026-03-20"
   },
@@ -6897,7 +7037,9 @@
     "fibre_g": 3,
     "salt_g": 2.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.bellaitalia.co.uk/food-drink",
     "scraped_at": "2026-03-20"
   },
@@ -6931,7 +7073,9 @@
     "fibre_g": 2,
     "salt_g": 2.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.bellaitalia.co.uk/food-drink",
     "scraped_at": "2026-03-20"
   },
@@ -6999,7 +7143,9 @@
     "fibre_g": 2,
     "salt_g": 1.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.bellaitalia.co.uk/food-drink",
     "scraped_at": "2026-03-20"
   },
@@ -7067,7 +7213,9 @@
     "fibre_g": 3,
     "salt_g": 2.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.askitalian.co.uk/food-and-drink",
     "scraped_at": "2026-03-20"
   },
@@ -7135,7 +7283,9 @@
     "fibre_g": 5,
     "salt_g": 1.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.askitalian.co.uk/food-and-drink",
     "scraped_at": "2026-03-20"
   },
@@ -7288,7 +7438,9 @@
     "fibre_g": 8,
     "salt_g": 1.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.tortilla.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -7526,7 +7678,9 @@
     "fibre_g": 5,
     "salt_g": 0.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.wasabi.uk.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -7577,7 +7731,9 @@
     "fibre_g": 3,
     "salt_g": 1.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.francomanca.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -8070,7 +8226,9 @@
     "fibre_g": 3,
     "salt_g": 0.5,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://slimchickens.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -8087,7 +8245,9 @@
     "fibre_g": 1,
     "salt_g": 0.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://slimchickens.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -8104,7 +8264,9 @@
     "fibre_g": 1,
     "salt_g": 1.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://slimchickens.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -8274,7 +8436,9 @@
     "fibre_g": 1,
     "salt_g": 0.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.wingstop.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -8427,7 +8591,9 @@
     "fibre_g": 1,
     "salt_g": 0.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.popeyes.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -8529,7 +8695,9 @@
     "fibre_g": 10,
     "salt_g": 1.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.chipotle.co.uk/nutrition-calculator",
     "scraped_at": "2026-03-20"
   },
@@ -8597,7 +8765,9 @@
     "fibre_g": 8,
     "salt_g": 0.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.chipotle.co.uk/nutrition-calculator",
     "scraped_at": "2026-03-20"
   },
@@ -8614,7 +8784,9 @@
     "fibre_g": 5,
     "salt_g": 1.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.chipotle.co.uk/nutrition-calculator",
     "scraped_at": "2026-03-20"
   },
@@ -8920,7 +9092,9 @@
     "fibre_g": 1,
     "salt_g": 0.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.chickencottage.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -8937,7 +9111,9 @@
     "fibre_g": 3,
     "salt_g": 0.1,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.chickencottage.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -9039,7 +9215,9 @@
     "fibre_g": 3,
     "salt_g": 0.5,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://morleys.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -9056,7 +9234,9 @@
     "fibre_g": 2,
     "salt_g": 0.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://morleys.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -9090,7 +9270,9 @@
     "fibre_g": 3,
     "salt_g": 2.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://morleys.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -9209,7 +9391,9 @@
     "fibre_g": 3,
     "salt_g": 0.5,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.germandonerkebab.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -9226,7 +9410,9 @@
     "fibre_g": 1,
     "salt_g": 1.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.germandonerkebab.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -9243,7 +9429,9 @@
     "fibre_g": 2,
     "salt_g": 0.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.germandonerkebab.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -9362,7 +9550,9 @@
     "fibre_g": 4,
     "salt_g": 0.5,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.wimpy.uk.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -9753,7 +9943,9 @@
     "fibre_g": 4,
     "salt_g": 0.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.beefeater.co.uk/en-gb/food",
     "scraped_at": "2026-03-20"
   },
@@ -10637,7 +10829,9 @@
     "fibre_g": 1.0,
     "salt_g": 1.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.papajohns.co.uk/static/assets/pdfs/nutritional-information.pdf",
     "scraped_at": "2026-03-20"
   },
@@ -10654,7 +10848,9 @@
     "fibre_g": 1.0,
     "salt_g": 1.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.papajohns.co.uk/static/assets/pdfs/nutritional-information.pdf",
     "scraped_at": "2026-03-20"
   },
@@ -10807,7 +11003,9 @@
     "fibre_g": 1.0,
     "salt_g": 1.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.papajohns.co.uk/static/assets/pdfs/nutritional-information.pdf",
     "scraped_at": "2026-03-20"
   },
@@ -11249,7 +11447,9 @@
     "fibre_g": 2.0,
     "salt_g": 0.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://chopstixnoodles.co.uk/food-menu/",
     "scraped_at": "2026-03-20"
   },
@@ -11300,7 +11500,9 @@
     "fibre_g": 4.0,
     "salt_g": 0.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://chopstixnoodles.co.uk/food-menu/",
     "scraped_at": "2026-03-20"
   },
@@ -11453,7 +11655,9 @@
     "fibre_g": 4.0,
     "salt_g": 0.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.kokoromaidstone.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -11657,7 +11861,9 @@
     "fibre_g": 2.0,
     "salt_g": 0.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.hungryhorse.co.uk/menu-highlights",
     "scraped_at": "2026-03-20"
   },
@@ -11674,7 +11880,9 @@
     "fibre_g": 1.0,
     "salt_g": 1.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.hungryhorse.co.uk/menu-highlights",
     "scraped_at": "2026-03-20"
   },
@@ -11827,7 +12035,9 @@
     "fibre_g": 2.0,
     "salt_g": 2.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://thelounges.co.uk/menus/",
     "scraped_at": "2026-03-20"
   },
@@ -11861,7 +12071,9 @@
     "fibre_g": 1.0,
     "salt_g": 1.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://thelounges.co.uk/menus/",
     "scraped_at": "2026-03-20"
   },
@@ -11878,7 +12090,9 @@
     "fibre_g": 2.0,
     "salt_g": 0.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://thelounges.co.uk/menus/",
     "scraped_at": "2026-03-20"
   },
@@ -12745,7 +12959,9 @@
     "fibre_g": 2.0,
     "salt_g": 1.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://rosasthai.com/nutrition",
     "scraped_at": "2026-03-20"
   },
@@ -12813,7 +13029,9 @@
     "fibre_g": 12.0,
     "salt_g": 1.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://boojummex.com/our-menu",
     "scraped_at": "2026-03-20"
   },
@@ -12864,7 +13082,9 @@
     "fibre_g": 10.0,
     "salt_g": 1.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://boojummex.com/our-menu",
     "scraped_at": "2026-03-20"
   },
@@ -12949,7 +13169,9 @@
     "fibre_g": 1.0,
     "salt_g": 0.9,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://nutrition.apache.ie/",
     "scraped_at": "2026-03-20"
   },
@@ -13034,7 +13256,9 @@
     "fibre_g": 2.0,
     "salt_g": 1.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://nutrition.apache.ie/",
     "scraped_at": "2026-03-20"
   },
@@ -13051,7 +13275,9 @@
     "fibre_g": 1.0,
     "salt_g": 1.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://nutrition.apache.ie/",
     "scraped_at": "2026-03-20"
   },
@@ -13731,7 +13957,9 @@
     "fibre_g": 1.0,
     "salt_g": 1.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.chick-fil-a.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -13782,7 +14010,9 @@
     "fibre_g": 1.0,
     "salt_g": 0.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.fourstarpizza.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -13884,7 +14114,9 @@
     "fibre_g": 1.0,
     "salt_g": 1.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.fourstarpizza.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -14037,7 +14269,9 @@
     "fibre_g": 2.0,
     "salt_g": 0.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.eddierockets.ie/menu",
     "scraped_at": "2026-03-20"
   },
@@ -14224,7 +14458,9 @@
     "fibre_g": 1.0,
     "salt_g": 0.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.marybrowns.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -14309,7 +14545,9 @@
     "fibre_g": 3.0,
     "salt_g": 1.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.shakeshack.co.uk/",
     "scraped_at": "2026-03-20"
   },
@@ -14360,7 +14598,9 @@
     "fibre_g": 4.0,
     "salt_g": 0.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.shakeshack.co.uk/",
     "scraped_at": "2026-03-20"
   },
@@ -14513,7 +14753,9 @@
     "fibre_g": 2.0,
     "salt_g": 2.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://thebotanist.uk.com/",
     "scraped_at": "2026-03-20"
   },
@@ -14564,7 +14806,9 @@
     "fibre_g": 2.0,
     "salt_g": 2.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://thebotanist.uk.com/",
     "scraped_at": "2026-03-20"
   },
@@ -14581,7 +14825,9 @@
     "fibre_g": 1.0,
     "salt_g": 1.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://thebotanist.uk.com/",
     "scraped_at": "2026-03-20"
   },
@@ -15074,7 +15320,9 @@
     "fibre_g": 3.0,
     "salt_g": 0.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.turtlebay.co.uk/food-drink/food-menu",
     "scraped_at": "2026-03-20"
   },
@@ -15516,7 +15764,9 @@
     "fibre_g": 3.0,
     "salt_g": 0.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://daveshotchicken.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -15533,7 +15783,9 @@
     "fibre_g": 1.0,
     "salt_g": 1.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://daveshotchicken.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -15550,7 +15802,9 @@
     "fibre_g": 2.0,
     "salt_g": 0.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://daveshotchicken.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -15601,7 +15855,9 @@
     "fibre_g": 2.0,
     "salt_g": 1.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.bananatree.co.uk/menus/",
     "scraped_at": "2026-03-20"
   },
@@ -15754,7 +16010,9 @@
     "fibre_g": 10.0,
     "salt_g": 2.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.barburrito.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -15822,7 +16080,9 @@
     "fibre_g": 3.0,
     "salt_g": 1.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.barburrito.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -15873,7 +16133,9 @@
     "fibre_g": 4.0,
     "salt_g": 2.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.carluccios.com/menus/",
     "scraped_at": "2026-03-20"
   },
@@ -15907,7 +16169,9 @@
     "fibre_g": 3.0,
     "salt_g": 2.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.carluccios.com/menus/",
     "scraped_at": "2026-03-20"
   },
@@ -15958,7 +16222,9 @@
     "fibre_g": 2.0,
     "salt_g": 1.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.carluccios.com/menus/",
     "scraped_at": "2026-03-20"
   },
@@ -15992,7 +16258,9 @@
     "fibre_g": 3.0,
     "salt_g": 2.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://fireaway.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -16043,7 +16311,9 @@
     "fibre_g": 4.0,
     "salt_g": 2.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://fireaway.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -16077,7 +16347,9 @@
     "fibre_g": 1.0,
     "salt_g": 1.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://fireaway.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -16281,7 +16553,9 @@
     "fibre_g": 1.0,
     "salt_g": 1.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://absurdbird.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -16298,7 +16572,9 @@
     "fibre_g": 3.0,
     "salt_g": 0.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://absurdbird.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -16315,7 +16591,9 @@
     "fibre_g": 2.0,
     "salt_g": 0.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://absurdbird.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -16349,7 +16627,9 @@
     "fibre_g": 3.0,
     "salt_g": 2.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://yardsalepizza.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -16417,7 +16697,9 @@
     "fibre_g": 1.0,
     "salt_g": 1.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://yardsalepizza.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -16621,7 +16903,9 @@
     "fibre_g": 4.0,
     "salt_g": 2.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.pattyandbun.co.uk/menus",
     "scraped_at": "2026-03-20"
   },
@@ -16655,7 +16939,9 @@
     "fibre_g": 2.0,
     "salt_g": 1.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.pattyandbun.co.uk/menus",
     "scraped_at": "2026-03-20"
   },
@@ -16774,7 +17060,9 @@
     "fibre_g": 3.0,
     "salt_g": 0.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://meatliquor.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -16893,7 +17181,9 @@
     "fibre_g": 4.0,
     "salt_g": 1.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://bonedaddies.com/menu/",
     "scraped_at": "2026-03-20"
   },
@@ -16910,7 +17200,9 @@
     "fibre_g": 0.5,
     "salt_g": 0.1,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://bonedaddies.com/menu/",
     "scraped_at": "2026-03-20"
   },
@@ -17641,7 +17933,9 @@
     "fibre_g": 6.0,
     "salt_g": 2.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://eat.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -17998,7 +18292,9 @@
     "fibre_g": 4.0,
     "salt_g": 3.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.phocafe.co.uk/food-menu/",
     "scraped_at": "2026-03-20"
   },
@@ -18185,7 +18481,9 @@
     "fibre_g": 1.0,
     "salt_g": 1.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.cocodimama.co.uk/menu",
     "scraped_at": "2026-03-20"
   },
@@ -18457,7 +18755,9 @@
     "fibre_g": 0,
     "salt_g": 0.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.pingpongdimsum.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -18576,7 +18876,9 @@
     "fibre_g": 4.0,
     "salt_g": 1.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.inamo-restaurant.com/menu",
     "scraped_at": "2026-03-20"
   },
@@ -18848,7 +19150,9 @@
     "fibre_g": 3.0,
     "salt_g": 2.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://uppercrust.co.uk/menu/",
     "scraped_at": "2026-03-20"
   },
@@ -18984,7 +19288,9 @@
     "fibre_g": 4.0,
     "salt_g": 1.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://thecornishbakery.com/pages/nutritional-information",
     "scraped_at": "2026-03-20"
   },
@@ -19086,7 +19392,9 @@
     "fibre_g": 6.0,
     "salt_g": 2.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://esquirescoffee.co.uk/food-drink/",
     "scraped_at": "2026-03-20"
   },
@@ -19732,7 +20040,9 @@
     "fibre_g": 2,
     "salt_g": 2.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.sizzlingpubs.co.uk/food",
     "scraped_at": "2026-03-20"
   },
@@ -20055,7 +20365,9 @@
     "fibre_g": 2,
     "salt_g": 1.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.flaminggrill.co.uk/food",
     "scraped_at": "2026-03-20"
   },
@@ -20140,7 +20452,9 @@
     "fibre_g": 4,
     "salt_g": 2.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.allbarone.co.uk/food-drink",
     "scraped_at": "2026-03-20"
   },
@@ -20310,7 +20624,9 @@
     "fibre_g": 2,
     "salt_g": 1.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.emberinns.co.uk/food-drink",
     "scraped_at": "2026-03-20"
   },
@@ -20361,7 +20677,9 @@
     "fibre_g": 3,
     "salt_g": 2.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.stonehouserestaurants.co.uk/food",
     "scraped_at": "2026-03-20"
   },
@@ -20446,7 +20764,9 @@
     "fibre_g": 2,
     "salt_g": 1.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.stonehouserestaurants.co.uk/food",
     "scraped_at": "2026-03-20"
   },
@@ -20480,7 +20800,9 @@
     "fibre_g": 1,
     "salt_g": 1.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.stonehouserestaurants.co.uk/food",
     "scraped_at": "2026-03-20"
   },
@@ -20548,7 +20870,9 @@
     "fibre_g": 2,
     "salt_g": 1.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.slugandlettuce.co.uk/food-drink",
     "scraped_at": "2026-03-20"
   },
@@ -20599,7 +20923,9 @@
     "fibre_g": 3,
     "salt_g": 2.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.slugandlettuce.co.uk/food-drink",
     "scraped_at": "2026-03-20"
   },
@@ -20718,7 +21044,9 @@
     "fibre_g": 2,
     "salt_g": 1.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.oneills.co.uk/food",
     "scraped_at": "2026-03-20"
   },
@@ -20837,7 +21165,9 @@
     "fibre_g": 4,
     "salt_g": 0.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.nicholsonspubs.co.uk/food",
     "scraped_at": "2026-03-20"
   },
@@ -21194,7 +21524,9 @@
     "fibre_g": 2,
     "salt_g": 1.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.brewersfayre.co.uk/en-gb/food",
     "scraped_at": "2026-03-20"
   },
@@ -21279,7 +21611,9 @@
     "fibre_g": 4,
     "salt_g": 2.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.pitcherandpiano.com/food-drink",
     "scraped_at": "2026-03-20"
   },
@@ -21432,7 +21766,9 @@
     "fibre_g": 4,
     "salt_g": 0.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.youngs.co.uk/food-drink",
     "scraped_at": "2026-03-20"
   },
@@ -21619,7 +21955,9 @@
     "fibre_g": 3.0,
     "salt_g": 1.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.bargeeast.com/",
     "scraped_at": "2026-03-20"
   },
@@ -21789,7 +22127,9 @@
     "fibre_g": 3.0,
     "salt_g": 0.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.elgatonegro.uk/",
     "scraped_at": "2026-03-20"
   },
@@ -21823,7 +22163,9 @@
     "fibre_g": 3.0,
     "salt_g": 1.4,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.elgatonegro.uk/",
     "scraped_at": "2026-03-20"
   },
@@ -22197,7 +22539,9 @@
     "fibre_g": 4.0,
     "salt_g": 0.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://thehawksmoor.com/locations/edinburgh/",
     "scraped_at": "2026-03-20"
   },
@@ -22316,7 +22660,9 @@
     "fibre_g": 3.0,
     "salt_g": 0.5,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.pasture-restaurant.com/",
     "scraped_at": "2026-03-20"
   },
@@ -22843,7 +23189,9 @@
     "fibre_g": 4.0,
     "salt_g": 1.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.akasyarestaurant.co.uk/",
     "scraped_at": "2026-03-20"
   },
@@ -23234,7 +23582,9 @@
     "fibre_g": 3.0,
     "salt_g": 1.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html",
     "scraped_at": "2026-03-20"
   },
@@ -23421,7 +23771,9 @@
     "fibre_g": 3.0,
     "salt_g": 2.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html",
     "scraped_at": "2026-03-20"
   },
@@ -23472,7 +23824,9 @@
     "fibre_g": 4.0,
     "salt_g": 1.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html",
     "scraped_at": "2026-03-20"
   },
@@ -23506,7 +23860,9 @@
     "fibre_g": 1.0,
     "salt_g": 1.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html",
     "scraped_at": "2026-03-20"
   },
@@ -23523,7 +23879,9 @@
     "fibre_g": 2.0,
     "salt_g": 1.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html",
     "scraped_at": "2026-03-20"
   },
@@ -23591,7 +23949,9 @@
     "fibre_g": 4.0,
     "salt_g": 0.5,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.fryingsquad.com/",
     "scraped_at": "2026-03-20"
   },
@@ -23642,7 +24002,9 @@
     "fibre_g": 2.0,
     "salt_g": 0.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.fryingsquad.com/",
     "scraped_at": "2026-03-20"
   },
@@ -23761,7 +24123,9 @@
     "fibre_g": 2.0,
     "salt_g": 0.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.banglabangor.co.uk/",
     "scraped_at": "2026-03-20"
   },
@@ -23880,7 +24244,9 @@
     "fibre_g": 0,
     "salt_g": 0.1,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html",
     "scraped_at": "2026-03-20"
   },
@@ -23965,7 +24331,9 @@
     "fibre_g": 2.0,
     "salt_g": 1.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html",
     "scraped_at": "2026-03-20"
   },
@@ -23999,7 +24367,9 @@
     "fibre_g": 3.0,
     "salt_g": 2.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html",
     "scraped_at": "2026-03-20"
   },
@@ -24050,7 +24420,9 @@
     "fibre_g": 4.0,
     "salt_g": 2.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html",
     "scraped_at": "2026-03-20"
   },
@@ -24067,7 +24439,9 @@
     "fibre_g": 4.0,
     "salt_g": 1.8,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html",
     "scraped_at": "2026-03-20"
   },
@@ -24101,7 +24475,9 @@
     "fibre_g": 1.0,
     "salt_g": 1.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.tripadvisor.co.uk/Restaurant_Review-g191277-Bangor_County_Down_Northern_Ireland.html",
     "scraped_at": "2026-03-20"
   },
@@ -24339,7 +24715,9 @@
     "fibre_g": 3.0,
     "salt_g": 2.0,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.coppi.co.uk/",
     "scraped_at": "2026-03-20"
   },
@@ -24390,7 +24768,9 @@
     "fibre_g": 1.0,
     "salt_g": 1.2,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegetarian"
+    ],
     "source_url": "https://www.coppi.co.uk/",
     "scraped_at": "2026-03-20"
   },
@@ -24458,7 +24838,9 @@
     "fibre_g": 4.0,
     "salt_g": 1.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://tribalburger.com/",
     "scraped_at": "2026-03-20"
   },
@@ -24475,7 +24857,9 @@
     "fibre_g": 3.0,
     "salt_g": 0.5,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://tribalburger.com/",
     "scraped_at": "2026-03-20"
   },
@@ -24730,7 +25114,9 @@
     "fibre_g": 4.0,
     "salt_g": 0.6,
     "allergens": [],
-    "dietary_flags": [],
+    "dietary_flags": [
+      "vegan"
+    ],
     "source_url": "https://www.yugobelfast.com/",
     "scraped_at": "2026-03-20"
   }
