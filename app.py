@@ -311,18 +311,52 @@ HTML = r"""<!DOCTYPE html>
   .cell-restaurant {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     white-space: nowrap;
   }
-  .restaurant-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
+  .restaurant-logo {
+    width: 22px;
+    height: 22px;
+    border-radius: 5px;
     flex-shrink: 0;
+    object-fit: contain;
+    background: var(--surface2);
   }
-  .dot-Nandos { background: var(--accent-nandos); }
-  .dot-McDonalds { background: var(--accent-mcdonalds); }
-  .dot-Wagamama { background: var(--accent-wagamama); }
+  .restaurant-logo-fallback {
+    width: 22px;
+    height: 22px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .modal-logo {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    object-fit: contain;
+    background: var(--surface2);
+  }
+  .modal-logo-fallback {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .modal-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 
   .cell-item { font-weight: 600; }
   .cell-category {
@@ -988,6 +1022,130 @@ function restaurantColor(name) {
   return `hsl(${Math.abs(h) % 360}, 55%, 55%)`;
 }
 
+// ── Restaurant logo resolution ────────────────────────────────────
+const _domainMap = {
+  "Nandos":"nandos.co.uk","McDonalds":"mcdonalds.co.uk","Wagamama":"wagamama.com",
+  "KFC":"kfc.co.uk","Burger King":"burgerking.co.uk","Subway":"subway.com",
+  "Pizza Hut":"pizzahut.co.uk","Dominos":"dominos.co.uk","Greggs":"greggs.co.uk",
+  "Costa Coffee":"costa.co.uk","Pret A Manger":"pret.co.uk","Starbucks":"starbucks.co.uk",
+  "Pizza Express":"pizzaexpress.com","Zizzi":"zizzi.co.uk","Prezzo":"prezzorestaurants.co.uk",
+  "Five Guys":"fiveguys.co.uk","TGI Fridays":"tgifridays.co.uk",
+  "Frankie & Bennys":"frankieandbennys.com","Harvester":"harvester.co.uk",
+  "Toby Carvery":"tobycarvery.co.uk","Wetherspoons":"jdwetherspoon.com",
+  "GBK":"gbk.co.uk","Leon":"leon.co","Itsu":"itsu.com","Yo! Sushi":"yosushi.com",
+  "Honest Burgers":"honestburgers.co.uk","The Real Greek":"therealgreek.com",
+  "Las Iguanas":"lasiguanas.co.uk","Bills":"bills-website.co.uk",
+  "Bella Italia":"bellaitalia.co.uk","ASK Italian":"askitalian.co.uk",
+  "Tortilla":"tortilla.co.uk","Wasabi":"wasabi.uk.com","Franco Manca":"francomanca.co.uk",
+  "Dishoom":"dishoom.com","Slim Chickens":"slimchickens.co.uk","Wingstop":"wingstop.co.uk",
+  "Popeyes":"popeyes.co.uk","Chipotle":"chipotle.co.uk","Taco Bell":"tacobell.co.uk",
+  "Chicken Cottage":"chickencottage.com","Morleys":"morleys.com",
+  "German Doner Kebab":"germandonerkebab.com","Wimpy":"wimpy.uk.com",
+  "Harry Ramsdens":"harryramsdens.co.uk","Beefeater":"beefeater.co.uk",
+  "Miller & Carter":"millerandcarter.co.uk","Cafe Rouge":"caferouge.com",
+  "Chiquito":"chiquito.co.uk","Caffe Nero":"caffenero.com","Papa Johns":"papajohns.co.uk",
+  "Pepes Piri Piri":"pepes.co.uk","Chopstix":"chopstixnoodles.co.uk",
+  "Kokoro":"kokoromaidstone.co.uk","Hungry Horse":"hungryhorse.co.uk",
+  "Loungers":"thelounges.co.uk","Cote Brasserie":"cote.co.uk",
+  "Giggling Squid":"gigglingsquid.com","Gails Bakery":"gails.com",
+  "Wahaca":"wahaca.co.uk","Rosas Thai":"rosasthai.com","Boojum":"boojummex.com",
+  "Apache Pizza":"apache.ie","Supermacs":"supermacs.ie","Tim Hortons":"timhortons.co.uk",
+  "Chick-fil-A":"chick-fil-a.co.uk","Four Star Pizza":"fourstarpizza.co.uk",
+  "Eddie Rockets":"eddierockets.ie","Mary Browns":"marybrowns.com",
+  "Shake Shack":"shakeshack.co.uk","The Botanist":"thebotanist.uk.com",
+  "Comptoir Libanais":"comptoirlibanais.com","Busaba":"busaba.com",
+  "Turtle Bay":"turtlebay.co.uk","Mowgli Street Food":"mowglistreetfood.com",
+  "Krispy Kreme":"krispykreme.co.uk","Daves Hot Chicken":"daveshotchicken.co.uk",
+  "Banana Tree":"bananatree.co.uk","Barburrito":"barburrito.co.uk",
+  "Carluccios":"carluccios.com","Fireaway Pizza":"fireaway.co.uk",
+  "German Gymnasium":"germangymnasium.com","Absurd Bird":"absurdbird.com",
+  "Yard Sale Pizza":"yardsalepizza.com","Flat Iron":"flatironsteak.co.uk",
+  "Patty & Bun":"pattyandbun.co.uk","MEATliquor":"meatliquor.com",
+  "Bone Daddies":"bonedaddies.com","Rosa's Thai Cafe":"rosasthai.com",
+  "Ole & Steen":"oleandsteen.co.uk","Paul Bakery":"paul-uk.com",
+  "EAT.":"eat.co.uk","Benugo":"benugo.com","Black Sheep Coffee":"blacksheepcoffee.com",
+  "Pho":"phocafe.co.uk","Coco di Mama":"cocodimama.co.uk","Benitos Hat":"benitoshat.com",
+  "Ping Pong":"pingpongdimsum.com","Inamo":"inamo-restaurant.com",
+  "Patisserie Valerie":"patisserie-valerie.co.uk","Upper Crust":"uppercrust.co.uk",
+  "Cornish Bakery":"thecornishbakery.com","Esquires Coffee":"esquirescoffee.co.uk",
+  "Muffin Break":"muffinbreak.co.uk","The Breakfast Club":"thebreakfastclubcafes.com",
+  "Birds Bakery":"birdsbakery.com",
+  "Sizzling Pubs":"sizzlingpubs.co.uk","Chef & Brewer":"chefandbrewer.com",
+  "Flaming Grill":"flaminggrill.co.uk","All Bar One":"allbarone.co.uk",
+  "Ember Inns":"emberinns.co.uk","Stonehouse Pizza & Carvery":"stonehouserestaurants.co.uk",
+  "Slug & Lettuce":"slugandlettuce.co.uk","O'Neill's":"oneills.co.uk",
+  "Nicholson's":"nicholsonspubs.co.uk","Vintage Inns":"vintageinns.co.uk",
+  "Browns":"browns-restaurants.co.uk","Brewers Fayre":"brewersfayre.co.uk",
+  "Pitcher & Piano":"pitcherandpiano.com","Young's Pubs":"youngs.co.uk",
+  "Fuller's":"fullers.co.uk",
+  "Barge East":"bargeeast.com","Park Chinois":"parkchinois.com",
+  "The Ivy":"the-ivy.co.uk","El Gato Negro":"elgatonegro.uk",
+  "20 Stories":"20stories.co.uk","Hawksmoor Manchester":"thehawksmoor.com",
+  "The Kitchin":"thekitchin.com","The Witchery":"thewitchery.com",
+  "Hawksmoor Edinburgh":"thehawksmoor.com",
+  "The Wilderness":"thewildernessrestaurant.co.uk",
+  "Pasture Birmingham":"pasture-restaurant.com","Wilsons":"wilsonsrestaurant.co.uk",
+  "The Coconut Tree":"thecoconuttree.com","The Gannet":"thegannetgla.com",
+  "The Finnieston":"thefinniestonbar.com","Gorse":"gorserestaurant.co.uk",
+  "The Potted Pig":"thepottedpig.com","Bavette":"bavette.co.uk",
+  "Akasya":"akasyarestaurant.co.uk",
+  "The Boat House":"boathousebangor.com","Donegans":"donegansrestaurant.co.uk",
+  "Coq & Bull Brasserie":"clandeboyelodge.com",
+  "The Frying Squad":"fryingsquad.com","Bangla":"banglabangor.co.uk",
+  "OX":"oxbelfast.com","The Muddlers Club":"themuddlersclub.com",
+  "Coppi":"coppi.co.uk","Tribal Burger":"tribalburger.com",
+  "Mourne Seafood Bar":"mourneseafood.com","Yugo":"yugobelfast.com",
+  "Little Wing Pizzeria":"littlewingpizzeria.com"
+};
+
+// Cache logo load results to avoid repeated failed requests
+const _logoCache = {};
+
+function getDomain(restaurant) {
+  return _domainMap[restaurant] || null;
+}
+
+function onLogoError(img) {
+  const domain = img.dataset.domain;
+  const fallbackCls = img.dataset.fallbackCls;
+  const color = img.dataset.color;
+  const initial = img.dataset.initial;
+  if (!img.dataset.triedGoogle) {
+    // First failure (Apistemic) — try Google Favicon
+    img.dataset.triedGoogle = '1';
+    img.src = 'https://www.google.com/s2/favicons?domain=' + domain + '&sz=128';
+  } else {
+    // Both failed — replace with coloured letter initial
+    const span = document.createElement('span');
+    span.className = fallbackCls;
+    span.style.background = color;
+    span.textContent = initial;
+    img.replaceWith(span);
+  }
+}
+
+function logoHtml(restaurant, size) {
+  const cls = size === 'modal' ? 'modal-logo' : 'restaurant-logo';
+  const fallbackCls = size === 'modal' ? 'modal-logo-fallback' : 'restaurant-logo-fallback';
+  const domain = getDomain(restaurant);
+  const color = restaurantColor(restaurant);
+  const initial = restaurant.charAt(0).toUpperCase();
+
+  if (!domain) {
+    return `<span class="${fallbackCls}" style="background:${color}">${initial}</span>`;
+  }
+
+  return `<img class="${cls}"
+    src="https://logos-api.apistemic.com/domain:${domain}"
+    data-domain="${domain}"
+    data-fallback-cls="${fallbackCls}"
+    data-color="${color}"
+    data-initial="${initial}"
+    onerror="onLogoError(this)"
+    alt="${restaurant}"
+    loading="lazy">`;
+}
+
 // ── Boot ──────────────────────────────────────────────────────────
 async function loadData() {
   try {
@@ -1183,7 +1341,7 @@ function renderTable(data) {
     <tr onclick="openModal(${i}, ${JSON.stringify(d).replace(/"/g, '&quot;')})">
       <td>
         <div class="cell-restaurant">
-          <div class="restaurant-dot" style="background:${restaurantColor(d.restaurant)}"></div>
+          ${logoHtml(d.restaurant, 'table')}
           ${d.restaurant}${d.custom ? '<span class="custom-badge">custom</span>' : ''}
         </div>
       </td>
@@ -1215,8 +1373,8 @@ function calClass(kcal) {
 function openModal(i, d) {
   const item = window._tableData[i] || d;
   document.getElementById('modal-title').textContent = item.item;
-  document.getElementById('modal-subtitle').textContent =
-    `${item.restaurant} · ${item.location || 'National'} · ${item.category}`;
+  document.getElementById('modal-subtitle').innerHTML =
+    `${logoHtml(item.restaurant, 'modal')} ${item.restaurant} · ${item.location || 'National'} · ${item.category}`;
 
   const pct = item.calories_kcal ? Math.min(100, Math.round(item.calories_kcal / 2000 * 100)) : 0;
   const barColor = item.calories_kcal < 400 ? '#3ecf8e' : item.calories_kcal < 700 ? '#f59e0b' : '#ef4444';
