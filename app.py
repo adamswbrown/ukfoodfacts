@@ -1580,19 +1580,32 @@ document.addEventListener('keydown', e => {
 });
 
 // ── Theme toggle ──────────────────────────────────────────────────
-function applyTheme(theme) {
+function applyTheme(theme, save) {
   document.documentElement.setAttribute('data-theme', theme);
-  localStorage.setItem('theme', theme);
+  if (save) localStorage.setItem('theme', theme);
   const btn = document.getElementById('theme-toggle');
   btn.textContent = theme === 'light' ? '\u263D Dark' : '\u2600 Light';
 }
 
 function toggleTheme() {
   const current = document.documentElement.getAttribute('data-theme') || 'dark';
-  applyTheme(current === 'dark' ? 'light' : 'dark');
+  applyTheme(current === 'dark' ? 'light' : 'dark', true);
 }
 
-applyTheme(localStorage.getItem('theme') || 'dark');
+// Use saved preference, or follow system setting
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+  applyTheme(savedTheme, false);
+} else {
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  applyTheme(prefersDark ? 'dark' : 'light', false);
+}
+// Update theme when system preference changes (only if user hasn't manually chosen)
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+  if (!localStorage.getItem('theme')) {
+    applyTheme(e.matches ? 'dark' : 'light', false);
+  }
+});
 loadData();
 </script>
 </body>
