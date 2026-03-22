@@ -1,5 +1,5 @@
 """
-Flask web UI for UK Restaurant Nutrition Database
+Flask web UI for GlobalFoodFacts — Restaurant Nutrition Database
 """
 
 from flask import Flask, jsonify, render_template_string, request
@@ -30,7 +30,7 @@ HTML = r"""<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UK Eats — Restaurant Calorie Explorer</title>
+<title>GlobalFoodFacts — Restaurant Calorie Explorer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -815,7 +815,7 @@ HTML = r"""<!DOCTYPE html>
 
 <header>
   <div class="logo">
-    🍽 UK Eats <span>calorie explorer</span>
+    🍽 GlobalFoodFacts <span>calorie explorer</span>
   </div>
   <div style="display:flex;align-items:center;gap:10px;">
     <div class="header-meta" id="header-meta"></div>
@@ -1696,7 +1696,7 @@ def api_refresh():
         return jsonify({"ok": False, "error": str(e)}), 500
 
 
-ADMIN_KEY = os.environ.get("ADMIN_KEY", "ukfoodfacts2026")
+ADMIN_KEY = os.environ.get("ADMIN_KEY", "globalfoodfacts2026")
 API_KEY = os.environ.get("API_KEY", "")
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 GITHUB_REPO = os.environ.get("GITHUB_REPO", "adamswbrown/ukfoodfacts")
@@ -1823,7 +1823,7 @@ def api_scrape_request():
         body_parts.append(f"**Nutrition page URL:** {url}")
     if notes:
         body_parts.append(f"**Notes:** {notes}")
-    body_parts.append("\n---\n*Submitted via the UK Eats UI*")
+    body_parts.append("\n---\n*Submitted via the GlobalFoodFacts UI*")
     body = "\n".join(body_parts)
 
     try:

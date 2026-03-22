@@ -1,17 +1,19 @@
-# UK Food Facts — Restaurant Calorie Explorer
+# GlobalFoodFacts — Restaurant Calorie Explorer
 
-Scrapes and catalogues nutrition data from 70+ UK & Irish restaurant chains plus local Northern Ireland restaurants. Browse, search, filter, and compare meals via a web UI.
+Scrapes and catalogues nutrition data from restaurant chains across the UK, Australia, and New Zealand. Browse, search, filter, and compare meals via a web UI.
 
 **Live app:** Deployed on Vercel (auto-deploys on push)
 
 ## What's in the database
 
-- **989+ menu items** across 87 restaurants
-- **70 national chains** — Nando's, McDonald's, Wagamama, KFC, Greggs, Five Guys, Subway, Domino's, Boojum, Apache Pizza, Supermac's, Tim Hortons, Chick-fil-A, and many more
-- **17 local NI restaurants** — Bangor (The Boat House, Donegan's, The Frying Squad, Bangla, Yaks, etc.) and Belfast (OX, Muddlers Club, Tribal Burger, Mourne Seafood Bar, Yugo, etc.)
+- **2,700+ menu items** across 150+ restaurants in 3 countries
+- **UK & Ireland** — Nando's, McDonald's, Wagamama, KFC, Greggs, Five Guys, Subway, Domino's, Boojum, Apache Pizza, Supermac's, Tim Hortons, and many more
+- **Australia** — Hungry Jack's, Guzman y Gomez, Betty's Burgers, Roll'd, and more
+- **New Zealand** — McDonald's NZ, Burger King NZ, BurgerFuel, and more
+- **Local NI restaurants** — Bangor and Belfast independents
 - **Custom meals** — add your own items via the UI
 
-Every item includes: calories, protein, carbs, fat, fibre, salt, location, category, and source URL.
+Every item includes: calories, protein, carbs, fat, fibre, salt, allergens, dietary flags, category, and source URL.
 
 ## Setup
 

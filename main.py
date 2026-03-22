@@ -1,5 +1,5 @@
 """
-UK Restaurant Calorie Scraper — main runner
+GlobalFoodFacts — main runner
 Runs all configured scrapers, deduplicates, logs results, and saves unified JSON output.
 """
 
@@ -44,7 +44,7 @@ def load_existing():
 def run_all():
     start_time = datetime.now(timezone.utc)
     print("=" * 60)
-    print(f"UK Restaurant Calorie Scraper — {start_time.strftime('%Y-%m-%d %H:%M UTC')}")
+    print(f"GlobalFoodFacts — {start_time.strftime('%Y-%m-%d %H:%M UTC')}")
     print("=" * 60)
 
     # Load existing data for comparison
