@@ -848,6 +848,9 @@ HTML = r"""<!DOCTYPE html>
       <span class="search-icon">⌕</span>
       <input type="search" id="search" placeholder="Search dishes..." oninput="applyFilters()">
     </div>
+    <select id="country-filter" onchange="applyFilters()">
+      <option value="">All countries</option>
+    </select>
     <select id="location-filter" onchange="applyFilters()">
       <option value="">All locations</option>
     </select>
@@ -1027,6 +1030,17 @@ let allData = [];
 let activeRestaurant = 'all';
 let currentSort = { key: null, dir: 1 };
 
+// ── Country mapping ──────────────────────────────────────────────
+const _restaurantCountry = {
+  'McDonalds NZ':'New Zealand', 'Burger King NZ':'New Zealand', 'BurgerFuel NZ':'New Zealand',
+  'Hungry Jacks':'Australia', "Roll'd":'Australia', "Betty's Burgers":'Australia',
+  'Guzman y Gomez':'Australia',
+};
+function getCountry(restaurant) {
+  if (_restaurantCountry[restaurant]) return _restaurantCountry[restaurant];
+  return 'United Kingdom';
+}
+
 // Dynamic colours for all restaurants (hash-based)
 const _fixedColors = { Nandos:'#e63a1e', McDonalds:'#ffbc0d', Wagamama:'#d42b2b', 'Burger King NZ':'#ff8732', "Roll'd":'#c8102e', 'McDonalds NZ':'#ffbc0d', 'BurgerFuel NZ':'#e31837', "Betty's Burgers":'#f5a623', 'Hungry Jacks':'#d62518', 'Guzman y Gomez':'#f7941d' };
 function restaurantColor(name) {
@@ -1174,6 +1188,7 @@ async function loadData() {
 
 function init() {
   buildStats();
+  buildCountryFilter();
   buildRestaurantTabs();
   buildLocationFilter();
   buildCategoryFilter();
@@ -1190,11 +1205,12 @@ function buildStats() {
   const max = Math.max(...cals);
   const restaurants = [...new Set(allData.map(d=>d.restaurant))];
   const locations = [...new Set(allData.map(d=>d.location || 'National'))];
+  const countries = [...new Set(allData.map(d=>getCountry(d.restaurant)))].sort();
 
   const bars = [
     { label: 'Total Dishes', value: allData.length },
     { label: 'Restaurants', value: restaurants.length },
-    { label: 'Locations', value: locations.length },
+    { label: 'Countries', value: countries.length },
     { label: 'Avg Calories', value: avg + ' kcal' },
     { label: 'Lowest Cal', value: min + ' kcal' },
     { label: 'Highest Cal', value: max + ' kcal' },
@@ -1205,9 +1221,9 @@ function buildStats() {
       <div class="stat-value">${s.value}</div>
     </div>`).join('') + `
     <div class="stat-card region-map">
-      <div class="stat-label">Regions Covered</div>
-      <div class="region-tags">${locations.map(l =>
-        `<span class="region-tag${l === 'National' ? ' national' : ''}">${l}</span>`
+      <div class="stat-label">Countries</div>
+      <div class="region-tags">${countries.map(c =>
+        `<span class="region-tag">${c}</span>`
       ).join('')}</div>
     </div>`;
 }
@@ -1250,6 +1266,15 @@ function setRestaurant(r, el) {
   applyFilters();
 }
 
+// ── Country filter ─────────────────────────────────────────────────
+function buildCountryFilter() {
+  const countries = [...new Set(allData.map(d => getCountry(d.restaurant)))].sort();
+  const sel = document.getElementById('country-filter');
+  const current = sel.value;
+  sel.innerHTML = '<option value="">All countries</option>' +
+    countries.map(c => `<option value="${c}" ${c===current?'selected':''}>${c}</option>`).join('');
+}
+
 // ── Location filter ────────────────────────────────────────────────
 function buildLocationFilter() {
   const locations = [...new Set(allData.map(d => d.location || 'National'))].sort();
@@ -1276,12 +1301,16 @@ function buildCategoryFilter(sourceData) {
 function applyFilters() {
   let data = [...allData];
 
-  // Apply location filter first to determine available restaurants and categories
+  // Apply country filter first
+  const country = document.getElementById('country-filter').value;
+  if (country) data = data.filter(d => getCountry(d.restaurant) === country);
+
+  // Apply location filter to determine available restaurants and categories
   const loc = document.getElementById('location-filter').value;
   let locationFiltered = data;
   if (loc) locationFiltered = data.filter(d => (d.location || 'National') === loc);
 
-  // Rebuild restaurant tabs and category filter based on location-filtered data
+  // Rebuild restaurant tabs and category filter based on filtered data
   buildRestaurantTabs(locationFiltered);
   buildCategoryFilter(locationFiltered);
 
