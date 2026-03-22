@@ -247,35 +247,32 @@ def _parse_allergens(allergen_pdf):
     return allergen_map
 
 
-def _lookup_allergens(allergen_map, item_name):
+def _normalise_key(name):
+    """Normalise a name for allergen map lookup: uppercase, straight quotes."""
+    return name.strip().upper().replace("\u2019", "'").replace("\u2018", "'").replace("\u2019", "'")
+
+
+def _lookup_allergens(allergen_map, item_name, category=""):
     """Look up allergens by item name with fuzzy matching."""
-    name_upper = item_name.strip().upper().replace("\u2019", "'").replace("\u2018", "'")
+    name_upper = _normalise_key(item_name)
 
     # Direct match
     if name_upper in allergen_map:
         return allergen_map[name_upper]
 
-    # Try matching thick shakes and ice cream by suffixed key
-    # Nutrition PDF names like "CARAMEL" in the Thick Shakes section
-    for suffix in (" (SHAKE)", " (ICE CREAM)"):
-        key = name_upper + suffix
+    # Try matching thick shakes and ice cream by suffixed key based on category
+    cat_upper = category.upper()
+    if cat_upper == "THICK SHAKES":
+        key = name_upper + " (SHAKE)"
         if key in allergen_map:
             return allergen_map[key]
-
-    # Partial match: check if allergen key is contained in item name or vice versa
-    for key, allergens in allergen_map.items():
-        # Strip disambiguation suffixes for comparison
-        clean_key = key.replace(" (SHAKE)", "").replace(" (ICE CREAM)", "")
-        if clean_key in name_upper or name_upper in clean_key:
-            return allergens
+    elif cat_upper == "DESSERTS":
+        # Desserts in nutrition PDF are froyo items — no suffix needed, already in map
+        pass
 
     # Special mappings for items with different names between PDFs
     name_mapping = {
-        "BETTY\u2019S CLASSIC": "BETTY'S CLASSIC",
-        "BETTY\u2019S DELUXE": "BETTY'S DELUXE",
-        "BETTY\u2019S DOUBLE": "BETTY'S DOUBLE",
-        "BETTY\u2019S SPECIAL SAUCE": "BETTY'S SAUCE",
-        "CRISPY CHICKEN STRIPS BURGER": "CRISPY CHICKEN STRIPS BURGER",
+        "BETTY'S SPECIAL SAUCE": "BETTY'S SAUCE",
         "NOOSA CLASSIC SURF": "NOOSA SURF CLASSIC",
         "CRISPY CHICKEN SUPREME": "CHICKEN SUPREME",
         "GRILLED CHICKEN SUPREME": "CHICKEN SUPREME",
@@ -290,6 +287,17 @@ def _lookup_allergens(allergen_map, item_name):
     mapped = name_mapping.get(name_upper)
     if mapped and mapped in allergen_map:
         return allergen_map[mapped]
+
+    # Partial match: check if allergen key is contained in item name or vice versa
+    for key, allergens in allergen_map.items():
+        # Strip disambiguation suffixes for comparison
+        clean_key = key.replace(" (SHAKE)", "").replace(" (ICE CREAM)", "")
+        if clean_key == name_upper:
+            return allergens
+        if len(clean_key) > 4 and clean_key in name_upper:
+            return allergens
+        if len(name_upper) > 4 and name_upper in clean_key:
+            return allergens
 
     return []
 
