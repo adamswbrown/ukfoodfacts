@@ -182,13 +182,23 @@ def _parse_nutrition_table(table, current_category, allergen_map, today):
         results.append({"_category_update": cat})
         current_category = cat
 
-    # Strategy: find rows containing "Avg Qty / Serve" to locate item blocks.
-    # The row above (or same block) contains item names.
-    # The rows below contain nutrition data labels and values.
+    # Strategy: scan rows for category headers and "Avg Qty / Serve" markers.
+    # Category headers can appear mid-table (not just the first row).
 
     i = 0
     while i < len(table):
         row = table[i]
+
+        # Check for mid-table category headers
+        cell0 = str(row[0] or "").strip()
+        if cell0.upper() in {h.upper() for h in CATEGORY_HEADERS} and all(
+            c is None or str(c).strip() == "" for c in row[1:]
+        ):
+            cat = _normalise_category(cell0)
+            results.append({"_category_update": cat})
+            current_category = cat
+            i += 1
+            continue
 
         # Find columns that contain "Avg Qty / Serve"
         serve_cols = []
@@ -258,25 +268,60 @@ def _parse_nutrition_table(table, current_category, allergen_map, today):
 
 
 def _extract_item_name(name_row, serve_col, table, header_row_idx):
-    """Extract the item name from the name row at or near the serve column."""
-    # The item name is typically in the same column as "Avg Qty / Serve"
-    # or in the column just before "Avg Qty / 100g"
-    cell = name_row[serve_col] if serve_col < len(name_row) else None
-    if cell:
-        name = str(cell).strip()
-        # Clean up: remove trailing size info, newlines
-        name = name.split("\n")[0].strip()
-        if name and len(name) < 80 and name.upper() not in {h.upper() for h in CATEGORY_HEADERS}:
-            return name
+    """Extract the item name from the name row at or near the serve column.
 
-    # Sometimes the name is one column to the left (for multi-item layouts)
-    if serve_col > 0:
-        cell = name_row[serve_col - 1] if (serve_col - 1) < len(name_row) else None
-        if cell:
-            name = str(cell).strip()
-            name = name.split("\n")[0].strip()
-            if name and len(name) < 80 and name.upper() not in {h.upper() for h in CATEGORY_HEADERS}:
-                return name
+    McDonald's NZ PDFs use several layouts:
+    - Single item: name in the serve_col (or serve_col-1), e.g. ['...ingredients...', None, 'Big Mac®', None]
+    - Multi-variant: base name in col 0, size/variant in serve_col, e.g. ['Vanilla Shake', '', 'Small', None, 'Medium', None, 'Large', None]
+    - Multi-product: different product names in each serve_col pair, e.g. [..., 'McChicken®', None, 'Double McChicken®', None]
+    """
+    SIZE_WORDS = {"small", "medium", "large", "regular", "3 pc", "6 pc", "10 pc", "20 pc"}
+    category_uppers = {h.upper() for h in CATEGORY_HEADERS}
+
+    def _clean(text):
+        if not text:
+            return ""
+        name = str(text).strip().split("\n")[0].strip()
+        if name.upper() in category_uppers:
+            return ""
+        return name if len(name) < 80 else ""
+
+    def _strip_size_suffixes(name):
+        """Remove trailing size labels from a base name.
+        e.g. 'Fries Small Medium Large' -> 'Fries'
+        e.g. 'Chicken McNuggets® 3 pc 6 pc 10 pc 20 pc' -> 'Chicken McNuggets®'
+        """
+        import re
+        # Remove trailing sequences of size words
+        pattern = r'(?:\s+(?:Small|Medium|Large|Regular|\d+\s*pc))+\s*$'
+        cleaned = re.sub(pattern, '', name, flags=re.IGNORECASE).strip()
+        return cleaned if cleaned else name
+
+    # Check the cell at serve_col position in the name row
+    cell_at_col = _clean(name_row[serve_col]) if serve_col < len(name_row) else ""
+    # Check the cell one column before (some layouts put name there)
+    cell_before = _clean(name_row[serve_col - 1]) if serve_col > 0 and (serve_col - 1) < len(name_row) else ""
+
+    # Get the base item name from column 0 (for size-variant items)
+    base_name = _clean(name_row[0]) if name_row[0] else ""
+    # Strip trailing size words from the base name
+    base_name_clean = _strip_size_suffixes(base_name) if base_name else ""
+
+    # Determine the variant/size label at this column
+    variant = cell_at_col or cell_before
+
+    # If the variant is a size word, combine with cleaned base name
+    if variant and variant.lower() in SIZE_WORDS and base_name_clean:
+        return f"{base_name_clean} ({variant})"
+
+    # If the variant is a real product name (not empty, not a size), use it directly
+    if variant and variant.lower() not in SIZE_WORDS:
+        return variant
+
+    # If we have a base name but no variant, the base name IS the item name
+    # (single-item layout where Avg Qty / Serve is in a later column)
+    if base_name_clean and not variant:
+        return base_name_clean
 
     return None
 
@@ -402,8 +447,19 @@ def _normalise_category(raw):
     return mapping.get(raw.upper(), raw.title())
 
 
+def _clean_item_name(name):
+    """Post-process item name to fix common PDF extraction artifacts."""
+    # Fix truncated names ending with dangling prepositions
+    if name.endswith(" with") or name.endswith(" and") or name.endswith(" &"):
+        name = name.rstrip(" with").rstrip(" and").rstrip(" &")
+    # Fix "Wrap®" truncated to "Wrap"
+    name = name.replace("Snack\nWrap", "Snack Wrap")
+    return name.strip()
+
+
 def _make_item(name, category, calories, protein, fat, carbs, fibre, salt, allergens, today):
     """Build a schema-compliant item dict."""
+    name = _clean_item_name(name)
     return {
         "restaurant": "McDonalds NZ",
         "category": category,

@@ -158,6 +158,16 @@ def _parse_pdfs(nutrition_pdf, allergen_pdf):
 
         display_name = _normalise_name(name_raw)
         allergens = _lookup_allergens(allergen_map, name_raw, category=current_category)
+        dietary_flags = infer_dietary_flags(display_name)
+
+        # Cross-check: remove vegan/vegetarian flags if allergens contradict
+        if allergens:
+            has_dairy_egg = any(a in allergens for a in ("dairy", "egg"))
+            has_meat_fish = any(a in allergens for a in ("fish", "crustacean", "mollusc"))
+            if "vegan" in dietary_flags and (has_dairy_egg or has_meat_fish):
+                dietary_flags.remove("vegan")
+            if "vegetarian" in dietary_flags and has_meat_fish:
+                dietary_flags.remove("vegetarian")
 
         items.append({
             "restaurant": "Betty's Burgers",
@@ -171,7 +181,7 @@ def _parse_pdfs(nutrition_pdf, allergen_pdf):
             "fibre_g": None,
             "salt_g": salt,
             "allergens": allergens,
-            "dietary_flags": infer_dietary_flags(display_name),
+            "dietary_flags": dietary_flags,
             "source_url": SOURCE_URL,
             "scraped_at": today,
         })
@@ -198,11 +208,11 @@ def _parse_allergens(allergen_pdf):
         if not name:
             continue
         # Skip category headers and header rows
-        name_upper = name.upper()
-        if name_upper in ("BURGERS", "SIDES", "ADD-ONS", "SAUCES", "BOWLS", ""):
+        name_key = _normalise_key(name)
+        if name_key in ("BURGERS", "SIDES", "ADD-ONS", "SAUCES", "BOWLS", ""):
             continue
         # Skip reversed-text header row
-        if "YRIAD" in name_upper or "TAEHW" in name_upper:
+        if "YRIAD" in name_key or "TAEHW" in name_key:
             continue
 
         allergens = []
@@ -210,7 +220,7 @@ def _parse_allergens(allergen_pdf):
             col_idx = i + 1  # allergen data starts at column 1
             if col_idx < len(row) and (row[col_idx] or "").strip().lower() == "x":
                 allergens.append(allergen_name)
-        allergen_map[name_upper] = allergens
+        allergen_map[name_key] = allergens
 
     # Also parse Table 2 (ice cream, thick shakes, desserts) with fewer columns
     if len(tables) >= 3:
@@ -223,11 +233,11 @@ def _parse_allergens(allergen_pdf):
             name = (row[0] or "").strip()
             if not name:
                 continue
-            name_upper = name.upper()
-            if name_upper in ("ICE CREAM", "THICK SHAKES", "DESSERTS"):
-                current_sub = name_upper
+            name_key = _normalise_key(name)
+            if name_key in ("ICE CREAM", "THICK SHAKES", "DESSERTS"):
+                current_sub = name_key
                 continue
-            if "YRIAD" in name_upper:
+            if "YRIAD" in name_key:
                 continue
 
             allergens = []
@@ -237,11 +247,11 @@ def _parse_allergens(allergen_pdf):
                     allergens.append(allergen_name)
 
             # Disambiguate duplicate names (e.g. "VANILLA" appears in ice cream and shakes)
-            key = name_upper
+            key = name_key
             if current_sub == "THICK SHAKES":
-                key = name_upper + " (SHAKE)"
+                key = name_key + " (SHAKE)"
             elif current_sub == "ICE CREAM":
-                key = name_upper + " (ICE CREAM)"
+                key = name_key + " (ICE CREAM)"
             allergen_map[key] = allergens
 
     return allergen_map
@@ -273,6 +283,7 @@ def _lookup_allergens(allergen_map, item_name, category=""):
     # Special mappings for items with different names between PDFs
     name_mapping = {
         "BETTY'S SPECIAL SAUCE": "BETTY'S SAUCE",
+        "CRISPY STRIPS": "CRISPY CHICKEN STRIPS",
         "NOOSA CLASSIC SURF": "NOOSA SURF CLASSIC",
         "CRISPY CHICKEN SUPREME": "CHICKEN SUPREME",
         "GRILLED CHICKEN SUPREME": "CHICKEN SUPREME",
@@ -288,16 +299,23 @@ def _lookup_allergens(allergen_map, item_name, category=""):
     if mapped and mapped in allergen_map:
         return allergen_map[mapped]
 
-    # Partial match: check if allergen key is contained in item name or vice versa
+    # Partial match: prefer longest matching key to avoid "BETTY'S CLASSIC"
+    # matching "BETTY'S CLASSIC VEGAN"
+    best_match = None
+    best_len = 0
     for key, allergens in allergen_map.items():
-        # Strip disambiguation suffixes for comparison
         clean_key = key.replace(" (SHAKE)", "").replace(" (ICE CREAM)", "")
         if clean_key == name_upper:
             return allergens
-        if len(clean_key) > 4 and clean_key in name_upper:
-            return allergens
-        if len(name_upper) > 4 and name_upper in clean_key:
-            return allergens
+        if len(clean_key) > 4 and clean_key in name_upper and len(clean_key) > best_len:
+            best_match = allergens
+            best_len = len(clean_key)
+        if len(name_upper) > 4 and name_upper in clean_key and len(name_upper) > best_len:
+            best_match = allergens
+            best_len = len(name_upper)
+
+    if best_match is not None:
+        return best_match
 
     return []
 
@@ -315,21 +333,21 @@ def _fallback_data():
     today = str(date.today())
     raw = [
         # category, name, kcal, protein, carbs, fat, salt_g, allergens
-        ("Burgers", "Bare Betty", 324, 24.7, 9.2, 21.1, 1.6, ["dairy", "egg", "soy", "garlic", "sesame"]),
-        ("Burgers", "Betty's Classic", 603, 28.5, 32.9, 39.9, 2.1, ["dairy", "egg", "wheat", "soy", "garlic", "sesame"]),
-        ("Burgers", "Betty's Classic Vegan", 875, 9.2, 86.7, 54.8, 3.3, ["soy", "garlic", "sesame", "onion"]),
-        ("Burgers", "Betty's Deluxe", 685, 38.0, 44.0, 41.5, 3.9, ["dairy", "egg", "wheat", "soy", "garlic", "sesame"]),
-        ("Burgers", "Betty's Double", 882, 59.3, 42.8, 52.8, 5.2, ["dairy", "egg", "wheat", "soy", "garlic", "sesame"]),
-        ("Burgers", "Crispy Chicken", 625, 29.7, 43.1, 37.2, 2.4, ["dairy", "egg", "wheat", "soy", "garlic", "sesame", "crustacean", "mollusc"]),
-        ("Burgers", "Grilled Chicken", 397, 31.8, 26.2, 18.2, 1.3, ["dairy", "egg", "wheat", "soy", "garlic", "sesame"]),
-        ("Burgers", "Shroom Burger", 656, 19.7, 77.5, 33.7, 3.3, ["dairy", "egg", "wheat", "soy", "garlic", "sesame", "crustacean", "mollusc"]),
-        ("Burgers", "Spicy Chicken", 738, 43.1, 49.8, 40.9, 4.2, ["dairy", "egg", "wheat", "soy", "garlic", "sesame", "crustacean", "mollusc"]),
+        ("Burgers", "Bare Betty", 324, 24.7, 9.2, 21.1, 1.6, ["dairy", "egg", "soy", "onion", "garlic"]),
+        ("Burgers", "Betty's Classic", 603, 28.5, 32.9, 39.9, 2.1, ["dairy", "egg", "wheat", "soy", "onion", "garlic"]),
+        ("Burgers", "Betty's Classic Vegan", 875, 9.2, 86.7, 54.8, 3.3, ["soy", "onion", "garlic", "sesame"]),
+        ("Burgers", "Betty's Deluxe", 685, 38.0, 44.0, 41.5, 3.9, ["dairy", "egg", "wheat", "soy", "onion", "garlic"]),
+        ("Burgers", "Betty's Double", 882, 59.3, 42.8, 52.8, 5.2, ["dairy", "egg", "wheat", "soy", "onion", "garlic"]),
+        ("Burgers", "Crispy Chicken", 625, 29.7, 43.1, 37.2, 2.4, ["wheat", "onion", "garlic", "crustacean", "mollusc"]),
+        ("Burgers", "Grilled Chicken", 397, 31.8, 26.2, 18.2, 1.3, ["garlic"]),
+        ("Burgers", "Shroom Burger", 656, 19.7, 77.5, 33.7, 3.3, ["dairy", "egg", "wheat", "soy", "onion", "garlic", "crustacean", "mollusc"]),
+        ("Burgers", "Spicy Chicken", 738, 43.1, 49.8, 40.9, 4.2, ["dairy", "egg", "wheat", "soy", "onion", "garlic", "crustacean", "mollusc"]),
         ("Sides", "Fries", 386, 4.9, 49.8, 18.4, 1.4, ["soy", "sesame"]),
-        ("Sides", "Sweet Potato Fries", 338, 4.4, 46.7, 16.4, 1.3, ["soy", "sesame"]),
-        ("Sides", "Onion Rings", 377, 3.4, 30.1, 27.2, 1.5, ["dairy", "egg", "wheat", "soy", "garlic", "crustacean", "mollusc"]),
+        ("Sides", "Sweet Potato Fries", 338, 4.4, 46.6, 16.4, 1.3, ["soy", "sesame"]),
+        ("Sides", "Onion Rings", 377, 3.4, 30.1, 27.2, 1.5, ["dairy", "egg", "wheat", "soy", "onion", "crustacean", "mollusc"]),
         ("Sides", "Calamari", 190, 13.8, 9.5, 10.8, 1.1, ["wheat", "garlic", "crustacean", "mollusc"]),
         ("Thick Shakes", "Chocolate", 569, 17.4, 104.7, 13.7, 0.5, ["dairy", "egg"]),
-        ("Desserts", "Chocolate Deluxe", 472, 2.1, 39.9, 19.8, 2.2, ["dairy", "egg", "soy", "hazelnut"]),
+        ("Desserts", "Chocolate Deluxe", 472, 2.1, 39.9, 19.8, 2.2, ["dairy", "egg", "soy", "barley", "hazelnut"]),
     ]
     items = []
     for cat, name, kcal, prot, carbs, fat, salt, allergens in raw:
