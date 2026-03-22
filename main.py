@@ -14,7 +14,7 @@ from pathlib import Path
 # Add project root to path
 sys.path.insert(0, str(Path(__file__).parent))
 
-from scrapers import nandos, mcdonalds, wagamama, uk_chains, uk_pubs, uk_restaurants, local_ni, custom
+from scrapers import nandos, mcdonalds, wagamama, uk_chains, uk_pubs, uk_restaurants, local_ni, custom, burgerking_nz, rolld_au
 
 OUTPUT_FILE = Path(__file__).parent / "output" / "nutrition_db.json"
 LOG_DIR = Path(__file__).parent / "output" / "logs"
@@ -65,6 +65,8 @@ def run_all():
         ("UK Restaurants", uk_restaurants.scrape),
         ("Local NI", local_ni.scrape),
         ("Custom", custom.scrape),
+        ("Burger King NZ", burgerking_nz.scrape),
+        ("Roll'd AU", rolld_au.scrape),
     ]
 
     for name, fn in scrapers:

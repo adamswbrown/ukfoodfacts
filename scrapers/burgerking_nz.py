@@ -111,7 +111,7 @@ def _parse_pdf(pdf):
             if cal is None and safe_int(row[3]) is None:
                 continue  # skip non-data rows
 
-            allergens = allergen_map.get(name, [])
+            allergens = _lookup_allergens(allergen_map, name)
             items.append(_make_item(
                 name=name,
                 category=_categorise(name),
@@ -156,7 +156,7 @@ def _parse_pdf(pdf):
                     continue
 
                 display_name = f"{name} ({size})" if size else name
-                allergens = allergen_map.get(name, allergen_map.get(display_name, []))
+                allergens = _lookup_allergens(allergen_map, name)
 
                 items.append(_make_item(
                     name=display_name,

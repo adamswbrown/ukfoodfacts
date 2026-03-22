@@ -47,6 +47,8 @@ HTML = r"""<!DOCTYPE html>
     --accent-nandos: #e63a1e;
     --accent-mcdonalds: #ffbc0d;
     --accent-wagamama: #d42b2b;
+    --accent-burgerkingnz: #ff8732;
+    --accent-rolld: #c8102e;
     --accent-default: #7c6af5;
     --green: #3ecf8e;
     --amber: #f59e0b;
@@ -247,6 +249,8 @@ HTML = r"""<!DOCTYPE html>
   .tab[data-restaurant="Nandos"].active { border-color: var(--accent-nandos); color: var(--accent-nandos); }
   .tab[data-restaurant="McDonalds"].active { border-color: var(--accent-mcdonalds); color: var(--accent-mcdonalds); }
   .tab[data-restaurant="Wagamama"].active { border-color: var(--accent-wagamama); color: var(--accent-wagamama); }
+  .tab[data-restaurant="Burger King NZ"].active { border-color: var(--accent-burgerkingnz); color: var(--accent-burgerkingnz); }
+  .tab[data-restaurant="Roll'd"].active { border-color: var(--accent-rolld); color: var(--accent-rolld); }
   .tab-count {
     font-family: 'Source Code Pro', monospace;
     font-size: 0.7rem;
@@ -1014,7 +1018,7 @@ let activeRestaurant = 'all';
 let currentSort = { key: null, dir: 1 };
 
 // Dynamic colours for all restaurants (hash-based)
-const _fixedColors = { Nandos:'#e63a1e', McDonalds:'#ffbc0d', Wagamama:'#d42b2b' };
+const _fixedColors = { Nandos:'#e63a1e', McDonalds:'#ffbc0d', Wagamama:'#d42b2b', 'Burger King NZ':'#ff8732', "Roll'd":'#c8102e' };
 function restaurantColor(name) {
   if (_fixedColors[name]) return _fixedColors[name];
   let h = 0;
@@ -1044,6 +1048,7 @@ const _domainMap = {
   "Harry Ramsdens":"harryramsdens.co.uk","Beefeater":"beefeater.co.uk",
   "Miller & Carter":"millerandcarter.co.uk","Cafe Rouge":"caferouge.com",
   "Chiquito":"chiquito.co.uk","Caffe Nero":"caffenero.com","Papa Johns":"papajohns.co.uk",
+  "Burger King NZ":"burgerking.co.nz","Roll'd":"rolld.com.au",
   "Pepes Piri Piri":"pepes.co.uk","Chopstix":"chopstixnoodles.co.uk",
   "Kokoro":"kokoromaidstone.co.uk","Hungry Horse":"hungryhorse.co.uk",
   "Loungers":"thelounges.co.uk","Cote Brasserie":"cote.co.uk",
