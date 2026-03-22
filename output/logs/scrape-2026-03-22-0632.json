@@ -1,0 +1,82 @@
+{
+  "timestamp": "2026-03-22T06:32:52.810081+00:00",
+  "duration_seconds": 12.0,
+  "summary": {
+    "total_items": 1765,
+    "total_restaurants": 159,
+    "previous_items": 1765,
+    "previous_restaurants": 159,
+    "new_items": 0,
+    "removed_items": 0,
+    "duplicates_removed": 333,
+    "new_restaurants": [],
+    "net_change": 0
+  },
+  "scrapers": [
+    {
+      "scraper": "Nandos",
+      "status": "success",
+      "items": 201,
+      "restaurants": 1,
+      "elapsed_seconds": 1.2,
+      "error": null
+    },
+    {
+      "scraper": "McDonalds",
+      "status": "success",
+      "items": 30,
+      "restaurants": 1,
+      "elapsed_seconds": 0.5,
+      "error": null
+    },
+    {
+      "scraper": "Wagamama",
+      "status": "success",
+      "items": 500,
+      "restaurants": 1,
+      "elapsed_seconds": 2.3,
+      "error": null
+    },
+    {
+      "scraper": "UK Chains",
+      "status": "success",
+      "items": 1066,
+      "restaurants": 105,
+      "elapsed_seconds": 0.1,
+      "error": null
+    },
+    {
+      "scraper": "UK Pubs",
+      "status": "success",
+      "items": 115,
+      "restaurants": 15,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "UK Restaurants",
+      "status": "success",
+      "items": 76,
+      "restaurants": 19,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Local NI",
+      "status": "success",
+      "items": 110,
+      "restaurants": 17,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Custom",
+      "status": "success",
+      "items": 0,
+      "restaurants": 0,
+      "elapsed_seconds": 0.0,
+      "error": null
+    }
+  ],
+  "new_items_detail": []
+}
