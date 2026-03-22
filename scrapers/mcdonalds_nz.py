@@ -452,7 +452,9 @@ def _clean_item_name(name):
     # Fix truncated names ending with dangling prepositions
     if name.endswith(" with") or name.endswith(" and") or name.endswith(" &"):
         name = name.rstrip(" with").rstrip(" and").rstrip(" &")
-    # Fix "Wrap®" truncated to "Wrap"
+    # Fix "Wrap®" truncated to just "Snack"
+    if "Snack" in name and "Wrap" not in name:
+        name = name.replace("Chicken Snack", "Chicken Snack Wrap")
     name = name.replace("Snack\nWrap", "Snack Wrap")
     return name.strip()
 

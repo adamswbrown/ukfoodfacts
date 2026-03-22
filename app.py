@@ -49,6 +49,11 @@ HTML = r"""<!DOCTYPE html>
     --accent-wagamama: #d42b2b;
     --accent-burgerkingnz: #ff8732;
     --accent-rolld: #c8102e;
+    --accent-mcdonaldsnz: #ffbc0d;
+    --accent-burgerfuelnz: #e31837;
+    --accent-bettysburgers: #f5a623;
+    --accent-hungryjacks: #d62518;
+    --accent-gyg: #f7941d;
     --accent-default: #7c6af5;
     --green: #3ecf8e;
     --amber: #f59e0b;
@@ -251,6 +256,11 @@ HTML = r"""<!DOCTYPE html>
   .tab[data-restaurant="Wagamama"].active { border-color: var(--accent-wagamama); color: var(--accent-wagamama); }
   .tab[data-restaurant="Burger King NZ"].active { border-color: var(--accent-burgerkingnz); color: var(--accent-burgerkingnz); }
   .tab[data-restaurant="Roll'd"].active { border-color: var(--accent-rolld); color: var(--accent-rolld); }
+  .tab[data-restaurant="McDonalds NZ"].active { border-color: var(--accent-mcdonaldsnz); color: var(--accent-mcdonaldsnz); }
+  .tab[data-restaurant="BurgerFuel NZ"].active { border-color: var(--accent-burgerfuelnz); color: var(--accent-burgerfuelnz); }
+  .tab[data-restaurant="Betty's Burgers"].active { border-color: var(--accent-bettysburgers); color: var(--accent-bettysburgers); }
+  .tab[data-restaurant="Hungry Jacks"].active { border-color: var(--accent-hungryjacks); color: var(--accent-hungryjacks); }
+  .tab[data-restaurant="Guzman y Gomez"].active { border-color: var(--accent-gyg); color: var(--accent-gyg); }
   .tab-count {
     font-family: 'Source Code Pro', monospace;
     font-size: 0.7rem;
@@ -1018,7 +1028,7 @@ let activeRestaurant = 'all';
 let currentSort = { key: null, dir: 1 };
 
 // Dynamic colours for all restaurants (hash-based)
-const _fixedColors = { Nandos:'#e63a1e', McDonalds:'#ffbc0d', Wagamama:'#d42b2b', 'Burger King NZ':'#ff8732', "Roll'd":'#c8102e' };
+const _fixedColors = { Nandos:'#e63a1e', McDonalds:'#ffbc0d', Wagamama:'#d42b2b', 'Burger King NZ':'#ff8732', "Roll'd":'#c8102e', 'McDonalds NZ':'#ffbc0d', 'BurgerFuel NZ':'#e31837', "Betty's Burgers":'#f5a623', 'Hungry Jacks':'#d62518', 'Guzman y Gomez':'#f7941d' };
 function restaurantColor(name) {
   if (_fixedColors[name]) return _fixedColors[name];
   let h = 0;
@@ -1048,7 +1058,7 @@ const _domainMap = {
   "Harry Ramsdens":"harryramsdens.co.uk","Beefeater":"beefeater.co.uk",
   "Miller & Carter":"millerandcarter.co.uk","Cafe Rouge":"caferouge.com",
   "Chiquito":"chiquito.co.uk","Caffe Nero":"caffenero.com","Papa Johns":"papajohns.co.uk",
-  "Burger King NZ":"burgerking.co.nz","Roll'd":"rolld.com.au",
+  "Burger King NZ":"burgerking.co.nz","Roll'd":"rolld.com.au","McDonalds NZ":"mcdonalds.co.nz","BurgerFuel NZ":"burgerfuel.com","Betty's Burgers":"bettysburgers.com.au","Hungry Jacks":"hungryjacks.com.au","Guzman y Gomez":"guzmanygomez.com.au",
   "Pepes Piri Piri":"pepes.co.uk","Chopstix":"chopstixnoodles.co.uk",
   "Kokoro":"kokoromaidstone.co.uk","Hungry Horse":"hungryhorse.co.uk",
   "Loungers":"thelounges.co.uk","Cote Brasserie":"cote.co.uk",
