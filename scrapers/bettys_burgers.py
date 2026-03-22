@@ -157,7 +157,7 @@ def _parse_pdfs(nutrition_pdf, allergen_pdf):
         salt = round(sodium_mg * 2.5 / 1000, 1) if sodium_mg is not None else None
 
         display_name = _normalise_name(name_raw)
-        allergens = _lookup_allergens(allergen_map, name_raw)
+        allergens = _lookup_allergens(allergen_map, name_raw, category=current_category)
 
         items.append({
             "restaurant": "Betty's Burgers",
