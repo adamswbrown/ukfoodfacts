@@ -1275,13 +1275,17 @@ function buildCountryFilter() {
     countries.map(c => `<option value="${c}" ${c===current?'selected':''}>${c}</option>`).join('');
 }
 
-// ── Location filter ────────────────────────────────────────────────
+// ── Location filter (cascades from country selection) ──────────────
 function buildLocationFilter() {
-  const locations = [...new Set(allData.map(d => d.location || 'National'))].sort();
+  const country = document.getElementById('country-filter').value;
+  const base = country ? allData.filter(d => getCountry(d.restaurant) === country) : allData;
+  const locations = [...new Set(base.map(d => d.location || 'National'))].sort();
   const sel = document.getElementById('location-filter');
   const current = sel.value;
+  const validCurrent = locations.includes(current) ? current : '';
   sel.innerHTML = '<option value="">All locations</option>' +
-    locations.map(l => `<option value="${l}" ${l===current?'selected':''}>${l}</option>`).join('');
+    locations.map(l => `<option value="${l}" ${l===validCurrent?'selected':''}>${l}</option>`).join('');
+  if (validCurrent !== current) sel.value = '';
 }
 
 // ── Category filter ────────────────────────────────────────────────
@@ -1304,6 +1308,9 @@ function applyFilters() {
   // Apply country filter first
   const country = document.getElementById('country-filter').value;
   if (country) data = data.filter(d => getCountry(d.restaurant) === country);
+
+  // Rebuild location filter based on country selection
+  buildLocationFilter();
 
   // Apply location filter to determine available restaurants and categories
   const loc = document.getElementById('location-filter').value;

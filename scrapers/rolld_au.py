@@ -141,6 +141,7 @@ def _parse_transposed_table(table, today):
             "allergens": [],
             "dietary_flags": infer_dietary_flags(item_name),
             "source_url": SOURCE_URL,
+            "location": "National",
             "scraped_at": today,
         })
 
@@ -229,6 +230,7 @@ def _fallback_data():
             "allergens": [],
             "dietary_flags": infer_dietary_flags(name),
             "source_url": SOURCE_URL,
+            "location": "National",
             "scraped_at": today,
         })
     print(f"  [RolldAU] Using {len(items)} fallback items")

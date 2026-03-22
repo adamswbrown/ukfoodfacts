@@ -236,6 +236,7 @@ def _make_item(name, category, calories, protein, fat, carbs, fibre, sodium_mg, 
         "allergens": allergens,
         "dietary_flags": infer_dietary_flags(name),
         "source_url": SOURCE_URL,
+        "location": "National",
         "scraped_at": today,
     }
 

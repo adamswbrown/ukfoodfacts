@@ -94,6 +94,7 @@ def _parse_pdf(pdf):
                     "allergens": [],
                     "dietary_flags": infer_dietary_flags(display_name),
                     "source_url": SOURCE_URL,
+                    "location": "National",
                     "scraped_at": today,
                 })
 
@@ -192,6 +193,7 @@ def _fallback_data():
             "allergens": [],
             "dietary_flags": infer_dietary_flags(name),
             "source_url": SOURCE_URL,
+            "location": "National",
             "scraped_at": today,
         })
     print(f"  [GYG_AU] Using {len(items)} fallback items")
