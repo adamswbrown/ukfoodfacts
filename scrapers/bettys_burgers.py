@@ -183,6 +183,7 @@ def _parse_pdfs(nutrition_pdf, allergen_pdf):
             "allergens": allergens,
             "dietary_flags": dietary_flags,
             "source_url": SOURCE_URL,
+            "location": "National",
             "scraped_at": today,
         })
 
@@ -365,6 +366,7 @@ def _fallback_data():
             "allergens": allergens,
             "dietary_flags": infer_dietary_flags(name),
             "source_url": SOURCE_URL,
+            "location": "National",
             "scraped_at": today,
         })
     print(f"  [BettysAU] Using {len(items)} fallback items")

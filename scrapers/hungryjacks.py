@@ -166,6 +166,7 @@ def _parse_menu_item(mi, category, page_url, today):
         "allergens": [],  # not available in JSON-LD; would need PDFs
         "dietary_flags": infer_dietary_flags(name, description),
         "source_url": page_url,
+        "location": "National",
         "scraped_at": today,
     }
 
@@ -237,6 +238,7 @@ def _fallback_data():
             "allergens": [],
             "dietary_flags": infer_dietary_flags(name, desc),
             "source_url": SOURCE_URL,
+            "location": "National",
             "scraped_at": today,
         })
     print(f"  [HungryJacks] Using {len(items)} fallback items")

@@ -204,6 +204,7 @@ def _parse_nutrition_pdf(pdf, allergen_map, dietary_map, today):
                 "allergens": allergens,
                 "dietary_flags": dietary_flags,
                 "source_url": SOURCE_URL,
+                "location": "National",
                 "scraped_at": today,
             })
 
