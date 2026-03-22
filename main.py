@@ -1,5 +1,5 @@
 """
-UK Restaurant Calorie Scraper — main runner
+GlobalFoodFacts — main runner
 Runs all configured scrapers, deduplicates, logs results, and saves unified JSON output.
 """
 
@@ -14,7 +14,7 @@ from pathlib import Path
 # Add project root to path
 sys.path.insert(0, str(Path(__file__).parent))
 
-from scrapers import nandos, mcdonalds, wagamama, uk_chains, uk_pubs, uk_restaurants, local_ni, custom
+from scrapers import nandos, mcdonalds, wagamama, uk_chains, uk_pubs, uk_restaurants, local_ni, custom, burgerking_nz, rolld_au, mcdonalds_nz, burgerfuel_nz, bettys_burgers, hungryjacks, gyg_au
 
 OUTPUT_FILE = Path(__file__).parent / "output" / "nutrition_db.json"
 LOG_DIR = Path(__file__).parent / "output" / "logs"
@@ -44,7 +44,7 @@ def load_existing():
 def run_all():
     start_time = datetime.now(timezone.utc)
     print("=" * 60)
-    print(f"UK Restaurant Calorie Scraper — {start_time.strftime('%Y-%m-%d %H:%M UTC')}")
+    print(f"GlobalFoodFacts — {start_time.strftime('%Y-%m-%d %H:%M UTC')}")
     print("=" * 60)
 
     # Load existing data for comparison
@@ -65,6 +65,13 @@ def run_all():
         ("UK Restaurants", uk_restaurants.scrape),
         ("Local NI", local_ni.scrape),
         ("Custom", custom.scrape),
+        ("Burger King NZ", burgerking_nz.scrape),
+        ("Roll'd AU", rolld_au.scrape),
+        ("McDonalds NZ", mcdonalds_nz.scrape),
+        ("BurgerFuel NZ", burgerfuel_nz.scrape),
+        ("Betty's Burgers", bettys_burgers.scrape),
+        ("Hungry Jacks", hungryjacks.scrape),
+        ("GYG AU", gyg_au.scrape),
     ]
 
     for name, fn in scrapers:

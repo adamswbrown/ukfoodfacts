@@ -1,0 +1,397 @@
+{
+  "timestamp": "2026-03-22T09:56:06.708007+00:00",
+  "duration_seconds": 81.3,
+  "summary": {
+    "total_items": 2764,
+    "total_restaurants": 166,
+    "previous_items": 1765,
+    "previous_restaurants": 159,
+    "new_items": 999,
+    "removed_items": 0,
+    "duplicates_removed": 397,
+    "new_restaurants": [
+      "Guzman y Gomez",
+      "BurgerFuel NZ",
+      "Burger King NZ",
+      "Roll'd",
+      "McDonalds NZ",
+      "Hungry Jacks",
+      "Betty's Burgers"
+    ],
+    "net_change": 999
+  },
+  "scrapers": [
+    {
+      "scraper": "Nandos",
+      "status": "success",
+      "items": 201,
+      "restaurants": 1,
+      "elapsed_seconds": 0.7,
+      "error": null
+    },
+    {
+      "scraper": "McDonalds",
+      "status": "success",
+      "items": 30,
+      "restaurants": 1,
+      "elapsed_seconds": 2.2,
+      "error": null
+    },
+    {
+      "scraper": "Wagamama",
+      "status": "success",
+      "items": 500,
+      "restaurants": 1,
+      "elapsed_seconds": 2.3,
+      "error": null
+    },
+    {
+      "scraper": "UK Chains",
+      "status": "success",
+      "items": 1066,
+      "restaurants": 105,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "UK Pubs",
+      "status": "success",
+      "items": 115,
+      "restaurants": 15,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "UK Restaurants",
+      "status": "success",
+      "items": 76,
+      "restaurants": 19,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Local NI",
+      "status": "success",
+      "items": 110,
+      "restaurants": 17,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Custom",
+      "status": "success",
+      "items": 0,
+      "restaurants": 0,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Burger King NZ",
+      "status": "success",
+      "items": 112,
+      "restaurants": 1,
+      "elapsed_seconds": 3.5,
+      "error": null
+    },
+    {
+      "scraper": "Roll'd AU",
+      "status": "success",
+      "items": 84,
+      "restaurants": 1,
+      "elapsed_seconds": 2.5,
+      "error": null
+    },
+    {
+      "scraper": "McDonalds NZ",
+      "status": "success",
+      "items": 283,
+      "restaurants": 1,
+      "elapsed_seconds": 34.6,
+      "error": null
+    },
+    {
+      "scraper": "BurgerFuel NZ",
+      "status": "success",
+      "items": 43,
+      "restaurants": 1,
+      "elapsed_seconds": 3.1,
+      "error": null
+    },
+    {
+      "scraper": "Betty's Burgers",
+      "status": "success",
+      "items": 58,
+      "restaurants": 1,
+      "elapsed_seconds": 6.2,
+      "error": null
+    },
+    {
+      "scraper": "Hungry Jacks",
+      "status": "success",
+      "items": 181,
+      "restaurants": 1,
+      "elapsed_seconds": 3.3,
+      "error": null
+    },
+    {
+      "scraper": "GYG AU",
+      "status": "success",
+      "items": 302,
+      "restaurants": 1,
+      "elapsed_seconds": 7.9,
+      "error": null
+    }
+  ],
+  "new_items_detail": [
+    {
+      "restaurant": "Burger King NZ",
+      "item": "WHOPPER Jr\u00ae",
+      "calories_kcal": 361
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "WHOPPER Jr\u00ae with Cheese",
+      "calories_kcal": 399
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "WHOPPER\u00ae",
+      "calories_kcal": 764
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "WHOPPER\u00ae with Cheese",
+      "calories_kcal": 811
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "WHOPPER\u00ae Double",
+      "calories_kcal": 1140
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "WHOPPER\u00ae Double with Cheese",
+      "calories_kcal": 1216
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "WHOPPER\u00ae Triple",
+      "calories_kcal": 1515
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "WHOPPER\u00ae Triple with Cheese",
+      "calories_kcal": 1592
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "BBQ Bacon Double Cheeseburger",
+      "calories_kcal": 511
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Hamburger",
+      "calories_kcal": 291
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Cheeseburger",
+      "calories_kcal": 329
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Double Cheeseburger",
+      "calories_kcal": 507
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Triple Cheeseburger",
+      "calories_kcal": 697
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Creamy Mayo Cheeseburger",
+      "calories_kcal": 406
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "BBQ Rodeo",
+      "calories_kcal": 416
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "The Bomb",
+      "calories_kcal": 384
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "XL Bomb (Double)",
+      "calories_kcal": 1247
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "XL Bomb (Single)",
+      "calories_kcal": 871
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "XL Creamy Mayo Cheeseburger (Double)",
+      "calories_kcal": 1288
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "XL Creamy Mayo Cheeseburger (Single)",
+      "calories_kcal": 852
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "XL BBQ Rodeo (Double)",
+      "calories_kcal": 1314
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "XL BBQ Rodeo (Single)",
+      "calories_kcal": 938
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Rodeo Mega Stackers - Beef Single",
+      "calories_kcal": 805
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Rodeo Mega Stackers - Beef Double",
+      "calories_kcal": 1217
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Rodeo Mega Stackers - Beef Triple",
+      "calories_kcal": 1630
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "All American Steakhouse",
+      "calories_kcal": 820
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "New York Steakhouse",
+      "calories_kcal": 1006
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Streaky Bacon Steakhouse",
+      "calories_kcal": 932
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Original Fried Chicken",
+      "calories_kcal": 759
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Spicy Southern Fried Chicken",
+      "calories_kcal": 732
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Cheese & Bacon Fried Chicken",
+      "calories_kcal": 736
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Plant Based Whopper",
+      "calories_kcal": 563
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Plant Based Double Whopper",
+      "calories_kcal": 733
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Plant Based Whopper with Cheese",
+      "calories_kcal": 635
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Plant Based BK Chook",
+      "calories_kcal": 617
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Plant Based BK Chook with Cheese",
+      "calories_kcal": 691
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Plant Based BK Double Chook",
+      "calories_kcal": 844
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Plant Based BK Chook Long Rodeo",
+      "calories_kcal": 753
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Plant Based BK Hawaiian Chook",
+      "calories_kcal": 859
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Salad Burger",
+      "calories_kcal": 544
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "BK Chicken",
+      "calories_kcal": 593
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "BK Chicken with Cheese",
+      "calories_kcal": 670
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "BK Double Chicken",
+      "calories_kcal": 796
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "BK Chicken Long Rodeo",
+      "calories_kcal": 628
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Hawaiian BK Chicken",
+      "calories_kcal": 853
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Crispy Chicken Burger",
+      "calories_kcal": 519
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Chicken Nuggets - 10pk",
+      "calories_kcal": 490
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Chicken Nuggets - 20pk",
+      "calories_kcal": 1090
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Rodeo Mega Stackers - Chicken Single",
+      "calories_kcal": 716
+    },
+    {
+      "restaurant": "Burger King NZ",
+      "item": "Rodeo Mega Stackers - Chicken Double",
+      "calories_kcal": 949
+    }
+  ]
+}

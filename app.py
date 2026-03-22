@@ -1,5 +1,5 @@
 """
-Flask web UI for UK Restaurant Nutrition Database
+Flask web UI for GlobalFoodFacts — Restaurant Nutrition Database
 """
 
 from flask import Flask, jsonify, render_template_string, request
@@ -30,7 +30,7 @@ HTML = r"""<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UK Eats — Restaurant Calorie Explorer</title>
+<title>GlobalFoodFacts — Restaurant Calorie Explorer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -47,6 +47,13 @@ HTML = r"""<!DOCTYPE html>
     --accent-nandos: #e63a1e;
     --accent-mcdonalds: #ffbc0d;
     --accent-wagamama: #d42b2b;
+    --accent-burgerkingnz: #ff8732;
+    --accent-rolld: #c8102e;
+    --accent-mcdonaldsnz: #ffbc0d;
+    --accent-burgerfuelnz: #e31837;
+    --accent-bettysburgers: #f5a623;
+    --accent-hungryjacks: #d62518;
+    --accent-gyg: #f7941d;
     --accent-default: #7c6af5;
     --green: #3ecf8e;
     --amber: #f59e0b;
@@ -247,6 +254,13 @@ HTML = r"""<!DOCTYPE html>
   .tab[data-restaurant="Nandos"].active { border-color: var(--accent-nandos); color: var(--accent-nandos); }
   .tab[data-restaurant="McDonalds"].active { border-color: var(--accent-mcdonalds); color: var(--accent-mcdonalds); }
   .tab[data-restaurant="Wagamama"].active { border-color: var(--accent-wagamama); color: var(--accent-wagamama); }
+  .tab[data-restaurant="Burger King NZ"].active { border-color: var(--accent-burgerkingnz); color: var(--accent-burgerkingnz); }
+  .tab[data-restaurant="Roll'd"].active { border-color: var(--accent-rolld); color: var(--accent-rolld); }
+  .tab[data-restaurant="McDonalds NZ"].active { border-color: var(--accent-mcdonaldsnz); color: var(--accent-mcdonaldsnz); }
+  .tab[data-restaurant="BurgerFuel NZ"].active { border-color: var(--accent-burgerfuelnz); color: var(--accent-burgerfuelnz); }
+  .tab[data-restaurant="Betty's Burgers"].active { border-color: var(--accent-bettysburgers); color: var(--accent-bettysburgers); }
+  .tab[data-restaurant="Hungry Jacks"].active { border-color: var(--accent-hungryjacks); color: var(--accent-hungryjacks); }
+  .tab[data-restaurant="Guzman y Gomez"].active { border-color: var(--accent-gyg); color: var(--accent-gyg); }
   .tab-count {
     font-family: 'Source Code Pro', monospace;
     font-size: 0.7rem;
@@ -801,7 +815,7 @@ HTML = r"""<!DOCTYPE html>
 
 <header>
   <div class="logo">
-    🍽 UK Eats <span>calorie explorer</span>
+    🍽 GlobalFoodFacts <span>calorie explorer</span>
   </div>
   <div style="display:flex;align-items:center;gap:10px;">
     <div class="header-meta" id="header-meta"></div>
@@ -834,6 +848,9 @@ HTML = r"""<!DOCTYPE html>
       <span class="search-icon">⌕</span>
       <input type="search" id="search" placeholder="Search dishes..." oninput="applyFilters()">
     </div>
+    <select id="country-filter" onchange="applyFilters()">
+      <option value="">All countries</option>
+    </select>
     <select id="location-filter" onchange="applyFilters()">
       <option value="">All locations</option>
     </select>
@@ -1013,8 +1030,19 @@ let allData = [];
 let activeRestaurant = 'all';
 let currentSort = { key: null, dir: 1 };
 
+// ── Country mapping ──────────────────────────────────────────────
+const _restaurantCountry = {
+  'McDonalds NZ':'New Zealand', 'Burger King NZ':'New Zealand', 'BurgerFuel NZ':'New Zealand',
+  'Hungry Jacks':'Australia', "Roll'd":'Australia', "Betty's Burgers":'Australia',
+  'Guzman y Gomez':'Australia',
+};
+function getCountry(restaurant) {
+  if (_restaurantCountry[restaurant]) return _restaurantCountry[restaurant];
+  return 'United Kingdom';
+}
+
 // Dynamic colours for all restaurants (hash-based)
-const _fixedColors = { Nandos:'#e63a1e', McDonalds:'#ffbc0d', Wagamama:'#d42b2b' };
+const _fixedColors = { Nandos:'#e63a1e', McDonalds:'#ffbc0d', Wagamama:'#d42b2b', 'Burger King NZ':'#ff8732', "Roll'd":'#c8102e', 'McDonalds NZ':'#ffbc0d', 'BurgerFuel NZ':'#e31837', "Betty's Burgers":'#f5a623', 'Hungry Jacks':'#d62518', 'Guzman y Gomez':'#f7941d' };
 function restaurantColor(name) {
   if (_fixedColors[name]) return _fixedColors[name];
   let h = 0;
@@ -1044,6 +1072,7 @@ const _domainMap = {
   "Harry Ramsdens":"harryramsdens.co.uk","Beefeater":"beefeater.co.uk",
   "Miller & Carter":"millerandcarter.co.uk","Cafe Rouge":"caferouge.com",
   "Chiquito":"chiquito.co.uk","Caffe Nero":"caffenero.com","Papa Johns":"papajohns.co.uk",
+  "Burger King NZ":"burgerking.co.nz","Roll'd":"rolld.com.au","McDonalds NZ":"mcdonalds.co.nz","BurgerFuel NZ":"burgerfuel.com","Betty's Burgers":"bettysburgers.com.au","Hungry Jacks":"hungryjacks.com.au","Guzman y Gomez":"guzmanygomez.com.au",
   "Pepes Piri Piri":"pepes.co.uk","Chopstix":"chopstixnoodles.co.uk",
   "Kokoro":"kokoromaidstone.co.uk","Hungry Horse":"hungryhorse.co.uk",
   "Loungers":"thelounges.co.uk","Cote Brasserie":"cote.co.uk",
@@ -1159,6 +1188,7 @@ async function loadData() {
 
 function init() {
   buildStats();
+  buildCountryFilter();
   buildRestaurantTabs();
   buildLocationFilter();
   buildCategoryFilter();
@@ -1175,11 +1205,12 @@ function buildStats() {
   const max = Math.max(...cals);
   const restaurants = [...new Set(allData.map(d=>d.restaurant))];
   const locations = [...new Set(allData.map(d=>d.location || 'National'))];
+  const countries = [...new Set(allData.map(d=>getCountry(d.restaurant)))].sort();
 
   const bars = [
     { label: 'Total Dishes', value: allData.length },
     { label: 'Restaurants', value: restaurants.length },
-    { label: 'Locations', value: locations.length },
+    { label: 'Countries', value: countries.length },
     { label: 'Avg Calories', value: avg + ' kcal' },
     { label: 'Lowest Cal', value: min + ' kcal' },
     { label: 'Highest Cal', value: max + ' kcal' },
@@ -1190,9 +1221,9 @@ function buildStats() {
       <div class="stat-value">${s.value}</div>
     </div>`).join('') + `
     <div class="stat-card region-map">
-      <div class="stat-label">Regions Covered</div>
-      <div class="region-tags">${locations.map(l =>
-        `<span class="region-tag${l === 'National' ? ' national' : ''}">${l}</span>`
+      <div class="stat-label">Countries</div>
+      <div class="region-tags">${countries.map(c =>
+        `<span class="region-tag">${c}</span>`
       ).join('')}</div>
     </div>`;
 }
@@ -1235,6 +1266,15 @@ function setRestaurant(r, el) {
   applyFilters();
 }
 
+// ── Country filter ─────────────────────────────────────────────────
+function buildCountryFilter() {
+  const countries = [...new Set(allData.map(d => getCountry(d.restaurant)))].sort();
+  const sel = document.getElementById('country-filter');
+  const current = sel.value;
+  sel.innerHTML = '<option value="">All countries</option>' +
+    countries.map(c => `<option value="${c}" ${c===current?'selected':''}>${c}</option>`).join('');
+}
+
 // ── Location filter ────────────────────────────────────────────────
 function buildLocationFilter() {
   const locations = [...new Set(allData.map(d => d.location || 'National'))].sort();
@@ -1261,12 +1301,16 @@ function buildCategoryFilter(sourceData) {
 function applyFilters() {
   let data = [...allData];
 
-  // Apply location filter first to determine available restaurants and categories
+  // Apply country filter first
+  const country = document.getElementById('country-filter').value;
+  if (country) data = data.filter(d => getCountry(d.restaurant) === country);
+
+  // Apply location filter to determine available restaurants and categories
   const loc = document.getElementById('location-filter').value;
   let locationFiltered = data;
   if (loc) locationFiltered = data.filter(d => (d.location || 'National') === loc);
 
-  // Rebuild restaurant tabs and category filter based on location-filtered data
+  // Rebuild restaurant tabs and category filter based on filtered data
   buildRestaurantTabs(locationFiltered);
   buildCategoryFilter(locationFiltered);
 
@@ -1652,7 +1696,7 @@ def api_refresh():
         return jsonify({"ok": False, "error": str(e)}), 500
 
 
-ADMIN_KEY = os.environ.get("ADMIN_KEY", "ukfoodfacts2026")
+ADMIN_KEY = os.environ.get("ADMIN_KEY", "globalfoodfacts2026")
 API_KEY = os.environ.get("API_KEY", "")
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 GITHUB_REPO = os.environ.get("GITHUB_REPO", "adamswbrown/ukfoodfacts")
@@ -1779,7 +1823,7 @@ def api_scrape_request():
         body_parts.append(f"**Nutrition page URL:** {url}")
     if notes:
         body_parts.append(f"**Notes:** {notes}")
-    body_parts.append("\n---\n*Submitted via the UK Eats UI*")
+    body_parts.append("\n---\n*Submitted via the GlobalFoodFacts UI*")
     body = "\n".join(body_parts)
 
     try:
