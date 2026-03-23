@@ -810,6 +810,7 @@ HTML = r"""<!DOCTYPE html>
     .calories-big { font-size: 2rem; }
   }
 </style>
+<script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </head>
 <body>
 
