@@ -1035,6 +1035,7 @@ const _restaurantCountry = {
   'McDonalds NZ':'New Zealand', 'Burger King NZ':'New Zealand', 'BurgerFuel NZ':'New Zealand',
   'Hungry Jacks':'Australia', "Roll'd":'Australia', "Betty's Burgers":'Australia',
   'Guzman y Gomez':'Australia',
+  "Grill'd":'Australia', 'Lord of the Fries':'Australia',
 };
 function getCountry(restaurant) {
   if (_restaurantCountry[restaurant]) return _restaurantCountry[restaurant];
@@ -1042,7 +1043,7 @@ function getCountry(restaurant) {
 }
 
 // Dynamic colours for all restaurants (hash-based)
-const _fixedColors = { Nandos:'#e63a1e', McDonalds:'#ffbc0d', Wagamama:'#d42b2b', 'Burger King NZ':'#ff8732', "Roll'd":'#c8102e', 'McDonalds NZ':'#ffbc0d', 'BurgerFuel NZ':'#e31837', "Betty's Burgers":'#f5a623', 'Hungry Jacks':'#d62518', 'Guzman y Gomez':'#f7941d' };
+const _fixedColors = { Nandos:'#e63a1e', McDonalds:'#ffbc0d', Wagamama:'#d42b2b', 'Burger King NZ':'#ff8732', "Roll'd":'#c8102e', 'McDonalds NZ':'#ffbc0d', 'BurgerFuel NZ':'#e31837', "Betty's Burgers":'#f5a623', 'Hungry Jacks':'#d62518', 'Guzman y Gomez':'#f7941d', "Grill'd":'#5cb85c', 'Lord of the Fries':'#e8272c' };
 function restaurantColor(name) {
   if (_fixedColors[name]) return _fixedColors[name];
   let h = 0;
@@ -1072,7 +1073,7 @@ const _domainMap = {
   "Harry Ramsdens":"harryramsdens.co.uk","Beefeater":"beefeater.co.uk",
   "Miller & Carter":"millerandcarter.co.uk","Cafe Rouge":"caferouge.com",
   "Chiquito":"chiquito.co.uk","Caffe Nero":"caffenero.com","Papa Johns":"papajohns.co.uk",
-  "Burger King NZ":"burgerking.co.nz","Roll'd":"rolld.com.au","McDonalds NZ":"mcdonalds.co.nz","BurgerFuel NZ":"burgerfuel.com","Betty's Burgers":"bettysburgers.com.au","Hungry Jacks":"hungryjacks.com.au","Guzman y Gomez":"guzmanygomez.com.au",
+  "Burger King NZ":"burgerking.co.nz","Roll'd":"rolld.com.au","McDonalds NZ":"mcdonalds.co.nz","BurgerFuel NZ":"burgerfuel.com","Betty's Burgers":"bettysburgers.com.au","Hungry Jacks":"hungryjacks.com.au","Guzman y Gomez":"guzmanygomez.com.au","Grill'd":"grilld.com.au","Lord of the Fries":"lordofthefries.com.au",
   "Pepes Piri Piri":"pepes.co.uk","Chopstix":"chopstixnoodles.co.uk",
   "Kokoro":"kokoromaidstone.co.uk","Hungry Horse":"hungryhorse.co.uk",
   "Loungers":"thelounges.co.uk","Cote Brasserie":"cote.co.uk",
