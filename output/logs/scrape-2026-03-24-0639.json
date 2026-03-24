@@ -1,0 +1,378 @@
+{
+  "timestamp": "2026-03-24T06:39:52.242882+00:00",
+  "duration_seconds": 135.3,
+  "summary": {
+    "total_items": 2808,
+    "total_restaurants": 168,
+    "previous_items": 2764,
+    "previous_restaurants": 166,
+    "new_items": 44,
+    "removed_items": 0,
+    "duplicates_removed": 396,
+    "new_restaurants": [
+      "Lord of the Fries",
+      "Grill'd"
+    ],
+    "net_change": 44
+  },
+  "scrapers": [
+    {
+      "scraper": "Nandos",
+      "status": "success",
+      "items": 201,
+      "restaurants": 1,
+      "elapsed_seconds": 0.6,
+      "error": null
+    },
+    {
+      "scraper": "McDonalds",
+      "status": "success",
+      "items": 30,
+      "restaurants": 1,
+      "elapsed_seconds": 0.7,
+      "error": null
+    },
+    {
+      "scraper": "Wagamama",
+      "status": "success",
+      "items": 497,
+      "restaurants": 1,
+      "elapsed_seconds": 1.8,
+      "error": null
+    },
+    {
+      "scraper": "UK Chains",
+      "status": "success",
+      "items": 1066,
+      "restaurants": 105,
+      "elapsed_seconds": 0.1,
+      "error": null
+    },
+    {
+      "scraper": "UK Pubs",
+      "status": "success",
+      "items": 115,
+      "restaurants": 15,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "UK Restaurants",
+      "status": "success",
+      "items": 76,
+      "restaurants": 19,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Local NI",
+      "status": "success",
+      "items": 110,
+      "restaurants": 17,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Custom",
+      "status": "success",
+      "items": 0,
+      "restaurants": 0,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Burger King NZ",
+      "status": "success",
+      "items": 112,
+      "restaurants": 1,
+      "elapsed_seconds": 3.5,
+      "error": null
+    },
+    {
+      "scraper": "Roll'd AU",
+      "status": "success",
+      "items": 84,
+      "restaurants": 1,
+      "elapsed_seconds": 3.3,
+      "error": null
+    },
+    {
+      "scraper": "McDonalds NZ",
+      "status": "success",
+      "items": 283,
+      "restaurants": 1,
+      "elapsed_seconds": 37.0,
+      "error": null
+    },
+    {
+      "scraper": "BurgerFuel NZ",
+      "status": "success",
+      "items": 43,
+      "restaurants": 1,
+      "elapsed_seconds": 3.4,
+      "error": null
+    },
+    {
+      "scraper": "Betty's Burgers",
+      "status": "success",
+      "items": 58,
+      "restaurants": 1,
+      "elapsed_seconds": 5.4,
+      "error": null
+    },
+    {
+      "scraper": "Hungry Jacks",
+      "status": "success",
+      "items": 181,
+      "restaurants": 1,
+      "elapsed_seconds": 7.5,
+      "error": null
+    },
+    {
+      "scraper": "GYG AU",
+      "status": "success",
+      "items": 302,
+      "restaurants": 1,
+      "elapsed_seconds": 8.8,
+      "error": null
+    },
+    {
+      "scraper": "Grill'd AU",
+      "status": "success",
+      "items": 19,
+      "restaurants": 1,
+      "elapsed_seconds": 24.2,
+      "error": null
+    },
+    {
+      "scraper": "Lord of the Fries AU",
+      "status": "success",
+      "items": 27,
+      "restaurants": 1,
+      "elapsed_seconds": 21.8,
+      "error": null
+    }
+  ],
+  "new_items_detail": [
+    {
+      "restaurant": "Grill'd",
+      "item": "Simply Grill'd",
+      "calories_kcal": 550
+    },
+    {
+      "restaurant": "Grill'd",
+      "item": "The Mighty",
+      "calories_kcal": 715
+    },
+    {
+      "restaurant": "Grill'd",
+      "item": "HFC Classic",
+      "calories_kcal": 590
+    },
+    {
+      "restaurant": "Grill'd",
+      "item": "HFC BLAT",
+      "calories_kcal": 621
+    },
+    {
+      "restaurant": "Grill'd",
+      "item": "Baa Baa",
+      "calories_kcal": 620
+    },
+    {
+      "restaurant": "Grill'd",
+      "item": "Simon Says",
+      "calories_kcal": 580
+    },
+    {
+      "restaurant": "Grill'd",
+      "item": "Zen Hen",
+      "calories_kcal": 530
+    },
+    {
+      "restaurant": "Grill'd",
+      "item": "Crispy Bacon & Cheese",
+      "calories_kcal": 680
+    },
+    {
+      "restaurant": "Grill'd",
+      "item": "Garden Goodness",
+      "calories_kcal": 480
+    },
+    {
+      "restaurant": "Grill'd",
+      "item": "Dynamic Chicken",
+      "calories_kcal": 533
+    },
+    {
+      "restaurant": "Grill'd",
+      "item": "Mighty Caesar Salad",
+      "calories_kcal": 420
+    },
+    {
+      "restaurant": "Grill'd",
+      "item": "Super Green Salad",
+      "calories_kcal": 350
+    },
+    {
+      "restaurant": "Grill'd",
+      "item": "Simply Grill'd Slider",
+      "calories_kcal": 290
+    },
+    {
+      "restaurant": "Grill'd",
+      "item": "HFC Slider",
+      "calories_kcal": 310
+    },
+    {
+      "restaurant": "Grill'd",
+      "item": "Famous Grill'd Chips",
+      "calories_kcal": 390
+    },
+    {
+      "restaurant": "Grill'd",
+      "item": "Sweet Potato Chips",
+      "calories_kcal": 350
+    },
+    {
+      "restaurant": "Grill'd",
+      "item": "HFC Bites (6 pack)",
+      "calories_kcal": 320
+    },
+    {
+      "restaurant": "Grill'd",
+      "item": "Mini Me Beef Burger",
+      "calories_kcal": 380
+    },
+    {
+      "restaurant": "Grill'd",
+      "item": "Mini Me Chicken Burger",
+      "calories_kcal": 350
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Original (Premium)",
+      "calories_kcal": 547
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Spicy (Premium)",
+      "calories_kcal": 540
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "The Lot (PREMIUM)",
+      "calories_kcal": 605
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Nature",
+      "calories_kcal": 461
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Chick'n",
+      "calories_kcal": 588
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Parma",
+      "calories_kcal": 598
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Stinger",
+      "calories_kcal": 719
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Spicy Chick-Fil-Yay",
+      "calories_kcal": 636
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Chick-Fil-Yay",
+      "calories_kcal": 655
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Classic Fries (Kids')",
+      "calories_kcal": 239
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Classic Fries (Regular)",
+      "calories_kcal": 422
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Classic Fries (Large)",
+      "calories_kcal": 534
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Shoestring Fries (Kids')",
+      "calories_kcal": 240
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Shoestring Fries (Regular)",
+      "calories_kcal": 352
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Shoestring Fries (Large)",
+      "calories_kcal": 497
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Sweet Potato Fries (Kids')",
+      "calories_kcal": 263
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Sweet Potato Fries (Regular)",
+      "calories_kcal": 405
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Sweet Potato Fries (Large)",
+      "calories_kcal": 603
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "HSP",
+      "calories_kcal": 264
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Classic Hot Dog",
+      "calories_kcal": 411
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Spicy Hot Dog",
+      "calories_kcal": 411
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Nuggets",
+      "calories_kcal": 226
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Onion Rings",
+      "calories_kcal": 162
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Mac & Cheese Balls",
+      "calories_kcal": 66
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Fried Chick'n",
+      "calories_kcal": 192
+    }
+  ]
+}
