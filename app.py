@@ -699,6 +699,40 @@ HTML = r"""<!DOCTYPE html>
   }
   .contrib-banner .contrib-btn:hover { background: #22c55e; }
 
+  /* ── Geolocation banner ── */
+  .geo-banner {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    margin-bottom: 16px;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, #1a2744 0%, #1e1e24 100%);
+    border: 1px solid var(--border);
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+  .geo-banner.visible { display: flex; }
+  .geo-banner .geo-icon { font-size: 1rem; }
+  .geo-banner .geo-text { flex: 1; }
+  .geo-banner .geo-text strong { color: var(--text); }
+  .geo-banner .geo-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    white-space: nowrap;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .geo-banner .geo-btn:hover { background: var(--surface2); border-color: var(--accent-default); }
+  [data-theme="light"] .geo-banner {
+    background: linear-gradient(135deg, #e0ecff 0%, #f0f0f3 100%);
+  }
+
   /* ── Request restaurant form ── */
   .request-form textarea {
     width: 100%;
@@ -743,6 +777,8 @@ HTML = r"""<!DOCTYPE html>
     .stat-card { padding: 10px 14px; }
     .stat-value { font-size: 1.3rem; }
     .stat-label { font-size: 0.6rem; }
+
+    .geo-banner { font-size: 0.75rem; padding: 8px 12px; gap: 8px; flex-wrap: wrap; }
 
     .contrib-banner {
       flex-direction: column;
@@ -833,6 +869,14 @@ HTML = r"""<!DOCTYPE html>
 
   <!-- Stats -->
   <div class="stats-bar" id="stats-bar"></div>
+
+  <!-- Geolocation banner -->
+  <div class="geo-banner" id="geo-banner">
+    <span class="geo-icon">📍</span>
+    <span class="geo-text" id="geo-text"></span>
+    <button class="geo-btn" id="geo-btn" onclick="toggleGeoFilter()"></button>
+    <button class="geo-btn" onclick="dismissGeo()" title="Dismiss">✕</button>
+  </div>
 
   <!-- Contribution banner -->
   <div class="contrib-banner">
@@ -1043,6 +1087,79 @@ function getCountry(restaurant) {
   return 'United Kingdom';
 }
 
+// ── Geolocation auto-detect ───────────────────────────────────────
+let detectedCountry = null;
+let geoFilterActive = false;
+
+function detectCountryFromCoords(lat, lng) {
+  // Simple bounding-box check for supported countries
+  if (lat >= 49 && lat <= 61 && lng >= -11 && lng <= 3) return 'United Kingdom';
+  if (lat >= -48 && lat <= -33 && lng >= 165 && lng <= 179) return 'New Zealand';
+  if (lat >= -45 && lat <= -9 && lng >= 112 && lng <= 155) return 'Australia';
+  return null;
+}
+
+function detectAndApplyLocation() {
+  // Skip if user previously dismissed for this session
+  if (sessionStorage.getItem('geo-dismissed')) return;
+
+  if (!navigator.geolocation) return;
+
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      const country = detectCountryFromCoords(pos.coords.latitude, pos.coords.longitude);
+      if (!country) return;
+
+      detectedCountry = country;
+
+      // Check if this country exists in our data
+      const available = [...new Set(allData.map(d => getCountry(d.restaurant)))];
+      if (!available.includes(country)) return;
+
+      // Auto-apply the filter
+      const sel = document.getElementById('country-filter');
+      sel.value = country;
+      geoFilterActive = true;
+      applyFilters();
+
+      // Show the banner
+      const banner = document.getElementById('geo-banner');
+      document.getElementById('geo-text').innerHTML =
+        `Detected location: <strong>${country}</strong> — showing local restaurants`;
+      document.getElementById('geo-btn').textContent = 'Show all countries';
+      banner.classList.add('visible');
+    },
+    () => { /* permission denied or error — silently ignore */ },
+    { timeout: 8000, maximumAge: 300000 }
+  );
+}
+
+function toggleGeoFilter() {
+  const sel = document.getElementById('country-filter');
+  const btn = document.getElementById('geo-btn');
+  const text = document.getElementById('geo-text');
+
+  if (geoFilterActive) {
+    // Turn off — show all
+    sel.value = '';
+    geoFilterActive = false;
+    btn.textContent = 'Filter to ' + detectedCountry;
+    text.innerHTML = `Detected location: <strong>${detectedCountry}</strong> — showing all countries`;
+  } else {
+    // Turn on — filter to detected
+    sel.value = detectedCountry;
+    geoFilterActive = true;
+    btn.textContent = 'Show all countries';
+    text.innerHTML = `Detected location: <strong>${detectedCountry}</strong> — showing local restaurants`;
+  }
+  applyFilters();
+}
+
+function dismissGeo() {
+  document.getElementById('geo-banner').classList.remove('visible');
+  sessionStorage.setItem('geo-dismissed', '1');
+}
+
 // Dynamic colours for all restaurants (hash-based)
 const _fixedColors = { Nandos:'#e63a1e', McDonalds:'#ffbc0d', Wagamama:'#d42b2b', 'Burger King NZ':'#ff8732', "Roll'd":'#c8102e', 'McDonalds NZ':'#ffbc0d', 'BurgerFuel NZ':'#e31837', "Betty's Burgers":'#f5a623', 'Hungry Jacks':'#d62518', 'Guzman y Gomez':'#f7941d', "Grill'd":'#5cb85c', 'Lord of the Fries':'#e8272c' };
 function restaurantColor(name) {
@@ -1197,6 +1314,8 @@ function init() {
   applyFilters();
   document.getElementById('header-meta').textContent =
     allData.length ? `Last scraped: ${allData[0].scraped_at}` : '';
+  // Auto-detect user's country via geolocation
+  detectAndApplyLocation();
 }
 
 // ── Stats ─────────────────────────────────────────────────────────
