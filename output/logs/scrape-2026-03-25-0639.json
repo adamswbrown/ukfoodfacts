@@ -1,0 +1,154 @@
+{
+  "timestamp": "2026-03-25T06:39:40.680044+00:00",
+  "duration_seconds": 132.1,
+  "summary": {
+    "total_items": 2808,
+    "total_restaurants": 168,
+    "previous_items": 2808,
+    "previous_restaurants": 168,
+    "new_items": 0,
+    "removed_items": 0,
+    "duplicates_removed": 396,
+    "new_restaurants": [],
+    "net_change": 0
+  },
+  "scrapers": [
+    {
+      "scraper": "Nandos",
+      "status": "success",
+      "items": 201,
+      "restaurants": 1,
+      "elapsed_seconds": 0.8,
+      "error": null
+    },
+    {
+      "scraper": "McDonalds",
+      "status": "success",
+      "items": 30,
+      "restaurants": 1,
+      "elapsed_seconds": 0.8,
+      "error": null
+    },
+    {
+      "scraper": "Wagamama",
+      "status": "success",
+      "items": 497,
+      "restaurants": 1,
+      "elapsed_seconds": 1.7,
+      "error": null
+    },
+    {
+      "scraper": "UK Chains",
+      "status": "success",
+      "items": 1066,
+      "restaurants": 105,
+      "elapsed_seconds": 0.1,
+      "error": null
+    },
+    {
+      "scraper": "UK Pubs",
+      "status": "success",
+      "items": 115,
+      "restaurants": 15,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "UK Restaurants",
+      "status": "success",
+      "items": 76,
+      "restaurants": 19,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Local NI",
+      "status": "success",
+      "items": 110,
+      "restaurants": 17,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Custom",
+      "status": "success",
+      "items": 0,
+      "restaurants": 0,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Burger King NZ",
+      "status": "success",
+      "items": 112,
+      "restaurants": 1,
+      "elapsed_seconds": 3.5,
+      "error": null
+    },
+    {
+      "scraper": "Roll'd AU",
+      "status": "success",
+      "items": 84,
+      "restaurants": 1,
+      "elapsed_seconds": 3.6,
+      "error": null
+    },
+    {
+      "scraper": "McDonalds NZ",
+      "status": "success",
+      "items": 283,
+      "restaurants": 1,
+      "elapsed_seconds": 36.8,
+      "error": null
+    },
+    {
+      "scraper": "BurgerFuel NZ",
+      "status": "success",
+      "items": 43,
+      "restaurants": 1,
+      "elapsed_seconds": 3.4,
+      "error": null
+    },
+    {
+      "scraper": "Betty's Burgers",
+      "status": "success",
+      "items": 58,
+      "restaurants": 1,
+      "elapsed_seconds": 5.7,
+      "error": null
+    },
+    {
+      "scraper": "Hungry Jacks",
+      "status": "success",
+      "items": 181,
+      "restaurants": 1,
+      "elapsed_seconds": 7.2,
+      "error": null
+    },
+    {
+      "scraper": "GYG AU",
+      "status": "success",
+      "items": 302,
+      "restaurants": 1,
+      "elapsed_seconds": 10.0,
+      "error": null
+    },
+    {
+      "scraper": "Grill'd AU",
+      "status": "success",
+      "items": 19,
+      "restaurants": 1,
+      "elapsed_seconds": 16.6,
+      "error": null
+    },
+    {
+      "scraper": "Lord of the Fries AU",
+      "status": "success",
+      "items": 27,
+      "restaurants": 1,
+      "elapsed_seconds": 24.7,
+      "error": null
+    }
+  ],
+  "new_items_detail": []
+}
