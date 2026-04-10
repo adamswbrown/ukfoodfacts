@@ -1,0 +1,195 @@
+{
+  "timestamp": "2026-04-10T06:54:35.756207+00:00",
+  "duration_seconds": 123.8,
+  "summary": {
+    "total_items": 2733,
+    "total_restaurants": 168,
+    "previous_items": 2734,
+    "previous_restaurants": 168,
+    "new_items": 8,
+    "removed_items": 9,
+    "duplicates_removed": 144,
+    "new_restaurants": [],
+    "net_change": -1
+  },
+  "scrapers": [
+    {
+      "scraper": "Nandos",
+      "status": "success",
+      "items": 201,
+      "restaurants": 1,
+      "elapsed_seconds": 0.6,
+      "error": null
+    },
+    {
+      "scraper": "McDonalds",
+      "status": "success",
+      "items": 30,
+      "restaurants": 1,
+      "elapsed_seconds": 0.6,
+      "error": null
+    },
+    {
+      "scraper": "Wagamama",
+      "status": "success",
+      "items": 202,
+      "restaurants": 1,
+      "elapsed_seconds": 1.9,
+      "error": null
+    },
+    {
+      "scraper": "UK Chains",
+      "status": "success",
+      "items": 1066,
+      "restaurants": 105,
+      "elapsed_seconds": 0.1,
+      "error": null
+    },
+    {
+      "scraper": "UK Pubs",
+      "status": "success",
+      "items": 115,
+      "restaurants": 15,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "UK Restaurants",
+      "status": "success",
+      "items": 76,
+      "restaurants": 19,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Local NI",
+      "status": "success",
+      "items": 110,
+      "restaurants": 17,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Custom",
+      "status": "success",
+      "items": 0,
+      "restaurants": 0,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Burger King NZ",
+      "status": "success",
+      "items": 112,
+      "restaurants": 1,
+      "elapsed_seconds": 3.4,
+      "error": null
+    },
+    {
+      "scraper": "Roll'd AU",
+      "status": "success",
+      "items": 84,
+      "restaurants": 1,
+      "elapsed_seconds": 3.2,
+      "error": null
+    },
+    {
+      "scraper": "McDonalds NZ",
+      "status": "success",
+      "items": 247,
+      "restaurants": 1,
+      "elapsed_seconds": 32.6,
+      "error": null
+    },
+    {
+      "scraper": "BurgerFuel NZ",
+      "status": "success",
+      "items": 43,
+      "restaurants": 1,
+      "elapsed_seconds": 3.9,
+      "error": null
+    },
+    {
+      "scraper": "Betty's Burgers",
+      "status": "success",
+      "items": 58,
+      "restaurants": 1,
+      "elapsed_seconds": 5.9,
+      "error": null
+    },
+    {
+      "scraper": "Hungry Jacks",
+      "status": "success",
+      "items": 189,
+      "restaurants": 1,
+      "elapsed_seconds": 8.4,
+      "error": null
+    },
+    {
+      "scraper": "GYG AU",
+      "status": "success",
+      "items": 302,
+      "restaurants": 1,
+      "elapsed_seconds": 9.0,
+      "error": null
+    },
+    {
+      "scraper": "Grill'd AU",
+      "status": "success",
+      "items": 19,
+      "restaurants": 1,
+      "elapsed_seconds": 22.0,
+      "error": null
+    },
+    {
+      "scraper": "Lord of the Fries AU",
+      "status": "success",
+      "items": 23,
+      "restaurants": 1,
+      "elapsed_seconds": 15.2,
+      "error": null
+    }
+  ],
+  "new_items_detail": [
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "ANGRY BREKKY WRAP",
+      "calories_kcal": 657
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Original",
+      "calories_kcal": 547
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Spicy",
+      "calories_kcal": 540
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "The Lot",
+      "calories_kcal": 680
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Aloo Tikki",
+      "calories_kcal": 520
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Biggie",
+      "calories_kcal": 750
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Spicy Poutine",
+      "calories_kcal": 580
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Nuggets (4 pack)",
+      "calories_kcal": 226
+    }
+  ]
+}
