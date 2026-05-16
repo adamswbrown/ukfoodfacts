@@ -1,0 +1,290 @@
+{
+  "timestamp": "2026-05-16T07:03:24.121148+00:00",
+  "duration_seconds": 112.2,
+  "summary": {
+    "total_items": 2641,
+    "total_restaurants": 168,
+    "previous_items": 2614,
+    "previous_restaurants": 168,
+    "new_items": 27,
+    "removed_items": 0,
+    "duplicates_removed": 146,
+    "new_restaurants": [],
+    "net_change": 27
+  },
+  "scrapers": [
+    {
+      "scraper": "Nandos",
+      "status": "success",
+      "items": 201,
+      "restaurants": 1,
+      "elapsed_seconds": 0.6,
+      "error": null
+    },
+    {
+      "scraper": "McDonalds",
+      "status": "success",
+      "items": 30,
+      "restaurants": 1,
+      "elapsed_seconds": 0.5,
+      "error": null
+    },
+    {
+      "scraper": "Wagamama",
+      "status": "success",
+      "items": 202,
+      "restaurants": 1,
+      "elapsed_seconds": 1.6,
+      "error": null
+    },
+    {
+      "scraper": "UK Chains",
+      "status": "success",
+      "items": 1066,
+      "restaurants": 105,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "UK Pubs",
+      "status": "success",
+      "items": 115,
+      "restaurants": 15,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "UK Restaurants",
+      "status": "success",
+      "items": 76,
+      "restaurants": 19,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Local NI",
+      "status": "success",
+      "items": 110,
+      "restaurants": 17,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Custom",
+      "status": "success",
+      "items": 0,
+      "restaurants": 0,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Burger King NZ",
+      "status": "success",
+      "items": 15,
+      "restaurants": 1,
+      "elapsed_seconds": 2.5,
+      "error": null
+    },
+    {
+      "scraper": "Roll'd AU",
+      "status": "success",
+      "items": 84,
+      "restaurants": 1,
+      "elapsed_seconds": 1.6,
+      "error": null
+    },
+    {
+      "scraper": "McDonalds NZ",
+      "status": "success",
+      "items": 247,
+      "restaurants": 1,
+      "elapsed_seconds": 26.5,
+      "error": null
+    },
+    {
+      "scraper": "BurgerFuel NZ",
+      "status": "success",
+      "items": 43,
+      "restaurants": 1,
+      "elapsed_seconds": 2.4,
+      "error": null
+    },
+    {
+      "scraper": "Betty's Burgers",
+      "status": "success",
+      "items": 58,
+      "restaurants": 1,
+      "elapsed_seconds": 5.8,
+      "error": null
+    },
+    {
+      "scraper": "Hungry Jacks",
+      "status": "success",
+      "items": 192,
+      "restaurants": 1,
+      "elapsed_seconds": 7.5,
+      "error": null
+    },
+    {
+      "scraper": "GYG AU",
+      "status": "success",
+      "items": 302,
+      "restaurants": 1,
+      "elapsed_seconds": 6.7,
+      "error": null
+    },
+    {
+      "scraper": "Grill'd AU",
+      "status": "success",
+      "items": 19,
+      "restaurants": 1,
+      "elapsed_seconds": 16.4,
+      "error": null
+    },
+    {
+      "scraper": "Lord of the Fries AU",
+      "status": "success",
+      "items": 27,
+      "restaurants": 1,
+      "elapsed_seconds": 23.1,
+      "error": null
+    }
+  ],
+  "new_items_detail": [
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Apple Pie",
+      "calories_kcal": 175
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "M&M's MINIS\u00ae McFlurry\u00ae",
+      "calories_kcal": 369
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "McFlurry\u00ae with Oreo\u00ae Cookies",
+      "calories_kcal": 405
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Soft Serve Cone",
+      "calories_kcal": 140
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Chocolate Soft Serve Cone",
+      "calories_kcal": 135
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Soft Serve Cone with Flake\u00ae",
+      "calories_kcal": 185
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Flake\u00ae",
+      "calories_kcal": 44
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Choc McDip\u00ae",
+      "calories_kcal": 275
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Choc McDip\u00ae Chocolate",
+      "calories_kcal": 268
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Plain Sundae (Small)",
+      "calories_kcal": 198
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Plain Sundae (Large)",
+      "calories_kcal": 246
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Plain Chocolate Sundae (Small)",
+      "calories_kcal": 189
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Plain Chocolate Sundae (Large)",
+      "calories_kcal": 235
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Caramel Sundae (Small)",
+      "calories_kcal": 326
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Caramel Sundae (Large)",
+      "calories_kcal": 503
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Caramel Chocolate Sundae (Small)",
+      "calories_kcal": 318
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Caramel Chocolate Sundae (Large)",
+      "calories_kcal": 492
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Hot Fudge Sundae (Small)",
+      "calories_kcal": 345
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Hot Fudge Sundae (Large)",
+      "calories_kcal": 536
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Hot Fudge Chocolate Sundae (Small)",
+      "calories_kcal": 311
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Hot Fudge Chocolate Sundae (Large)",
+      "calories_kcal": 479
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Strawberry Sundae (Small)",
+      "calories_kcal": 271
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Strawberry Sundae (Large)",
+      "calories_kcal": 393
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Strawberry Chocolate Sundae (Small)",
+      "calories_kcal": 262
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Strawberry Chocolate Sundae (Large)",
+      "calories_kcal": 382
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Choc Top Super Sundae",
+      "calories_kcal": 579
+    },
+    {
+      "restaurant": "McDonalds NZ",
+      "item": "Choc Top Chocolate",
+      "calories_kcal": 542
+    }
+  ]
+}
