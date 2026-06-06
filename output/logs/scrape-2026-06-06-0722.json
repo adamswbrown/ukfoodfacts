@@ -1,0 +1,405 @@
+{
+  "timestamp": "2026-06-06T07:22:00.486514+00:00",
+  "duration_seconds": 80.0,
+  "summary": {
+    "total_items": 2414,
+    "total_restaurants": 168,
+    "previous_items": 2108,
+    "previous_restaurants": 168,
+    "new_items": 330,
+    "removed_items": 24,
+    "duplicates_removed": 146,
+    "new_restaurants": [],
+    "net_change": 306
+  },
+  "scrapers": [
+    {
+      "scraper": "Nandos",
+      "status": "success",
+      "items": 201,
+      "restaurants": 1,
+      "elapsed_seconds": 1.1,
+      "error": null
+    },
+    {
+      "scraper": "McDonalds",
+      "status": "success",
+      "items": 30,
+      "restaurants": 1,
+      "elapsed_seconds": 0.6,
+      "error": null
+    },
+    {
+      "scraper": "Wagamama",
+      "status": "success",
+      "items": 202,
+      "restaurants": 1,
+      "elapsed_seconds": 0.7,
+      "error": null
+    },
+    {
+      "scraper": "UK Chains",
+      "status": "success",
+      "items": 1066,
+      "restaurants": 105,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "UK Pubs",
+      "status": "success",
+      "items": 115,
+      "restaurants": 15,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "UK Restaurants",
+      "status": "success",
+      "items": 76,
+      "restaurants": 19,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Local NI",
+      "status": "success",
+      "items": 110,
+      "restaurants": 17,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Custom",
+      "status": "success",
+      "items": 0,
+      "restaurants": 0,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Burger King NZ",
+      "status": "success",
+      "items": 15,
+      "restaurants": 1,
+      "elapsed_seconds": 2.3,
+      "error": null
+    },
+    {
+      "scraper": "Roll'd AU",
+      "status": "success",
+      "items": 84,
+      "restaurants": 1,
+      "elapsed_seconds": 1.7,
+      "error": null
+    },
+    {
+      "scraper": "McDonalds NZ",
+      "status": "success",
+      "items": 15,
+      "restaurants": 1,
+      "elapsed_seconds": 2.0,
+      "error": null
+    },
+    {
+      "scraper": "BurgerFuel NZ",
+      "status": "success",
+      "items": 43,
+      "restaurants": 1,
+      "elapsed_seconds": 2.7,
+      "error": null
+    },
+    {
+      "scraper": "Betty's Burgers",
+      "status": "success",
+      "items": 58,
+      "restaurants": 1,
+      "elapsed_seconds": 4.9,
+      "error": null
+    },
+    {
+      "scraper": "Hungry Jacks",
+      "status": "success",
+      "items": 197,
+      "restaurants": 1,
+      "elapsed_seconds": 4.9,
+      "error": null
+    },
+    {
+      "scraper": "GYG AU",
+      "status": "success",
+      "items": 302,
+      "restaurants": 1,
+      "elapsed_seconds": 7.4,
+      "error": null
+    },
+    {
+      "scraper": "Grill'd AU",
+      "status": "success",
+      "items": 19,
+      "restaurants": 1,
+      "elapsed_seconds": 15.3,
+      "error": null
+    },
+    {
+      "scraper": "Lord of the Fries AU",
+      "status": "success",
+      "items": 27,
+      "restaurants": 1,
+      "elapsed_seconds": 19.4,
+      "error": null
+    }
+  ],
+  "new_items_detail": [
+    {
+      "restaurant": "Wagamama",
+      "item": "Spicy Smashed Cucumber",
+      "calories_kcal": 183
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Edamame With Salt",
+      "calories_kcal": 280
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Edamame With Chilli + Garlic Salt",
+      "calories_kcal": 287
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Koko 'Prawn' Crackers",
+      "calories_kcal": 255
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Wok-Fried Greens",
+      "calories_kcal": 163
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Duck",
+      "calories_kcal": 313
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Beef Brisket + Kimchee",
+      "calories_kcal": 231
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Chicken",
+      "calories_kcal": 195
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Yasai | Vegetable",
+      "calories_kcal": 208
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Gochujang Tamarind Pork Ribs",
+      "calories_kcal": 599
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Gochujang Tamarind Corn Ribs",
+      "calories_kcal": 467
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Hot Honey Fried Chicken | Yuzu",
+      "calories_kcal": 785
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Hot Honey Fried Chicken | Teriyaki",
+      "calories_kcal": 806
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Hot Honey Fried Chicken | Firecracker",
+      "calories_kcal": 842
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Ebi Katsu",
+      "calories_kcal": 284
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Lollipop Prawn Kushiyaki",
+      "calories_kcal": 184
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Korean Fried Chicken",
+      "calories_kcal": 729
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Tonkatsu Pork",
+      "calories_kcal": 797
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Korean Barbecue Brisket",
+      "calories_kcal": 524
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Oyster + Shiitake Mushrooms",
+      "calories_kcal": 577
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Hoisin Pulled Duck",
+      "calories_kcal": 626
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Chicken Katsu Curry",
+      "calories_kcal": 988
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Yasai Katsu Curry",
+      "calories_kcal": 1223
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Hot Chicken Katsu Curry",
+      "calories_kcal": 1115
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Hot Yasai Katsu Curry",
+      "calories_kcal": 1350
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Prawn Raisukaree",
+      "calories_kcal": 1022
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Chicken Raisukaree",
+      "calories_kcal": 1092
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Tofu Raisukaree",
+      "calories_kcal": 1135
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Prawn Firecracker",
+      "calories_kcal": 1139
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Chicken Firecracker",
+      "calories_kcal": 1239
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Tofu Firecracker",
+      "calories_kcal": 1252
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Beef Brisket Teriyaki Donburi",
+      "calories_kcal": 818
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Chicken Thigh Teriyaki Donburi",
+      "calories_kcal": 808
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Grilled Duck Donburi",
+      "calories_kcal": 1085
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Pulled Shiitake Donburi",
+      "calories_kcal": 951
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Tantanmen Beef Brisket Ramen",
+      "calories_kcal": 713
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Grilled Chicken Ramen",
+      "calories_kcal": 490
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Kare Burosu Ramen",
+      "calories_kcal": 706
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Gochujang Pork Belly Ramen",
+      "calories_kcal": 953
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Saku Saku Duck Soba",
+      "calories_kcal": 933
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Katsu Udon",
+      "calories_kcal": 848
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Chicken + Prawn Yaki Soba",
+      "calories_kcal": 804
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Yasai Yaki Soba | Mushroom",
+      "calories_kcal": 768
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Yasai Yaki Soba | Rice Noodles",
+      "calories_kcal": 660
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Yasai Yaki Soba | Udon",
+      "calories_kcal": 638
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Steak Teriyaki Soba",
+      "calories_kcal": 864
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Salmon Teriyaki Soba",
+      "calories_kcal": 994
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Chicken Teriyaki Soba",
+      "calories_kcal": 803
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Chicken + Prawn Yaki Udon",
+      "calories_kcal": 728
+    },
+    {
+      "restaurant": "Wagamama",
+      "item": "Thai Beef Salad",
+      "calories_kcal": 496
+    }
+  ]
+}
