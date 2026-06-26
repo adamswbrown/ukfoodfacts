@@ -1,16 +1,16 @@
 {
-  "timestamp": "2026-04-24T06:57:19.095547+00:00",
-  "duration_seconds": 125.3,
+  "timestamp": "2026-06-26T07:35:14.617551+00:00",
+  "duration_seconds": 97.8,
   "summary": {
-    "total_items": 2737,
+    "total_items": 2479,
     "total_restaurants": 168,
-    "previous_items": 2736,
+    "previous_items": 2475,
     "previous_restaurants": 168,
-    "new_items": 1,
+    "new_items": 4,
     "removed_items": 0,
-    "duplicates_removed": 146,
+    "duplicates_removed": 122,
     "new_restaurants": [],
-    "net_change": 1
+    "net_change": 4
   },
   "scrapers": [
     {
@@ -18,7 +18,7 @@
       "status": "success",
       "items": 201,
       "restaurants": 1,
-      "elapsed_seconds": 0.6,
+      "elapsed_seconds": 0.8,
       "error": null
     },
     {
@@ -26,13 +26,13 @@
       "status": "success",
       "items": 30,
       "restaurants": 1,
-      "elapsed_seconds": 0.9,
+      "elapsed_seconds": 0.5,
       "error": null
     },
     {
       "scraper": "Wagamama",
       "status": "success",
-      "items": 202,
+      "items": 210,
       "restaurants": 1,
       "elapsed_seconds": 1.6,
       "error": null
@@ -42,7 +42,7 @@
       "status": "success",
       "items": 1066,
       "restaurants": 105,
-      "elapsed_seconds": 0.0,
+      "elapsed_seconds": 0.1,
       "error": null
     },
     {
@@ -82,23 +82,23 @@
       "status": "success",
       "items": 113,
       "restaurants": 1,
-      "elapsed_seconds": 3.7,
+      "elapsed_seconds": 3.4,
       "error": null
     },
     {
       "scraper": "Roll'd AU",
       "status": "success",
-      "items": 84,
+      "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 3.4,
+      "elapsed_seconds": 0.3,
       "error": null
     },
     {
       "scraper": "McDonalds NZ",
       "status": "success",
-      "items": 247,
+      "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 32.1,
+      "elapsed_seconds": 1.2,
       "error": null
     },
     {
@@ -106,7 +106,7 @@
       "status": "success",
       "items": 43,
       "restaurants": 1,
-      "elapsed_seconds": 3.1,
+      "elapsed_seconds": 2.8,
       "error": null
     },
     {
@@ -114,15 +114,15 @@
       "status": "success",
       "items": 58,
       "restaurants": 1,
-      "elapsed_seconds": 6.8,
+      "elapsed_seconds": 6.2,
       "error": null
     },
     {
       "scraper": "Hungry Jacks",
       "status": "success",
-      "items": 190,
+      "items": 201,
       "restaurants": 1,
-      "elapsed_seconds": 9.0,
+      "elapsed_seconds": 7.6,
       "error": null
     },
     {
@@ -130,7 +130,7 @@
       "status": "success",
       "items": 302,
       "restaurants": 1,
-      "elapsed_seconds": 8.7,
+      "elapsed_seconds": 8.2,
       "error": null
     },
     {
@@ -138,7 +138,7 @@
       "status": "success",
       "items": 19,
       "restaurants": 1,
-      "elapsed_seconds": 16.9,
+      "elapsed_seconds": 21.9,
       "error": null
     },
     {
@@ -146,15 +146,30 @@
       "status": "success",
       "items": 27,
       "restaurants": 1,
-      "elapsed_seconds": 21.6,
+      "elapsed_seconds": 26.4,
       "error": null
     }
   ],
   "new_items_detail": [
     {
       "restaurant": "Hungry Jacks",
-      "item": "STORM INSPIRED BY SKITTLES\u00ae",
-      "calories_kcal": 612
+      "item": "COWBOY WHOPPER",
+      "calories_kcal": 1835
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "DOUBLE COWBOY WHOPPER",
+      "calories_kcal": 1835
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "COWBOY WHOPPER HUNGER TAMER",
+      "calories_kcal": 1835
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "DOUBLE COWBOY HUNGER TAMER",
+      "calories_kcal": 1835
     }
   ]
 }
