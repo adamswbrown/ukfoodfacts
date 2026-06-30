@@ -1,16 +1,16 @@
 {
-  "timestamp": "2026-04-28T07:12:03.743798+00:00",
-  "duration_seconds": 123.6,
+  "timestamp": "2026-06-30T07:35:48.079192+00:00",
+  "duration_seconds": 94.3,
   "summary": {
-    "total_items": 2639,
+    "total_items": 2479,
     "total_restaurants": 168,
-    "previous_items": 2737,
+    "previous_items": 2479,
     "previous_restaurants": 168,
     "new_items": 0,
-    "removed_items": 98,
-    "duplicates_removed": 146,
+    "removed_items": 0,
+    "duplicates_removed": 122,
     "new_restaurants": [],
-    "net_change": -98
+    "net_change": 0
   },
   "scrapers": [
     {
@@ -18,7 +18,7 @@
       "status": "success",
       "items": 201,
       "restaurants": 1,
-      "elapsed_seconds": 0.4,
+      "elapsed_seconds": 0.5,
       "error": null
     },
     {
@@ -26,15 +26,15 @@
       "status": "success",
       "items": 30,
       "restaurants": 1,
-      "elapsed_seconds": 0.4,
+      "elapsed_seconds": 0.9,
       "error": null
     },
     {
       "scraper": "Wagamama",
       "status": "success",
-      "items": 202,
+      "items": 210,
       "restaurants": 1,
-      "elapsed_seconds": 1.4,
+      "elapsed_seconds": 1.7,
       "error": null
     },
     {
@@ -42,7 +42,7 @@
       "status": "success",
       "items": 1066,
       "restaurants": 105,
-      "elapsed_seconds": 0.1,
+      "elapsed_seconds": 0.0,
       "error": null
     },
     {
@@ -80,25 +80,25 @@
     {
       "scraper": "Burger King NZ",
       "status": "success",
-      "items": 15,
+      "items": 113,
       "restaurants": 1,
-      "elapsed_seconds": 2.6,
+      "elapsed_seconds": 3.4,
       "error": null
     },
     {
       "scraper": "Roll'd AU",
       "status": "success",
-      "items": 84,
+      "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 3.3,
+      "elapsed_seconds": 0.1,
       "error": null
     },
     {
       "scraper": "McDonalds NZ",
       "status": "success",
-      "items": 247,
+      "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 32.8,
+      "elapsed_seconds": 2.2,
       "error": null
     },
     {
@@ -106,7 +106,7 @@
       "status": "success",
       "items": 43,
       "restaurants": 1,
-      "elapsed_seconds": 3.3,
+      "elapsed_seconds": 2.8,
       "error": null
     },
     {
@@ -114,15 +114,15 @@
       "status": "success",
       "items": 58,
       "restaurants": 1,
-      "elapsed_seconds": 6.4,
+      "elapsed_seconds": 6.2,
       "error": null
     },
     {
       "scraper": "Hungry Jacks",
       "status": "success",
-      "items": 190,
+      "items": 201,
       "restaurants": 1,
-      "elapsed_seconds": 8.0,
+      "elapsed_seconds": 11.0,
       "error": null
     },
     {
@@ -130,7 +130,7 @@
       "status": "success",
       "items": 302,
       "restaurants": 1,
-      "elapsed_seconds": 9.1,
+      "elapsed_seconds": 7.4,
       "error": null
     },
     {
@@ -138,7 +138,7 @@
       "status": "success",
       "items": 19,
       "restaurants": 1,
-      "elapsed_seconds": 13.0,
+      "elapsed_seconds": 18.5,
       "error": null
     },
     {
@@ -146,7 +146,7 @@
       "status": "success",
       "items": 27,
       "restaurants": 1,
-      "elapsed_seconds": 25.9,
+      "elapsed_seconds": 22.2,
       "error": null
     }
   ],
