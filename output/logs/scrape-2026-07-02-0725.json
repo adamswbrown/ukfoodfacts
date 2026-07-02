@@ -1,16 +1,16 @@
 {
-  "timestamp": "2026-05-01T07:11:35.086708+00:00",
-  "duration_seconds": 129.0,
+  "timestamp": "2026-07-02T07:25:30.231175+00:00",
+  "duration_seconds": 94.7,
   "summary": {
-    "total_items": 2639,
+    "total_items": 2475,
     "total_restaurants": 168,
-    "previous_items": 2637,
+    "previous_items": 2476,
     "previous_restaurants": 168,
-    "new_items": 9,
+    "new_items": 6,
     "removed_items": 7,
-    "duplicates_removed": 146,
+    "duplicates_removed": 122,
     "new_restaurants": [],
-    "net_change": 2
+    "net_change": -1
   },
   "scrapers": [
     {
@@ -32,9 +32,9 @@
     {
       "scraper": "Wagamama",
       "status": "success",
-      "items": 202,
+      "items": 210,
       "restaurants": 1,
-      "elapsed_seconds": 1.7,
+      "elapsed_seconds": 1.8,
       "error": null
     },
     {
@@ -42,7 +42,7 @@
       "status": "success",
       "items": 1066,
       "restaurants": 105,
-      "elapsed_seconds": 0.1,
+      "elapsed_seconds": 0.0,
       "error": null
     },
     {
@@ -80,25 +80,25 @@
     {
       "scraper": "Burger King NZ",
       "status": "success",
-      "items": 15,
+      "items": 112,
       "restaurants": 1,
-      "elapsed_seconds": 2.4,
+      "elapsed_seconds": 3.0,
       "error": null
     },
     {
       "scraper": "Roll'd AU",
       "status": "success",
-      "items": 84,
+      "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 2.3,
+      "elapsed_seconds": 0.4,
       "error": null
     },
     {
       "scraper": "McDonalds NZ",
       "status": "success",
-      "items": 247,
+      "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 32.8,
+      "elapsed_seconds": 2.4,
       "error": null
     },
     {
@@ -106,7 +106,7 @@
       "status": "success",
       "items": 43,
       "restaurants": 1,
-      "elapsed_seconds": 3.7,
+      "elapsed_seconds": 2.7,
       "error": null
     },
     {
@@ -114,15 +114,15 @@
       "status": "success",
       "items": 58,
       "restaurants": 1,
-      "elapsed_seconds": 5.9,
+      "elapsed_seconds": 5.6,
       "error": null
     },
     {
       "scraper": "Hungry Jacks",
       "status": "success",
-      "items": 190,
+      "items": 198,
       "restaurants": 1,
-      "elapsed_seconds": 8.2,
+      "elapsed_seconds": 7.3,
       "error": null
     },
     {
@@ -130,7 +130,7 @@
       "status": "success",
       "items": 302,
       "restaurants": 1,
-      "elapsed_seconds": 9.2,
+      "elapsed_seconds": 8.1,
       "error": null
     },
     {
@@ -138,7 +138,7 @@
       "status": "success",
       "items": 19,
       "restaurants": 1,
-      "elapsed_seconds": 21.4,
+      "elapsed_seconds": 24.8,
       "error": null
     },
     {
@@ -146,55 +146,40 @@
       "status": "success",
       "items": 27,
       "restaurants": 1,
-      "elapsed_seconds": 23.0,
+      "elapsed_seconds": 20.1,
       "error": null
     }
   ],
   "new_items_detail": [
     {
-      "restaurant": "Lord of the Fries",
-      "item": "Original (Premium)",
-      "calories_kcal": 547
+      "restaurant": "Burger King NZ",
+      "item": "King Fusion Cookies & Cream Sundae",
+      "calories_kcal": 573
     },
     {
-      "restaurant": "Lord of the Fries",
-      "item": "Spicy (Premium)",
-      "calories_kcal": 540
+      "restaurant": "Burger King NZ",
+      "item": "King Fusion Cosmic Sundae",
+      "calories_kcal": 360
     },
     {
-      "restaurant": "Lord of the Fries",
-      "item": "The Lot (PREMIUM)",
-      "calories_kcal": 605
+      "restaurant": "Burger King NZ",
+      "item": "Wild Berry Sundae",
+      "calories_kcal": 256
     },
     {
-      "restaurant": "Lord of the Fries",
-      "item": "Classic Fries (Kids')",
-      "calories_kcal": 239
+      "restaurant": "Burger King NZ",
+      "item": "Wild Berry Sundae (Small)",
+      "calories_kcal": 361
     },
     {
-      "restaurant": "Lord of the Fries",
-      "item": "Shoestring Fries (Kids')",
-      "calories_kcal": 240
+      "restaurant": "Burger King NZ",
+      "item": "Cosmic / Wild Berry Shake (Medium)",
+      "calories_kcal": 512
     },
     {
-      "restaurant": "Lord of the Fries",
-      "item": "Shoestring Fries (Large)",
-      "calories_kcal": 497
-    },
-    {
-      "restaurant": "Lord of the Fries",
-      "item": "Sweet Potato Fries (Kids')",
-      "calories_kcal": 263
-    },
-    {
-      "restaurant": "Lord of the Fries",
-      "item": "Sweet Potato Fries (Large)",
-      "calories_kcal": 603
-    },
-    {
-      "restaurant": "Lord of the Fries",
-      "item": "Nuggets",
-      "calories_kcal": 226
+      "restaurant": "Burger King NZ",
+      "item": "Cosmic / Wild Berry Shake (Large)",
+      "calories_kcal": 711
     }
   ]
 }
