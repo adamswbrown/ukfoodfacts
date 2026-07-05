@@ -1,16 +1,16 @@
 {
-  "timestamp": "2026-05-07T07:17:42.855242+00:00",
-  "duration_seconds": 116.8,
+  "timestamp": "2026-07-05T07:24:33.566759+00:00",
+  "duration_seconds": 78.9,
   "summary": {
-    "total_items": 2639,
+    "total_items": 2473,
     "total_restaurants": 168,
-    "previous_items": 2639,
+    "previous_items": 2475,
     "previous_restaurants": 168,
-    "new_items": 0,
-    "removed_items": 0,
-    "duplicates_removed": 146,
+    "new_items": 7,
+    "removed_items": 9,
+    "duplicates_removed": 120,
     "new_restaurants": [],
-    "net_change": 0
+    "net_change": -2
   },
   "scrapers": [
     {
@@ -26,15 +26,15 @@
       "status": "success",
       "items": 30,
       "restaurants": 1,
-      "elapsed_seconds": 0.6,
+      "elapsed_seconds": 0.4,
       "error": null
     },
     {
       "scraper": "Wagamama",
       "status": "success",
-      "items": 202,
+      "items": 210,
       "restaurants": 1,
-      "elapsed_seconds": 1.9,
+      "elapsed_seconds": 0.6,
       "error": null
     },
     {
@@ -80,25 +80,25 @@
     {
       "scraper": "Burger King NZ",
       "status": "success",
-      "items": 15,
+      "items": 112,
       "restaurants": 1,
-      "elapsed_seconds": 2.5,
+      "elapsed_seconds": 3.0,
       "error": null
     },
     {
       "scraper": "Roll'd AU",
       "status": "success",
-      "items": 84,
+      "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 3.5,
+      "elapsed_seconds": 0.2,
       "error": null
     },
     {
       "scraper": "McDonalds NZ",
       "status": "success",
-      "items": 247,
+      "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 32.2,
+      "elapsed_seconds": 1.8,
       "error": null
     },
     {
@@ -106,7 +106,7 @@
       "status": "success",
       "items": 43,
       "restaurants": 1,
-      "elapsed_seconds": 3.5,
+      "elapsed_seconds": 2.7,
       "error": null
     },
     {
@@ -114,15 +114,15 @@
       "status": "success",
       "items": 58,
       "restaurants": 1,
-      "elapsed_seconds": 6.1,
+      "elapsed_seconds": 5.1,
       "error": null
     },
     {
       "scraper": "Hungry Jacks",
       "status": "success",
-      "items": 190,
+      "items": 198,
       "restaurants": 1,
-      "elapsed_seconds": 5.4,
+      "elapsed_seconds": 8.7,
       "error": null
     },
     {
@@ -130,7 +130,7 @@
       "status": "success",
       "items": 302,
       "restaurants": 1,
-      "elapsed_seconds": 9.9,
+      "elapsed_seconds": 7.3,
       "error": null
     },
     {
@@ -138,17 +138,53 @@
       "status": "success",
       "items": 19,
       "restaurants": 1,
-      "elapsed_seconds": 15.8,
+      "elapsed_seconds": 17.3,
       "error": null
     },
     {
       "scraper": "Lord of the Fries AU",
       "status": "success",
-      "items": 27,
+      "items": 23,
       "restaurants": 1,
-      "elapsed_seconds": 17.3,
+      "elapsed_seconds": 13.6,
       "error": null
     }
   ],
-  "new_items_detail": []
+  "new_items_detail": [
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Original",
+      "calories_kcal": 547
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Spicy",
+      "calories_kcal": 540
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "The Lot",
+      "calories_kcal": 680
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Aloo Tikki",
+      "calories_kcal": 520
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Biggie",
+      "calories_kcal": 750
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Spicy Poutine",
+      "calories_kcal": 580
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Nuggets (4 pack)",
+      "calories_kcal": 226
+    }
+  ]
 }
