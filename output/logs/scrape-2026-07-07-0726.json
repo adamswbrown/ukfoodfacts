@@ -1,16 +1,16 @@
 {
-  "timestamp": "2026-05-15T07:29:01.121864+00:00",
-  "duration_seconds": 224.9,
+  "timestamp": "2026-07-07T07:26:32.603144+00:00",
+  "duration_seconds": 74.1,
   "summary": {
-    "total_items": 2614,
+    "total_items": 2473,
     "total_restaurants": 168,
-    "previous_items": 2639,
+    "previous_items": 2475,
     "previous_restaurants": 168,
-    "new_items": 2,
-    "removed_items": 27,
-    "duplicates_removed": 146,
+    "new_items": 7,
+    "removed_items": 9,
+    "duplicates_removed": 120,
     "new_restaurants": [],
-    "net_change": -25
+    "net_change": -2
   },
   "scrapers": [
     {
@@ -18,7 +18,7 @@
       "status": "success",
       "items": 201,
       "restaurants": 1,
-      "elapsed_seconds": 0.9,
+      "elapsed_seconds": 1.2,
       "error": null
     },
     {
@@ -26,15 +26,15 @@
       "status": "success",
       "items": 30,
       "restaurants": 1,
-      "elapsed_seconds": 0.5,
+      "elapsed_seconds": 0.9,
       "error": null
     },
     {
       "scraper": "Wagamama",
       "status": "success",
-      "items": 202,
+      "items": 210,
       "restaurants": 1,
-      "elapsed_seconds": 1.4,
+      "elapsed_seconds": 2.0,
       "error": null
     },
     {
@@ -80,25 +80,25 @@
     {
       "scraper": "Burger King NZ",
       "status": "success",
-      "items": 15,
+      "items": 112,
       "restaurants": 1,
-      "elapsed_seconds": 3.0,
+      "elapsed_seconds": 3.4,
       "error": null
     },
     {
       "scraper": "Roll'd AU",
       "status": "success",
-      "items": 84,
+      "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 2.1,
+      "elapsed_seconds": 0.2,
       "error": null
     },
     {
       "scraper": "McDonalds NZ",
       "status": "success",
-      "items": 220,
+      "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 125.8,
+      "elapsed_seconds": 1.8,
       "error": null
     },
     {
@@ -106,7 +106,7 @@
       "status": "success",
       "items": 43,
       "restaurants": 1,
-      "elapsed_seconds": 3.2,
+      "elapsed_seconds": 2.9,
       "error": null
     },
     {
@@ -114,15 +114,15 @@
       "status": "success",
       "items": 58,
       "restaurants": 1,
-      "elapsed_seconds": 7.0,
+      "elapsed_seconds": 5.3,
       "error": null
     },
     {
       "scraper": "Hungry Jacks",
       "status": "success",
-      "items": 192,
+      "items": 198,
       "restaurants": 1,
-      "elapsed_seconds": 7.8,
+      "elapsed_seconds": 4.1,
       "error": null
     },
     {
@@ -130,7 +130,7 @@
       "status": "success",
       "items": 302,
       "restaurants": 1,
-      "elapsed_seconds": 10.2,
+      "elapsed_seconds": 7.5,
       "error": null
     },
     {
@@ -138,28 +138,53 @@
       "status": "success",
       "items": 19,
       "restaurants": 1,
-      "elapsed_seconds": 18.1,
+      "elapsed_seconds": 14.6,
       "error": null
     },
     {
       "scraper": "Lord of the Fries AU",
       "status": "success",
-      "items": 27,
+      "items": 23,
       "restaurants": 1,
-      "elapsed_seconds": 27.8,
+      "elapsed_seconds": 13.1,
       "error": null
     }
   ],
   "new_items_detail": [
     {
-      "restaurant": "Hungry Jacks",
-      "item": "RIB DELUXE",
-      "calories_kcal": 595
+      "restaurant": "Lord of the Fries",
+      "item": "Original",
+      "calories_kcal": 547
     },
     {
-      "restaurant": "Hungry Jacks",
-      "item": "GRILL MASTERS SMOKY CHIPOTLE ANGUS",
-      "calories_kcal": 804
+      "restaurant": "Lord of the Fries",
+      "item": "Spicy",
+      "calories_kcal": 540
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "The Lot",
+      "calories_kcal": 680
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Aloo Tikki",
+      "calories_kcal": 520
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Biggie",
+      "calories_kcal": 750
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Spicy Poutine",
+      "calories_kcal": 580
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Nuggets (4 pack)",
+      "calories_kcal": 226
     }
   ]
 }
