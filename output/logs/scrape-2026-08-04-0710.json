@@ -1,16 +1,16 @@
 {
-  "timestamp": "2026-06-09T07:32:27.064951+00:00",
-  "duration_seconds": 96.8,
+  "timestamp": "2026-08-04T07:10:16.385369+00:00",
+  "duration_seconds": 99.5,
   "summary": {
-    "total_items": 2414,
+    "total_items": 2479,
     "total_restaurants": 168,
-    "previous_items": 2412,
+    "previous_items": 2479,
     "previous_restaurants": 168,
-    "new_items": 9,
-    "removed_items": 7,
-    "duplicates_removed": 146,
+    "new_items": 0,
+    "removed_items": 0,
+    "duplicates_removed": 122,
     "new_restaurants": [],
-    "net_change": 2
+    "net_change": 0
   },
   "scrapers": [
     {
@@ -18,7 +18,7 @@
       "status": "success",
       "items": 201,
       "restaurants": 1,
-      "elapsed_seconds": 0.8,
+      "elapsed_seconds": 0.7,
       "error": null
     },
     {
@@ -26,15 +26,15 @@
       "status": "success",
       "items": 30,
       "restaurants": 1,
-      "elapsed_seconds": 0.7,
+      "elapsed_seconds": 0.9,
       "error": null
     },
     {
       "scraper": "Wagamama",
       "status": "success",
-      "items": 202,
+      "items": 210,
       "restaurants": 1,
-      "elapsed_seconds": 1.6,
+      "elapsed_seconds": 2.0,
       "error": null
     },
     {
@@ -80,17 +80,17 @@
     {
       "scraper": "Burger King NZ",
       "status": "success",
-      "items": 15,
+      "items": 113,
       "restaurants": 1,
-      "elapsed_seconds": 2.9,
+      "elapsed_seconds": 3.3,
       "error": null
     },
     {
       "scraper": "Roll'd AU",
       "status": "success",
-      "items": 84,
+      "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 1.7,
+      "elapsed_seconds": 0.3,
       "error": null
     },
     {
@@ -98,7 +98,7 @@
       "status": "success",
       "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 1.6,
+      "elapsed_seconds": 1.8,
       "error": null
     },
     {
@@ -106,7 +106,7 @@
       "status": "success",
       "items": 43,
       "restaurants": 1,
-      "elapsed_seconds": 3.1,
+      "elapsed_seconds": 2.8,
       "error": null
     },
     {
@@ -114,15 +114,15 @@
       "status": "success",
       "items": 58,
       "restaurants": 1,
-      "elapsed_seconds": 6.6,
+      "elapsed_seconds": 5.6,
       "error": null
     },
     {
       "scraper": "Hungry Jacks",
       "status": "success",
-      "items": 197,
+      "items": 201,
       "restaurants": 1,
-      "elapsed_seconds": 6.4,
+      "elapsed_seconds": 7.3,
       "error": null
     },
     {
@@ -130,7 +130,7 @@
       "status": "success",
       "items": 302,
       "restaurants": 1,
-      "elapsed_seconds": 9.5,
+      "elapsed_seconds": 8.4,
       "error": null
     },
     {
@@ -138,7 +138,7 @@
       "status": "success",
       "items": 19,
       "restaurants": 1,
-      "elapsed_seconds": 22.6,
+      "elapsed_seconds": 24.5,
       "error": null
     },
     {
@@ -146,55 +146,9 @@
       "status": "success",
       "items": 27,
       "restaurants": 1,
-      "elapsed_seconds": 22.3,
+      "elapsed_seconds": 24.8,
       "error": null
     }
   ],
-  "new_items_detail": [
-    {
-      "restaurant": "Lord of the Fries",
-      "item": "Original (Premium)",
-      "calories_kcal": 547
-    },
-    {
-      "restaurant": "Lord of the Fries",
-      "item": "Spicy (Premium)",
-      "calories_kcal": 540
-    },
-    {
-      "restaurant": "Lord of the Fries",
-      "item": "The Lot (PREMIUM)",
-      "calories_kcal": 605
-    },
-    {
-      "restaurant": "Lord of the Fries",
-      "item": "Classic Fries (Kids')",
-      "calories_kcal": 239
-    },
-    {
-      "restaurant": "Lord of the Fries",
-      "item": "Shoestring Fries (Kids')",
-      "calories_kcal": 240
-    },
-    {
-      "restaurant": "Lord of the Fries",
-      "item": "Shoestring Fries (Large)",
-      "calories_kcal": 497
-    },
-    {
-      "restaurant": "Lord of the Fries",
-      "item": "Sweet Potato Fries (Kids')",
-      "calories_kcal": 263
-    },
-    {
-      "restaurant": "Lord of the Fries",
-      "item": "Sweet Potato Fries (Large)",
-      "calories_kcal": 603
-    },
-    {
-      "restaurant": "Lord of the Fries",
-      "item": "Nuggets",
-      "calories_kcal": 226
-    }
-  ]
+  "new_items_detail": []
 }
