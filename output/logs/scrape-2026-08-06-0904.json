@@ -1,0 +1,405 @@
+{
+  "timestamp": "2026-08-06T09:04:42.948252+00:00",
+  "duration_seconds": 102.5,
+  "summary": {
+    "total_items": 2350,
+    "total_restaurants": 168,
+    "previous_items": 2167,
+    "previous_restaurants": 168,
+    "new_items": 190,
+    "removed_items": 7,
+    "duplicates_removed": 69,
+    "new_restaurants": [],
+    "net_change": 183
+  },
+  "scrapers": [
+    {
+      "scraper": "Nandos",
+      "status": "success",
+      "items": 201,
+      "restaurants": 1,
+      "elapsed_seconds": 4.0,
+      "error": null
+    },
+    {
+      "scraper": "McDonalds",
+      "status": "success",
+      "items": 30,
+      "restaurants": 1,
+      "elapsed_seconds": 0.3,
+      "error": null
+    },
+    {
+      "scraper": "Wagamama",
+      "status": "success",
+      "items": 28,
+      "restaurants": 1,
+      "elapsed_seconds": 1.9,
+      "error": null
+    },
+    {
+      "scraper": "UK Chains",
+      "status": "success",
+      "items": 1066,
+      "restaurants": 105,
+      "elapsed_seconds": 0.1,
+      "error": null
+    },
+    {
+      "scraper": "UK Pubs",
+      "status": "success",
+      "items": 115,
+      "restaurants": 15,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "UK Restaurants",
+      "status": "success",
+      "items": 76,
+      "restaurants": 19,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Local NI",
+      "status": "success",
+      "items": 110,
+      "restaurants": 17,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Custom",
+      "status": "success",
+      "items": 0,
+      "restaurants": 0,
+      "elapsed_seconds": 0.0,
+      "error": null
+    },
+    {
+      "scraper": "Burger King NZ",
+      "status": "success",
+      "items": 113,
+      "restaurants": 1,
+      "elapsed_seconds": 3.5,
+      "error": null
+    },
+    {
+      "scraper": "Roll'd AU",
+      "status": "success",
+      "items": 15,
+      "restaurants": 1,
+      "elapsed_seconds": 0.3,
+      "error": null
+    },
+    {
+      "scraper": "McDonalds NZ",
+      "status": "success",
+      "items": 15,
+      "restaurants": 1,
+      "elapsed_seconds": 1.1,
+      "error": null
+    },
+    {
+      "scraper": "BurgerFuel NZ",
+      "status": "success",
+      "items": 43,
+      "restaurants": 1,
+      "elapsed_seconds": 3.0,
+      "error": null
+    },
+    {
+      "scraper": "Betty's Burgers",
+      "status": "success",
+      "items": 58,
+      "restaurants": 1,
+      "elapsed_seconds": 6.3,
+      "error": null
+    },
+    {
+      "scraper": "Hungry Jacks",
+      "status": "success",
+      "items": 201,
+      "restaurants": 1,
+      "elapsed_seconds": 7.7,
+      "error": null
+    },
+    {
+      "scraper": "GYG AU",
+      "status": "success",
+      "items": 302,
+      "restaurants": 1,
+      "elapsed_seconds": 7.4,
+      "error": null
+    },
+    {
+      "scraper": "Grill'd AU",
+      "status": "success",
+      "items": 19,
+      "restaurants": 1,
+      "elapsed_seconds": 22.7,
+      "error": null
+    },
+    {
+      "scraper": "Lord of the Fries AU",
+      "status": "success",
+      "items": 27,
+      "restaurants": 1,
+      "elapsed_seconds": 27.2,
+      "error": null
+    }
+  ],
+  "new_items_detail": [
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "BACONATOR DELUXE",
+      "calories_kcal": 604
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "MEGA BACONATOR",
+      "calories_kcal": 1093
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "MEGA RIB",
+      "calories_kcal": 825
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "THE LOT WHOPPER\u00ae",
+      "calories_kcal": 871
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "DOUBLE THE LOT WHOPPER\u00ae",
+      "calories_kcal": 1209
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "DOUBLE WHOPPER\u00ae CHEESE",
+      "calories_kcal": 992
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "WHOPPER\u00ae JUNIOR CHEESE",
+      "calories_kcal": 394
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "ULTIMATE DOUBLE WHOPPER\u00ae",
+      "calories_kcal": 1052
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "OUTBACK WHOPPER\u00ae",
+      "calories_kcal": 811
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "RIB DELUXE",
+      "calories_kcal": 595
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "TROPICAL WHOPPER\u00ae",
+      "calories_kcal": 846
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "DOUBLE OUTBACK WHOPPER\u00ae",
+      "calories_kcal": 1150
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "BBQ CHEESEBURGER",
+      "calories_kcal": 338
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "DOUBLE TROPICAL WHOPPER\u00ae",
+      "calories_kcal": 1097
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "ANGRY WHOPPER\u00ae",
+      "calories_kcal": 813
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "GRILL MASTERS SPICY CHIPOTLE ANGUS",
+      "calories_kcal": 804
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "DOUBLE GRILL MASTERS SPICY CHIPOTLE ANGUS",
+      "calories_kcal": 1226
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "DOUBLE CHEESEBURGER",
+      "calories_kcal": 473
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "TRIPLE CHEESEBURGER",
+      "calories_kcal": 624
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "TRIPLE WHOPPER\u00ae CHEESE",
+      "calories_kcal": 1381
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "GRILL MASTERS CHICAGO ANGUS",
+      "calories_kcal": 796
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "GRILL MASTERS COWBOY ANGUS",
+      "calories_kcal": 951
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "GRILL MASTERS DOUBLE COWBOY ANGUS",
+      "calories_kcal": 1401
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "GRILL MASTERS DOUBLE CHICAGO ANGUS",
+      "calories_kcal": 871
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "AUSSIE WHOPPER\u00ae",
+      "calories_kcal": 828
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "DOUBLE AUSSIE WHOPPER\u00ae",
+      "calories_kcal": 1091
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "GRILL MASTERS ANGUS, BACON & CHEESE",
+      "calories_kcal": 810
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "GRILL MASTERS DOUBLE ANGUS, BACON & CHEESE",
+      "calories_kcal": 1307
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "BISTRO WHOPPER\u00ae",
+      "calories_kcal": 788
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "DOUBLE BISTRO WHOPPER\u00ae",
+      "calories_kcal": 1139
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "GRILL MASTERS BBQ SMOKEHOUSE ANGUS",
+      "calories_kcal": 802
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "BACON GRAVY WHOPPER\u00ae",
+      "calories_kcal": 799
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "DOUBLE BACON GRAVY WHOPPER\u00ae",
+      "calories_kcal": 1118
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "PHILLY CHEESE DELUXE",
+      "calories_kcal": 736
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "MEGA PHILLY CHEESE",
+      "calories_kcal": 1254
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "GRILL MASTERS DOUBLE BBQ SMOKEHOUSE ANGUS",
+      "calories_kcal": 1224
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "GRILL MASTERS DOUBLE FIERY ANGUS",
+      "calories_kcal": 1274
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "KANSAS CITY WHOPPER\u00ae",
+      "calories_kcal": 740
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "DOUBLE KANSAS CITY WHOPPER\u00ae",
+      "calories_kcal": 1060
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "COWBOY WHOPPER\u00ae",
+      "calories_kcal": 832
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "DOUBLE COWBOY WHOPPER\u00ae",
+      "calories_kcal": 1170
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "BACONATOR GRILLED CHICKEN",
+      "calories_kcal": 448
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "GRILLED CHICKEN WITH BACON & CHEESE",
+      "calories_kcal": 418
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "SPICY GRILLED CHICKEN",
+      "calories_kcal": 332
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "OUTBACK JACK'S FRIED CHICKEN",
+      "calories_kcal": 751
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "OUTBACK GRILLED CHICKEN",
+      "calories_kcal": 359
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "NAPOLETANA JACK\u2019S FRIED CHICKEN",
+      "calories_kcal": 777
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "NAPOLETANA GRILLED CHICKEN",
+      "calories_kcal": 421
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "TROPICAL JACK'S FRIED CHICKEN",
+      "calories_kcal": 780
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "CHEESY BACON CLASSIC JACK'S FRIED CHICKEN",
+      "calories_kcal": 747
+    }
+  ]
+}
