@@ -1,16 +1,16 @@
 {
-  "timestamp": "2026-06-17T08:12:21.975797+00:00",
-  "duration_seconds": 98.6,
+  "timestamp": "2026-08-11T07:36:17.780202+00:00",
+  "duration_seconds": 277.9,
   "summary": {
-    "total_items": 2414,
+    "total_items": 2348,
     "total_restaurants": 168,
-    "previous_items": 2414,
+    "previous_items": 2350,
     "previous_restaurants": 168,
-    "new_items": 17,
-    "removed_items": 17,
-    "duplicates_removed": 155,
+    "new_items": 7,
+    "removed_items": 9,
+    "duplicates_removed": 67,
     "new_restaurants": [],
-    "net_change": 0
+    "net_change": -2
   },
   "scrapers": [
     {
@@ -18,7 +18,7 @@
       "status": "success",
       "items": 201,
       "restaurants": 1,
-      "elapsed_seconds": 0.5,
+      "elapsed_seconds": 0.2,
       "error": null
     },
     {
@@ -26,15 +26,15 @@
       "status": "success",
       "items": 30,
       "restaurants": 1,
-      "elapsed_seconds": 0.8,
+      "elapsed_seconds": 35.5,
       "error": null
     },
     {
       "scraper": "Wagamama",
       "status": "success",
-      "items": 211,
+      "items": 28,
       "restaurants": 1,
-      "elapsed_seconds": 1.2,
+      "elapsed_seconds": 2.0,
       "error": null
     },
     {
@@ -80,17 +80,17 @@
     {
       "scraper": "Burger King NZ",
       "status": "success",
-      "items": 15,
+      "items": 113,
       "restaurants": 1,
-      "elapsed_seconds": 3.2,
+      "elapsed_seconds": 3.5,
       "error": null
     },
     {
       "scraper": "Roll'd AU",
       "status": "success",
-      "items": 84,
+      "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 1.6,
+      "elapsed_seconds": 0.5,
       "error": null
     },
     {
@@ -98,7 +98,7 @@
       "status": "success",
       "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 0.7,
+      "elapsed_seconds": 151.1,
       "error": null
     },
     {
@@ -114,15 +114,15 @@
       "status": "success",
       "items": 58,
       "restaurants": 1,
-      "elapsed_seconds": 6.5,
+      "elapsed_seconds": 6.4,
       "error": null
     },
     {
       "scraper": "Hungry Jacks",
       "status": "success",
-      "items": 197,
+      "items": 201,
       "restaurants": 1,
-      "elapsed_seconds": 8.9,
+      "elapsed_seconds": 8.8,
       "error": null
     },
     {
@@ -130,7 +130,7 @@
       "status": "success",
       "items": 302,
       "restaurants": 1,
-      "elapsed_seconds": 8.7,
+      "elapsed_seconds": 8.5,
       "error": null
     },
     {
@@ -138,103 +138,53 @@
       "status": "success",
       "items": 19,
       "restaurants": 1,
-      "elapsed_seconds": 19.9,
+      "elapsed_seconds": 22.2,
       "error": null
     },
     {
       "scraper": "Lord of the Fries AU",
       "status": "success",
-      "items": 27,
+      "items": 23,
       "restaurants": 1,
-      "elapsed_seconds": 26.6,
+      "elapsed_seconds": 19.3,
       "error": null
     }
   ],
   "new_items_detail": [
     {
-      "restaurant": "Wagamama",
-      "item": "Buldak Fire Wings",
-      "calories_kcal": 780
+      "restaurant": "Lord of the Fries",
+      "item": "Original",
+      "calories_kcal": 547
     },
     {
-      "restaurant": "Wagamama",
-      "item": "Buldak Bibimbap",
-      "calories_kcal": 1012
+      "restaurant": "Lord of the Fries",
+      "item": "Spicy",
+      "calories_kcal": 540
     },
     {
-      "restaurant": "Wagamama",
-      "item": "Katsu Chicken Wrap",
-      "calories_kcal": 481
+      "restaurant": "Lord of the Fries",
+      "item": "The Lot",
+      "calories_kcal": 680
     },
     {
-      "restaurant": "Wagamama",
-      "item": "Yasai Ramen Wrap",
-      "calories_kcal": 466
+      "restaurant": "Lord of the Fries",
+      "item": "Aloo Tikki",
+      "calories_kcal": 520
     },
     {
-      "restaurant": "Wagamama",
-      "item": "Miso K-Chicken Lunch Box",
-      "calories_kcal": 739
+      "restaurant": "Lord of the Fries",
+      "item": "Biggie",
+      "calories_kcal": 750
     },
     {
-      "restaurant": "Wagamama",
-      "item": "Miso Cauliflower Lunch Box",
-      "calories_kcal": 800
+      "restaurant": "Lord of the Fries",
+      "item": "Spicy Poutine",
+      "calories_kcal": 580
     },
     {
-      "restaurant": "Wagamama",
-      "item": "Nasi Goreng Lunch Box",
-      "calories_kcal": 800
-    },
-    {
-      "restaurant": "Wagamama",
-      "item": "Chicken + Prawn Turmeric Rice Bowl",
-      "calories_kcal": 705
-    },
-    {
-      "restaurant": "Wagamama",
-      "item": "Gochujang Salmon Rice Bowl (May Contain Small Bones)",
-      "calories_kcal": 786
-    },
-    {
-      "restaurant": "Wagamama",
-      "item": "Signature Seafood Ramen (May Contain Small Bones)",
-      "calories_kcal": 973
-    },
-    {
-      "restaurant": "Wagamama",
-      "item": "Matcha Colada",
-      "calories_kcal": 120
-    },
-    {
-      "restaurant": "Wagamama",
-      "item": "Ginger Kombucha",
-      "calories_kcal": 43
-    },
-    {
-      "restaurant": "Wagamama",
-      "item": "Grilled Duck",
-      "calories_kcal": 1129
-    },
-    {
-      "restaurant": "Wagamama",
-      "item": "Beef Brisket Teriyaki",
-      "calories_kcal": 818
-    },
-    {
-      "restaurant": "Wagamama",
-      "item": "Chicken Teriyaki",
-      "calories_kcal": 807
-    },
-    {
-      "restaurant": "Wagamama",
-      "item": "Miso Caramel Ice Cream Gf",
-      "calories_kcal": 418
-    },
-    {
-      "restaurant": "Wagamama",
-      "item": "Coconut Reika Ice Cream Gf",
-      "calories_kcal": 409
+      "restaurant": "Lord of the Fries",
+      "item": "Nuggets (4 pack)",
+      "calories_kcal": 226
     }
   ]
 }
