@@ -1,16 +1,16 @@
 {
-  "timestamp": "2026-06-18T08:01:17.672111+00:00",
-  "duration_seconds": 82.6,
+  "timestamp": "2026-08-12T07:51:27.886082+00:00",
+  "duration_seconds": 275.2,
   "summary": {
-    "total_items": 2414,
+    "total_items": 2350,
     "total_restaurants": 168,
-    "previous_items": 2414,
+    "previous_items": 2348,
     "previous_restaurants": 168,
-    "new_items": 5,
-    "removed_items": 5,
-    "duplicates_removed": 155,
+    "new_items": 9,
+    "removed_items": 7,
+    "duplicates_removed": 69,
     "new_restaurants": [],
-    "net_change": 0
+    "net_change": 2
   },
   "scrapers": [
     {
@@ -18,7 +18,7 @@
       "status": "success",
       "items": 201,
       "restaurants": 1,
-      "elapsed_seconds": 1.1,
+      "elapsed_seconds": 0.3,
       "error": null
     },
     {
@@ -26,15 +26,15 @@
       "status": "success",
       "items": 30,
       "restaurants": 1,
-      "elapsed_seconds": 0.4,
+      "elapsed_seconds": 35.6,
       "error": null
     },
     {
       "scraper": "Wagamama",
       "status": "success",
-      "items": 211,
+      "items": 28,
       "restaurants": 1,
-      "elapsed_seconds": 0.6,
+      "elapsed_seconds": 3.6,
       "error": null
     },
     {
@@ -42,7 +42,7 @@
       "status": "success",
       "items": 1066,
       "restaurants": 105,
-      "elapsed_seconds": 0.1,
+      "elapsed_seconds": 0.0,
       "error": null
     },
     {
@@ -80,17 +80,17 @@
     {
       "scraper": "Burger King NZ",
       "status": "success",
-      "items": 15,
+      "items": 113,
       "restaurants": 1,
-      "elapsed_seconds": 2.3,
+      "elapsed_seconds": 3.0,
       "error": null
     },
     {
       "scraper": "Roll'd AU",
       "status": "success",
-      "items": 84,
+      "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 1.9,
+      "elapsed_seconds": 0.4,
       "error": null
     },
     {
@@ -98,7 +98,7 @@
       "status": "success",
       "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 2.2,
+      "elapsed_seconds": 152.1,
       "error": null
     },
     {
@@ -106,7 +106,7 @@
       "status": "success",
       "items": 43,
       "restaurants": 1,
-      "elapsed_seconds": 2.9,
+      "elapsed_seconds": 1.8,
       "error": null
     },
     {
@@ -114,15 +114,15 @@
       "status": "success",
       "items": 58,
       "restaurants": 1,
-      "elapsed_seconds": 5.3,
+      "elapsed_seconds": 5.4,
       "error": null
     },
     {
       "scraper": "Hungry Jacks",
       "status": "success",
-      "items": 197,
+      "items": 201,
       "restaurants": 1,
-      "elapsed_seconds": 6.0,
+      "elapsed_seconds": 7.2,
       "error": null
     },
     {
@@ -130,7 +130,7 @@
       "status": "success",
       "items": 302,
       "restaurants": 1,
-      "elapsed_seconds": 7.5,
+      "elapsed_seconds": 5.6,
       "error": null
     },
     {
@@ -138,7 +138,7 @@
       "status": "success",
       "items": 19,
       "restaurants": 1,
-      "elapsed_seconds": 16.0,
+      "elapsed_seconds": 19.0,
       "error": null
     },
     {
@@ -146,35 +146,55 @@
       "status": "success",
       "items": 27,
       "restaurants": 1,
-      "elapsed_seconds": 19.3,
+      "elapsed_seconds": 24.2,
       "error": null
     }
   ],
   "new_items_detail": [
     {
-      "restaurant": "Wagamama",
-      "item": "Sweet, Crisp And Made Purely With Green Apples",
-      "calories_kcal": null
+      "restaurant": "Lord of the Fries",
+      "item": "Original (Premium)",
+      "calories_kcal": 547
     },
     {
-      "restaurant": "Wagamama",
-      "item": "Chicken Ramen",
-      "calories_kcal": 400
+      "restaurant": "Lord of the Fries",
+      "item": "Spicy (Premium)",
+      "calories_kcal": 540
     },
     {
-      "restaurant": "Wagamama",
-      "item": "Yasai Ramen",
-      "calories_kcal": 324
+      "restaurant": "Lord of the Fries",
+      "item": "The Lot (PREMIUM)",
+      "calories_kcal": 605
     },
     {
-      "restaurant": "Wagamama",
-      "item": "Yasai Ramen | Rice Noodles",
-      "calories_kcal": 302
+      "restaurant": "Lord of the Fries",
+      "item": "Classic Fries (Kids')",
+      "calories_kcal": 239
     },
     {
-      "restaurant": "Wagamama",
-      "item": "Yasai Ramen | Udon Noodles",
-      "calories_kcal": 302
+      "restaurant": "Lord of the Fries",
+      "item": "Shoestring Fries (Kids')",
+      "calories_kcal": 240
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Shoestring Fries (Large)",
+      "calories_kcal": 497
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Sweet Potato Fries (Kids')",
+      "calories_kcal": 263
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Sweet Potato Fries (Large)",
+      "calories_kcal": 603
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Nuggets",
+      "calories_kcal": 226
     }
   ]
 }
