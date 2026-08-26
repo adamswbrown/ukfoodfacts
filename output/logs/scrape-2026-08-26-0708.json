@@ -1,16 +1,16 @@
 {
-  "timestamp": "2026-06-23T07:32:24.125468+00:00",
-  "duration_seconds": 94.6,
+  "timestamp": "2026-08-26T07:08:22.932932+00:00",
+  "duration_seconds": 282.1,
   "summary": {
-    "total_items": 2475,
+    "total_items": 2356,
     "total_restaurants": 168,
-    "previous_items": 2512,
+    "previous_items": 2356,
     "previous_restaurants": 168,
-    "new_items": 14,
-    "removed_items": 51,
-    "duplicates_removed": 122,
+    "new_items": 0,
+    "removed_items": 0,
+    "duplicates_removed": 69,
     "new_restaurants": [],
-    "net_change": -37
+    "net_change": 0
   },
   "scrapers": [
     {
@@ -18,7 +18,7 @@
       "status": "success",
       "items": 201,
       "restaurants": 1,
-      "elapsed_seconds": 0.5,
+      "elapsed_seconds": 0.7,
       "error": null
     },
     {
@@ -26,15 +26,15 @@
       "status": "success",
       "items": 30,
       "restaurants": 1,
-      "elapsed_seconds": 0.3,
+      "elapsed_seconds": 35.3,
       "error": null
     },
     {
       "scraper": "Wagamama",
       "status": "success",
-      "items": 210,
+      "items": 28,
       "restaurants": 1,
-      "elapsed_seconds": 1.7,
+      "elapsed_seconds": 2.5,
       "error": null
     },
     {
@@ -82,7 +82,7 @@
       "status": "success",
       "items": 113,
       "restaurants": 1,
-      "elapsed_seconds": 3.7,
+      "elapsed_seconds": 3.3,
       "error": null
     },
     {
@@ -90,7 +90,7 @@
       "status": "success",
       "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 0.2,
+      "elapsed_seconds": 0.5,
       "error": null
     },
     {
@@ -98,7 +98,7 @@
       "status": "success",
       "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 0.8,
+      "elapsed_seconds": 151.0,
       "error": null
     },
     {
@@ -106,7 +106,7 @@
       "status": "success",
       "items": 43,
       "restaurants": 1,
-      "elapsed_seconds": 2.6,
+      "elapsed_seconds": 2.7,
       "error": null
     },
     {
@@ -114,15 +114,15 @@
       "status": "success",
       "items": 58,
       "restaurants": 1,
-      "elapsed_seconds": 6.2,
+      "elapsed_seconds": 6.6,
       "error": null
     },
     {
       "scraper": "Hungry Jacks",
       "status": "success",
-      "items": 197,
+      "items": 207,
       "restaurants": 1,
-      "elapsed_seconds": 9.2,
+      "elapsed_seconds": 6.2,
       "error": null
     },
     {
@@ -130,7 +130,7 @@
       "status": "success",
       "items": 302,
       "restaurants": 1,
-      "elapsed_seconds": 7.4,
+      "elapsed_seconds": 7.2,
       "error": null
     },
     {
@@ -138,7 +138,7 @@
       "status": "success",
       "items": 19,
       "restaurants": 1,
-      "elapsed_seconds": 17.9,
+      "elapsed_seconds": 23.4,
       "error": null
     },
     {
@@ -146,80 +146,9 @@
       "status": "success",
       "items": 27,
       "restaurants": 1,
-      "elapsed_seconds": 26.9,
+      "elapsed_seconds": 25.5,
       "error": null
     }
   ],
-  "new_items_detail": [
-    {
-      "restaurant": "Wagamama",
-      "item": "Sxollie Cider",
-      "calories_kcal": null
-    },
-    {
-      "restaurant": "Wagamama",
-      "item": "Asahi 330Ml",
-      "calories_kcal": null
-    },
-    {
-      "restaurant": "Roll'd",
-      "item": "BBQ Chicken Banh Mi",
-      "calories_kcal": 461
-    },
-    {
-      "restaurant": "Roll'd",
-      "item": "Roast Pork & Crackling Banh Mi",
-      "calories_kcal": 594
-    },
-    {
-      "restaurant": "Roll'd",
-      "item": "Lemongrass Beef Banh Mi",
-      "calories_kcal": 630
-    },
-    {
-      "restaurant": "Roll'd",
-      "item": "BBQ Chicken Bao",
-      "calories_kcal": 217
-    },
-    {
-      "restaurant": "Roll'd",
-      "item": "Lemongrass Beef Bao",
-      "calories_kcal": 216
-    },
-    {
-      "restaurant": "Roll'd",
-      "item": "Crispy Prawn Bao",
-      "calories_kcal": 201
-    },
-    {
-      "restaurant": "Roll'd",
-      "item": "BBQ Chicken Rice Bowl",
-      "calories_kcal": 478
-    },
-    {
-      "restaurant": "Roll'd",
-      "item": "Lemongrass Beef Rice Bowl",
-      "calories_kcal": 611
-    },
-    {
-      "restaurant": "Roll'd",
-      "item": "BBQ Chicken Noodle Salad",
-      "calories_kcal": 489
-    },
-    {
-      "restaurant": "Roll'd",
-      "item": "Beef Pho Bowl",
-      "calories_kcal": 408
-    },
-    {
-      "restaurant": "Roll'd",
-      "item": "Chicken Soldiers",
-      "calories_kcal": 137
-    },
-    {
-      "restaurant": "Roll'd",
-      "item": "Vegetable Spring Rolls",
-      "calories_kcal": 268
-    }
-  ]
+  "new_items_detail": []
 }
