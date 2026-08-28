@@ -1,16 +1,16 @@
 {
-  "timestamp": "2026-07-28T07:10:26.091570+00:00",
-  "duration_seconds": 96.5,
+  "timestamp": "2026-08-28T18:42:05.915230+00:00",
+  "duration_seconds": 281.2,
   "summary": {
-    "total_items": 2479,
+    "total_items": 2355,
     "total_restaurants": 168,
-    "previous_items": 2476,
+    "previous_items": 2356,
     "previous_restaurants": 168,
     "new_items": 8,
-    "removed_items": 5,
-    "duplicates_removed": 122,
+    "removed_items": 9,
+    "duplicates_removed": 67,
     "new_restaurants": [],
-    "net_change": 3
+    "net_change": -1
   },
   "scrapers": [
     {
@@ -18,7 +18,7 @@
       "status": "success",
       "items": 201,
       "restaurants": 1,
-      "elapsed_seconds": 0.9,
+      "elapsed_seconds": 0.6,
       "error": null
     },
     {
@@ -26,15 +26,15 @@
       "status": "success",
       "items": 30,
       "restaurants": 1,
-      "elapsed_seconds": 1.0,
+      "elapsed_seconds": 35.4,
       "error": null
     },
     {
       "scraper": "Wagamama",
       "status": "success",
-      "items": 210,
+      "items": 28,
       "restaurants": 1,
-      "elapsed_seconds": 2.5,
+      "elapsed_seconds": 2.2,
       "error": null
     },
     {
@@ -82,7 +82,7 @@
       "status": "success",
       "items": 113,
       "restaurants": 1,
-      "elapsed_seconds": 3.1,
+      "elapsed_seconds": 3.6,
       "error": null
     },
     {
@@ -90,7 +90,7 @@
       "status": "success",
       "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 0.4,
+      "elapsed_seconds": 0.6,
       "error": null
     },
     {
@@ -98,7 +98,7 @@
       "status": "success",
       "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 1.8,
+      "elapsed_seconds": 150.9,
       "error": null
     },
     {
@@ -106,7 +106,7 @@
       "status": "success",
       "items": 43,
       "restaurants": 1,
-      "elapsed_seconds": 3.3,
+      "elapsed_seconds": 2.9,
       "error": null
     },
     {
@@ -114,15 +114,15 @@
       "status": "success",
       "items": 58,
       "restaurants": 1,
-      "elapsed_seconds": 5.8,
+      "elapsed_seconds": 6.5,
       "error": null
     },
     {
       "scraper": "Hungry Jacks",
       "status": "success",
-      "items": 201,
+      "items": 208,
       "restaurants": 1,
-      "elapsed_seconds": 5.4,
+      "elapsed_seconds": 10.3,
       "error": null
     },
     {
@@ -130,7 +130,7 @@
       "status": "success",
       "items": 302,
       "restaurants": 1,
-      "elapsed_seconds": 8.3,
+      "elapsed_seconds": 9.4,
       "error": null
     },
     {
@@ -138,58 +138,58 @@
       "status": "success",
       "items": 19,
       "restaurants": 1,
-      "elapsed_seconds": 26.3,
+      "elapsed_seconds": 23.4,
       "error": null
     },
     {
       "scraper": "Lord of the Fries AU",
       "status": "success",
-      "items": 27,
+      "items": 23,
       "restaurants": 1,
-      "elapsed_seconds": 20.5,
+      "elapsed_seconds": 18.5,
       "error": null
     }
   ],
   "new_items_detail": [
     {
-      "restaurant": "Burger King NZ",
-      "item": "Funnel Fries",
-      "calories_kcal": 554
-    },
-    {
-      "restaurant": "Burger King NZ",
-      "item": "King Fusion Bubblegum & Marshmallow Sundae",
-      "calories_kcal": 285
-    },
-    {
-      "restaurant": "Burger King NZ",
-      "item": "Bubblegum Sundae",
-      "calories_kcal": 196
-    },
-    {
-      "restaurant": "Burger King NZ",
-      "item": "Bubblegum Sundae (Small)",
-      "calories_kcal": 215
-    },
-    {
-      "restaurant": "Burger King NZ",
-      "item": "Bubblegum Shake (Medium)",
-      "calories_kcal": 337
-    },
-    {
-      "restaurant": "Burger King NZ",
-      "item": "Bubblegum Shake (Large)",
-      "calories_kcal": 486
-    },
-    {
       "restaurant": "Hungry Jacks",
-      "item": "NAPOLETANA JACK\u2019S FRIED CHICKEN",
-      "calories_kcal": 777
+      "item": "PISTACHIO PAPI STORM",
+      "calories_kcal": 687
     },
     {
-      "restaurant": "Hungry Jacks",
-      "item": "NAPOLETANA GRILLED CHICKEN",
-      "calories_kcal": 421
+      "restaurant": "Lord of the Fries",
+      "item": "Original",
+      "calories_kcal": 547
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Spicy",
+      "calories_kcal": 540
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "The Lot",
+      "calories_kcal": 680
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Aloo Tikki",
+      "calories_kcal": 520
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Biggie",
+      "calories_kcal": 750
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Spicy Poutine",
+      "calories_kcal": 580
+    },
+    {
+      "restaurant": "Lord of the Fries",
+      "item": "Nuggets (4 pack)",
+      "calories_kcal": 226
     }
   ]
 }
