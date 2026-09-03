@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-06-30T07:35:48.079192+00:00",
-  "duration_seconds": 94.3,
+  "timestamp": "2026-09-03T11:13:59.826840+00:00",
+  "duration_seconds": 280.0,
   "summary": {
-    "total_items": 2479,
+    "total_items": 2357,
     "total_restaurants": 168,
-    "previous_items": 2479,
+    "previous_items": 2357,
     "previous_restaurants": 168,
     "new_items": 0,
     "removed_items": 0,
-    "duplicates_removed": 122,
+    "duplicates_removed": 69,
     "new_restaurants": [],
     "net_change": 0
   },
@@ -18,7 +18,7 @@
       "status": "success",
       "items": 201,
       "restaurants": 1,
-      "elapsed_seconds": 0.5,
+      "elapsed_seconds": 0.7,
       "error": null
     },
     {
@@ -26,15 +26,15 @@
       "status": "success",
       "items": 30,
       "restaurants": 1,
-      "elapsed_seconds": 0.9,
+      "elapsed_seconds": 35.4,
       "error": null
     },
     {
       "scraper": "Wagamama",
       "status": "success",
-      "items": 210,
+      "items": 28,
       "restaurants": 1,
-      "elapsed_seconds": 1.7,
+      "elapsed_seconds": 2.6,
       "error": null
     },
     {
@@ -82,7 +82,7 @@
       "status": "success",
       "items": 113,
       "restaurants": 1,
-      "elapsed_seconds": 3.4,
+      "elapsed_seconds": 2.9,
       "error": null
     },
     {
@@ -90,7 +90,7 @@
       "status": "success",
       "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 0.1,
+      "elapsed_seconds": 0.4,
       "error": null
     },
     {
@@ -98,7 +98,7 @@
       "status": "success",
       "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 2.2,
+      "elapsed_seconds": 151.7,
       "error": null
     },
     {
@@ -106,7 +106,7 @@
       "status": "success",
       "items": 43,
       "restaurants": 1,
-      "elapsed_seconds": 2.8,
+      "elapsed_seconds": 2.2,
       "error": null
     },
     {
@@ -114,15 +114,15 @@
       "status": "success",
       "items": 58,
       "restaurants": 1,
-      "elapsed_seconds": 6.2,
+      "elapsed_seconds": 5.3,
       "error": null
     },
     {
       "scraper": "Hungry Jacks",
       "status": "success",
-      "items": 201,
+      "items": 208,
       "restaurants": 1,
-      "elapsed_seconds": 11.0,
+      "elapsed_seconds": 7.8,
       "error": null
     },
     {
@@ -130,7 +130,7 @@
       "status": "success",
       "items": 302,
       "restaurants": 1,
-      "elapsed_seconds": 7.4,
+      "elapsed_seconds": 5.7,
       "error": null
     },
     {
@@ -138,7 +138,7 @@
       "status": "success",
       "items": 19,
       "restaurants": 1,
-      "elapsed_seconds": 18.5,
+      "elapsed_seconds": 23.4,
       "error": null
     },
     {
@@ -146,7 +146,7 @@
       "status": "success",
       "items": 27,
       "restaurants": 1,
-      "elapsed_seconds": 22.2,
+      "elapsed_seconds": 24.8,
       "error": null
     }
   ],
