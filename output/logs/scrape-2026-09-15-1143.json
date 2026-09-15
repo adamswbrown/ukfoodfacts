@@ -1,16 +1,16 @@
 {
-  "timestamp": "2026-07-01T07:48:36.993424+00:00",
-  "duration_seconds": 101.1,
+  "timestamp": "2026-09-15T11:43:38.390432+00:00",
+  "duration_seconds": 278.2,
   "summary": {
-    "total_items": 2476,
+    "total_items": 2360,
     "total_restaurants": 168,
-    "previous_items": 2479,
+    "previous_items": 2357,
     "previous_restaurants": 168,
-    "new_items": 0,
-    "removed_items": 3,
-    "duplicates_removed": 122,
+    "new_items": 4,
+    "removed_items": 1,
+    "duplicates_removed": 69,
     "new_restaurants": [],
-    "net_change": -3
+    "net_change": 3
   },
   "scrapers": [
     {
@@ -18,7 +18,7 @@
       "status": "success",
       "items": 201,
       "restaurants": 1,
-      "elapsed_seconds": 0.9,
+      "elapsed_seconds": 0.8,
       "error": null
     },
     {
@@ -26,15 +26,15 @@
       "status": "success",
       "items": 30,
       "restaurants": 1,
-      "elapsed_seconds": 0.9,
+      "elapsed_seconds": 35.2,
       "error": null
     },
     {
       "scraper": "Wagamama",
       "status": "success",
-      "items": 210,
+      "items": 28,
       "restaurants": 1,
-      "elapsed_seconds": 1.7,
+      "elapsed_seconds": 1.9,
       "error": null
     },
     {
@@ -90,7 +90,7 @@
       "status": "success",
       "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 0.2,
+      "elapsed_seconds": 0.5,
       "error": null
     },
     {
@@ -98,7 +98,7 @@
       "status": "success",
       "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 2.6,
+      "elapsed_seconds": 150.9,
       "error": null
     },
     {
@@ -106,7 +106,7 @@
       "status": "success",
       "items": 43,
       "restaurants": 1,
-      "elapsed_seconds": 2.9,
+      "elapsed_seconds": 2.8,
       "error": null
     },
     {
@@ -114,15 +114,15 @@
       "status": "success",
       "items": 58,
       "restaurants": 1,
-      "elapsed_seconds": 6.4,
+      "elapsed_seconds": 6.2,
       "error": null
     },
     {
       "scraper": "Hungry Jacks",
       "status": "success",
-      "items": 198,
+      "items": 211,
       "restaurants": 1,
-      "elapsed_seconds": 6.8,
+      "elapsed_seconds": 8.1,
       "error": null
     },
     {
@@ -130,7 +130,7 @@
       "status": "success",
       "items": 302,
       "restaurants": 1,
-      "elapsed_seconds": 7.7,
+      "elapsed_seconds": 7.1,
       "error": null
     },
     {
@@ -138,7 +138,7 @@
       "status": "success",
       "items": 19,
       "restaurants": 1,
-      "elapsed_seconds": 25.7,
+      "elapsed_seconds": 19.7,
       "error": null
     },
     {
@@ -146,9 +146,30 @@
       "status": "success",
       "items": 27,
       "restaurants": 1,
-      "elapsed_seconds": 24.8,
+      "elapsed_seconds": 24.5,
       "error": null
     }
   ],
-  "new_items_detail": []
+  "new_items_detail": [
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "6X FRENCH TOAST FINGERS",
+      "calories_kcal": 443
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "4X FRENCH TOAST FINGERS",
+      "calories_kcal": 443
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "JACK\u2019S FRIED CHICKEN NBL SLAM DUNK PACK",
+      "calories_kcal": 1536
+    },
+    {
+      "restaurant": "Hungry Jacks",
+      "item": "NBL SLAM DUNK PACK",
+      "calories_kcal": 1536
+    }
+  ]
 }
