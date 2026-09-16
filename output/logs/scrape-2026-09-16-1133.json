@@ -1,16 +1,16 @@
 {
-  "timestamp": "2026-07-02T07:25:30.231175+00:00",
-  "duration_seconds": 94.7,
+  "timestamp": "2026-09-16T11:33:06.000919+00:00",
+  "duration_seconds": 283.6,
   "summary": {
-    "total_items": 2475,
+    "total_items": 2360,
     "total_restaurants": 168,
-    "previous_items": 2476,
+    "previous_items": 2360,
     "previous_restaurants": 168,
-    "new_items": 6,
-    "removed_items": 7,
-    "duplicates_removed": 122,
+    "new_items": 0,
+    "removed_items": 0,
+    "duplicates_removed": 69,
     "new_restaurants": [],
-    "net_change": -1
+    "net_change": 0
   },
   "scrapers": [
     {
@@ -18,7 +18,7 @@
       "status": "success",
       "items": 201,
       "restaurants": 1,
-      "elapsed_seconds": 0.6,
+      "elapsed_seconds": 0.4,
       "error": null
     },
     {
@@ -26,15 +26,15 @@
       "status": "success",
       "items": 30,
       "restaurants": 1,
-      "elapsed_seconds": 0.7,
+      "elapsed_seconds": 35.4,
       "error": null
     },
     {
       "scraper": "Wagamama",
       "status": "success",
-      "items": 210,
+      "items": 28,
       "restaurants": 1,
-      "elapsed_seconds": 1.8,
+      "elapsed_seconds": 2.0,
       "error": null
     },
     {
@@ -42,7 +42,7 @@
       "status": "success",
       "items": 1066,
       "restaurants": 105,
-      "elapsed_seconds": 0.0,
+      "elapsed_seconds": 0.1,
       "error": null
     },
     {
@@ -80,9 +80,9 @@
     {
       "scraper": "Burger King NZ",
       "status": "success",
-      "items": 112,
+      "items": 113,
       "restaurants": 1,
-      "elapsed_seconds": 3.0,
+      "elapsed_seconds": 3.7,
       "error": null
     },
     {
@@ -90,7 +90,7 @@
       "status": "success",
       "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 0.4,
+      "elapsed_seconds": 0.5,
       "error": null
     },
     {
@@ -98,7 +98,7 @@
       "status": "success",
       "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 2.4,
+      "elapsed_seconds": 151.5,
       "error": null
     },
     {
@@ -106,7 +106,7 @@
       "status": "success",
       "items": 43,
       "restaurants": 1,
-      "elapsed_seconds": 2.7,
+      "elapsed_seconds": 2.8,
       "error": null
     },
     {
@@ -114,15 +114,15 @@
       "status": "success",
       "items": 58,
       "restaurants": 1,
-      "elapsed_seconds": 5.6,
+      "elapsed_seconds": 6.2,
       "error": null
     },
     {
       "scraper": "Hungry Jacks",
       "status": "success",
-      "items": 198,
+      "items": 211,
       "restaurants": 1,
-      "elapsed_seconds": 7.3,
+      "elapsed_seconds": 7.5,
       "error": null
     },
     {
@@ -130,7 +130,7 @@
       "status": "success",
       "items": 302,
       "restaurants": 1,
-      "elapsed_seconds": 8.1,
+      "elapsed_seconds": 7.6,
       "error": null
     },
     {
@@ -138,7 +138,7 @@
       "status": "success",
       "items": 19,
       "restaurants": 1,
-      "elapsed_seconds": 24.8,
+      "elapsed_seconds": 22.4,
       "error": null
     },
     {
@@ -146,40 +146,9 @@
       "status": "success",
       "items": 27,
       "restaurants": 1,
-      "elapsed_seconds": 20.1,
+      "elapsed_seconds": 26.5,
       "error": null
     }
   ],
-  "new_items_detail": [
-    {
-      "restaurant": "Burger King NZ",
-      "item": "King Fusion Cookies & Cream Sundae",
-      "calories_kcal": 573
-    },
-    {
-      "restaurant": "Burger King NZ",
-      "item": "King Fusion Cosmic Sundae",
-      "calories_kcal": 360
-    },
-    {
-      "restaurant": "Burger King NZ",
-      "item": "Wild Berry Sundae",
-      "calories_kcal": 256
-    },
-    {
-      "restaurant": "Burger King NZ",
-      "item": "Wild Berry Sundae (Small)",
-      "calories_kcal": 361
-    },
-    {
-      "restaurant": "Burger King NZ",
-      "item": "Cosmic / Wild Berry Shake (Medium)",
-      "calories_kcal": 512
-    },
-    {
-      "restaurant": "Burger King NZ",
-      "item": "Cosmic / Wild Berry Shake (Large)",
-      "calories_kcal": 711
-    }
-  ]
+  "new_items_detail": []
 }
