@@ -1,16 +1,16 @@
 {
-  "timestamp": "2026-07-10T07:26:06.383824+00:00",
-  "duration_seconds": 94.9,
+  "timestamp": "2026-09-30T12:34:14.843720+00:00",
+  "duration_seconds": 88.7,
   "summary": {
-    "total_items": 2475,
+    "total_items": 2367,
     "total_restaurants": 168,
-    "previous_items": 2475,
+    "previous_items": 2369,
     "previous_restaurants": 168,
-    "new_items": 2,
+    "new_items": 0,
     "removed_items": 2,
-    "duplicates_removed": 122,
+    "duplicates_removed": 69,
     "new_restaurants": [],
-    "net_change": 0
+    "net_change": -2
   },
   "scrapers": [
     {
@@ -18,7 +18,7 @@
       "status": "success",
       "items": 201,
       "restaurants": 1,
-      "elapsed_seconds": 0.3,
+      "elapsed_seconds": 1.4,
       "error": null
     },
     {
@@ -32,9 +32,9 @@
     {
       "scraper": "Wagamama",
       "status": "success",
-      "items": 210,
+      "items": 28,
       "restaurants": 1,
-      "elapsed_seconds": 1.4,
+      "elapsed_seconds": 2.3,
       "error": null
     },
     {
@@ -80,9 +80,9 @@
     {
       "scraper": "Burger King NZ",
       "status": "success",
-      "items": 112,
+      "items": 113,
       "restaurants": 1,
-      "elapsed_seconds": 3.6,
+      "elapsed_seconds": 3.3,
       "error": null
     },
     {
@@ -90,7 +90,7 @@
       "status": "success",
       "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 0.1,
+      "elapsed_seconds": 0.2,
       "error": null
     },
     {
@@ -98,7 +98,7 @@
       "status": "success",
       "items": 15,
       "restaurants": 1,
-      "elapsed_seconds": 1.4,
+      "elapsed_seconds": 2.0,
       "error": null
     },
     {
@@ -114,15 +114,15 @@
       "status": "success",
       "items": 58,
       "restaurants": 1,
-      "elapsed_seconds": 6.6,
+      "elapsed_seconds": 5.5,
       "error": null
     },
     {
       "scraper": "Hungry Jacks",
       "status": "success",
-      "items": 198,
+      "items": 218,
       "restaurants": 1,
-      "elapsed_seconds": 8.7,
+      "elapsed_seconds": 7.0,
       "error": null
     },
     {
@@ -130,7 +130,7 @@
       "status": "success",
       "items": 302,
       "restaurants": 1,
-      "elapsed_seconds": 7.8,
+      "elapsed_seconds": 7.5,
       "error": null
     },
     {
@@ -138,7 +138,7 @@
       "status": "success",
       "items": 19,
       "restaurants": 1,
-      "elapsed_seconds": 20.0,
+      "elapsed_seconds": 17.6,
       "error": null
     },
     {
@@ -146,20 +146,9 @@
       "status": "success",
       "items": 27,
       "restaurants": 1,
-      "elapsed_seconds": 24.5,
+      "elapsed_seconds": 21.7,
       "error": null
     }
   ],
-  "new_items_detail": [
-    {
-      "restaurant": "Hungry Jacks",
-      "item": "COWBOY WHOPPER\u00ae HUNGER TAMERS",
-      "calories_kcal": 832
-    },
-    {
-      "restaurant": "Hungry Jacks",
-      "item": "DOUBLE COWBOY WHOPPER\u00ae HUNGER TAMERS",
-      "calories_kcal": 1170
-    }
-  ]
+  "new_items_detail": []
 }
